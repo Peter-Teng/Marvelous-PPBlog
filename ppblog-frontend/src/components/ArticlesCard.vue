@@ -1,22 +1,128 @@
 <template>
-    <div class="wrap">
-        {{ article.title }}
+    <div v-wave="{
+    color: '#72FFFF',
+    initialOpacity: 0.5,
+    easing: 'ease-in',
+}" class="wrap">
+        <el-row>
+            <el-col :span="11" class="columns">
+                <div class="title" ref="titleRef" @mouseenter="playAnime(titleRef, 'bounceIn')">{{ article.title }}
+                </div>
+                <el-row>
+                    <el-col :span="1"></el-col>
+                    <el-col :span="10" class="date">
+                        <div>⏳发布于: {{ article.createDate }}</div>
+                    </el-col>
+                    <el-col :span="1"></el-col>
+                    <el-col :span="10" class="date">
+                        <div>⌛最后编辑于: {{ article.modifyDate }}</div>
+                    </el-col>
+                    <el-col :span="1"></el-col>
+                </el-row>
+                <div class="heat">🔥{{ article.heat }}</div>
+                <div class="summary">{{ article.summary }}</div>
+                <div class="tag">🏷️[{{ article.tagName }}]</div>
+            </el-col>
+            <el-col :span="13" class="columns">
+                <div ref="thumbnailRef" @mouseenter="playAnime(thumbnailRef, 'headShake', true)"
+                    style="width: 100%; height: 100%;"><el-image class="thumbnail" :src="article.thumbnail" :fit="fit"
+                        lazy /></div>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import playAnime from '../utils/animate'
+
 const props = defineProps({
     article: Object
 });
+
+const titleRef = ref('')
+const thumbnailRef = ref('')
+
+const fit = ref("cover")
+
+const test = () => {
+    console.log(123);
+}
+
 </script>
 
 <style scoped>
+div {
+    text-align: center;
+}
+
 .wrap {
     width: 90%;
-    margin: 30px auto;
+    margin: 20px auto;
     height: 300px;
-    border-radius: 3px;
+    border-radius: 20px;
     box-shadow: 1px 1px 2px 2px #1b1b1ba3;
-    background: rgba(255, 255, 255, 0.878);
+    background: linear-gradient(60deg, #064663, #3D2C8D);
+}
+
+.columns {
+    width: 100%;
+    height: 300px;
+}
+
+
+.thumbnail {
+    cursor: pointer;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    height: 20%;
+    width: 85%;
+    margin: 15px auto 0px auto;
+    cursor: pointer;
+    font-size: 2.25em;
+    color: aliceblue;
+    text-shadow: 2px 3px 1px rgba(22, 22, 22, 0.823);
+}
+
+.date {
+    width: 95%;
+    height: 10%;
+    font-family: 'MUYAO';
+    margin: 12px auto 2px auto;
+    font-size: 0.25em;
+    color: #fff2cfec;
+    font-style: oblique;
+}
+
+.heat {
+    height: 5%;
+    font-size: 1.0em;
+    color: #DD5353;
+    font-weight: bolder;
+}
+
+.summary {
+    color: rgb(232 232 233);
+    height: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    margin: 10px 30px 5px 30px;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: lighter;
+    font-family: 'BubbleTea';
+}
+
+.tag {
+    height: 5%;
+    text-align: left;
+    margin: 10px auto 0px 50px;
+    font-size: 1em;
+    color: #FFF8EA;
 }
 </style>

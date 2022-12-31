@@ -4,7 +4,6 @@ import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,6 +48,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
         //转化为VO
         List<ArticlePreviewVo> articlePreviewVos = CopyUtils.copyBeanList(articles, ArticlePreviewVo.class);
+
+        for(ArticlePreviewVo articlePreviewVo : articlePreviewVos) {
+            articlePreviewVo.setTagName(tagService.getById(articlePreviewVo.getTagId()).getName());
+        }
+
         PageVo result = new PageVo(articlePreviewVos, page.getTotal());
         return ResponseObject.success(result);
     }

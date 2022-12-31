@@ -20,12 +20,13 @@
           <el-col class="lefter" :span="5">
             <infoCard v-bind:info="userInfo">
             </infoCard>
+            <tagCard></tagCard>
           </el-col>
           <el-col class="blank" :span="1">
           </el-col>
           <el-col class="righter" :span="18">
             <div>
-              <newCard></newCard>
+              <newsCard></newsCard>
             </div>
             <el-divider content-position="left">
               <div style="font-size: 1.0em;">💡博文推荐</div>
@@ -50,6 +51,8 @@
       <div>🚀</div>
     </el-backtop>
   </div>
+
+
 </template>
   
 <script setup>
@@ -60,7 +63,8 @@ import bar from "../components/Navigation.vue"
 import wave from "../components/Wave.vue"
 import infoCard from "../components/InfoCard.vue"
 import pageFoot from "../components/PageFoot.vue"
-import newCard from "../components/NewsCard.vue"
+import newsCard from "../components/NewsCard.vue"
+import tagCard from "../components/TagCard.vue"
 import articleCard from "../components/ArticlesCard.vue"
 
 const waveColor = "#251B37fa"
@@ -188,7 +192,7 @@ onMounted(() => {
 }
 
 .articleList {
-  padding-top: 10px;
+  padding-top: 5px;
   width: 100%;
   margin: 0 auto;
   border-radius: 20px;
@@ -203,7 +207,7 @@ onMounted(() => {
 </style>
 
 <style>
-.el-pagination .el-icon{
+.el-pagination .el-icon {
   font-size: 18px !important;
 }
 

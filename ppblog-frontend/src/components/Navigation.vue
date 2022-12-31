@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="wrap">
         <el-row class="naviBar" ref="bar">
             <el-col class="name" :span="3">
                 <div>MarvelousPP</div>
@@ -23,7 +23,7 @@
             </el-col>
             <el-col :span="2">
                 <div @click="toPage('/login')" class="link" ref="toLogin"
-                    @mouseenter="playAnime(toLogin, 'rubberBand', true)"><el-avatar :size="40" class="avatar"
+                    @mouseenter="playAnime(toLogin, 'jello', true)"><el-avatar :size="40" class="avatar"
                         src="https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2Fpp-icon.png" />
                 </div>
 

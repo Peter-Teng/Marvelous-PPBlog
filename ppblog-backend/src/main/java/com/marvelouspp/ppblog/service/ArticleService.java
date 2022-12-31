@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.marvelouspp.ppblog.domain.ResponseObject;
 import com.marvelouspp.ppblog.domain.entity.Article;
 
-public interface ArticleService extends IService<Article>{
+public interface ArticleService extends IService<Article> {
     public ResponseObject<?> getArticlePreviews(Integer pageNum, Integer pageSize, boolean isPublic);
 
     public ResponseObject<?> getArticlePreviewsByTag(Integer pageNum, Integer pageSize, BigInteger tagId);

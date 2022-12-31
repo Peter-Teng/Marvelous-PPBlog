@@ -22,6 +22,8 @@ public class ArticlePreviewVo {
 
     private Integer heat;
 
+    private BigInteger tagId;
+
     private String tagName;
 
     private Date createDate;

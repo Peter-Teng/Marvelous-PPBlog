@@ -25,5 +25,13 @@ export default {
                 "pageSize": pageSize
             }
         });
+    },
+
+    getNews() {
+        return axios.get(paths.getNewsUrl)
+    },
+
+    getTags() {
+        return axios.get(paths.getTagsUrl)
     }
 }

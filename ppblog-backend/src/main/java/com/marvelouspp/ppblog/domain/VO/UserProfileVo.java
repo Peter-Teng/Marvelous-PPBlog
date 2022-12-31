@@ -26,5 +26,7 @@ public class UserProfileVo {
     private String bilibili;
 
     private String wechat;
+
+    private String leetcode;
     
 }

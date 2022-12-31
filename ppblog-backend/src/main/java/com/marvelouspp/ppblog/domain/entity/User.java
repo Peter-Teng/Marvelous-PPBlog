@@ -31,4 +31,6 @@ public class User {
     private String bilibili;
 
     private String wechat;
+
+    private String leetcode;
 }

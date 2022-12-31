@@ -2,3 +2,13 @@
     font-family: ZCOOL;
     src:url('./ZCOOLKuaiLe.ttf');
 }
+
+@font-face {
+    font-family: MUYAO;
+    src:url('./Muyao.ttf');
+}
+
+@font-face {
+    font-family: BubbleTea;
+    src:url('./HanyiSentyBubbleTea.ttf');
+}

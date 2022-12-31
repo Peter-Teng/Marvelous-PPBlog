@@ -3,8 +3,6 @@ package com.marvelouspp.ppblog.domain.entity;
 import java.math.BigInteger;
 import java.util.Date;
 
-import org.apache.http.impl.client.IdleConnectionEvictor;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
