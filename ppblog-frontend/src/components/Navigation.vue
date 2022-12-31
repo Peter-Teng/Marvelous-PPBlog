@@ -1,0 +1,103 @@
+<template>
+    <div>
+        <el-row class="naviBar" ref="bar">
+            <el-col class="name" :span="3">
+                <div>MarvelousPP</div>
+            </el-col>
+            <el-col :span="10"></el-col>
+            <el-col :span="2">
+                <div @click="toPage('/')" class="link" ref="toMain" @mouseenter="playAnime(toMain, 'rubberBand', true)">
+                    🗺️&nbsp;首页</div>
+            </el-col>
+            <el-col :span="2">
+                <div class="link" ref="toRecommend" @mouseenter="playAnime(toRecommend, 'rubberBand', true)">
+                    🏆&nbsp;博文荟萃</div>
+            </el-col>
+            <el-col :span="2">
+                <div class="link" ref="toUsefulLinks" @mouseenter="playAnime(toUsefulLinks, 'rubberBand', true)">
+                    🧭&nbsp;实用导航</div>
+            </el-col>
+            <el-col :span="2">
+                <div class="link" ref="toStatistic" @mouseenter="playAnime(toStatistic, 'rubberBand', true)">
+                    🧮&nbsp;本站统计</div>
+            </el-col>
+            <el-col :span="2">
+                <div @click="toPage('/login')" class="link" ref="toLogin"
+                    @mouseenter="playAnime(toLogin, 'rubberBand', true)"><el-avatar :size="40" class="avatar"
+                        src="https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2Fpp-icon.png" />
+                </div>
+
+            </el-col>
+            <el-col :span="1">
+                <div></div>
+            </el-col>
+        </el-row>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+import playAnime from '../utils/animate'
+
+const bar = ref("")
+const toMain = ref("")
+const toRecommend = ref("")
+const toUsefulLinks = ref("")
+const toStatistic = ref("")
+const toLogin = ref("")
+
+const router = useRouter()
+
+//bar.addEventListener('scroll', scrolling)
+
+const toPage = (dest) => {
+    router.push(dest)
+}
+
+
+</script>
+
+<style scoped>
+div {
+    height: 100%;
+    font-size: 1.05em;
+    color: aliceblue;
+    text-align: center;
+    line-height: 50px;
+}
+
+
+.link {
+    cursor: pointer;
+    animation-duration: 1.5s;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .3s ease-in;
+}
+
+.link:hover {
+    color:goldenrod;
+}
+
+.naviBar {
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    color: transparent;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .5s ease-in;
+}
+
+.naviBar:hover {
+    background: #202020f3;
+}
+
+.avatar {
+    margin-top: 8px;
+}
+</style>
