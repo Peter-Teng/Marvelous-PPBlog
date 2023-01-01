@@ -31,8 +31,8 @@ public class GeneralArticleController {
     @SystemLog(businessName = "Public:按标签分类获取文章列表")
     public ResponseObject<?> getArticlePreviewsByTag(@RequestParam Integer pageNum, 
                                                      @RequestParam Integer pageSize, 
-                                                     @RequestParam BigInteger tagId) {
-        return articleService.getArticlePreviewsByTag(pageNum, pageSize, tagId);
+                                                     @RequestParam String tagName) {
+        return articleService.getArticlePreviewsByTag(pageNum, pageSize, tagName);
     }
 
     @GetMapping("/{id}")

@@ -47,7 +47,7 @@ onMounted(() => {
     height: 200px;
     border-radius: 5px;
     box-shadow: 1px 1px 2px 2px #0a0a0a4a;
-    background: linear-gradient(90deg, #3C8CE7, #00EAFF);
+    background: linear-gradient(220.55deg, #9F25FF 0%, #FF7A00 100%);
 }
 
 .icon {
@@ -80,14 +80,14 @@ onMounted(() => {
 .title {
     padding: 5px auto 0px auto;
     text-align: center;
-    font-size: 1.25em;
+    font-size: 1.3em;
     color: #E7F6F2;
     font-family: "BubbleTea";
 }
 
 .content {
     text-align: left;
-    font-size: 1.1em;
+    font-size: 1.15em;
     margin-top: 5px;
     font-family: "MUYAO";
 }

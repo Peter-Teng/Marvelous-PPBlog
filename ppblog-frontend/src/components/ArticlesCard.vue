@@ -24,7 +24,7 @@
                 <div class="tag">🏷️[{{ article.tagName }}]</div>
             </el-col>
             <el-col :span="13" class="columns">
-                <div ref="thumbnailRef" @mouseenter="playAnime(thumbnailRef, 'headShake', true)"
+                <div ref="thumbnailRef" @mouseenter="playAnime(thumbnailRef, 'pulse', true)"
                     style="width: 100%; height: 100%;"><el-image class="thumbnail" :src="article.thumbnail" :fit="fit"
                         lazy /></div>
             </el-col>
@@ -61,8 +61,8 @@ div {
     margin: 20px auto;
     height: 300px;
     border-radius: 20px;
-    box-shadow: 1px 1px 2px 2px #1b1b1ba3;
-    background: linear-gradient(60deg, #064663, #3D2C8D);
+    box-shadow: 1px 1px 2px 2px #3F3B6C;
+    background-image: linear-gradient( 135deg, #412e75 10%, #8555e3 100%);
 }
 
 .columns {
@@ -84,7 +84,7 @@ div {
     margin: 15px auto 0px auto;
     cursor: pointer;
     font-size: 2.25em;
-    color: aliceblue;
+    color: #F1F6F5;
     text-shadow: 2px 3px 1px rgba(22, 22, 22, 0.823);
 }
 

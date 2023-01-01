@@ -68,7 +68,7 @@ const newPage = (dest) => {
     width: 300px;
     height: 400px;
     border-radius: 5px;
-    box-shadow: 1px 1px 2px 2px #0a0a0a4a;
+    box-shadow: .5px .5px 1px 1px #fbf2cf22;
     background: url("https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2FinfoBG.jpeg");
     margin-bottom: 50px;
     text-align: center;
@@ -84,7 +84,7 @@ const newPage = (dest) => {
 
 .username {
     padding-top: 10px;
-    text-shadow: 2px 3px 1px rgba(255, 47, 47, 0.823);
+    text-shadow: 2px 3px 1px rgba(246, 114, 114, 0.732);
     font-size: 2.5em;
     font-weight: bold;
     color: black;

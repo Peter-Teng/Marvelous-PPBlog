@@ -21,6 +21,7 @@ import com.marvelouspp.ppblog.service.ArticleService;
 import com.marvelouspp.ppblog.service.TagService;
 import com.marvelouspp.ppblog.utils.RedisUtils;
 import com.marvelouspp.ppblog.domain.entity.Article;
+import com.marvelouspp.ppblog.domain.entity.Tag;
 import com.marvelouspp.ppblog.domain.enums.Code;
 
 @Service
@@ -58,7 +59,14 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public ResponseObject<?> getArticlePreviewsByTag(Integer pageNum, Integer pageSize, BigInteger tagId) {
+    public ResponseObject<?> getArticlePreviewsByTag(Integer pageNum, Integer pageSize, String tagName) {
+        
+        //获取TagName对应的TagId
+        LambdaQueryWrapper<Tag> tagWrapper = new LambdaQueryWrapper<>();
+        tagWrapper.eq(Tag::getName, tagName);
+        Tag tag = tagService.getOne(tagWrapper);
+        BigInteger tagId = tag.getId();
+
         LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
         //必须是非草稿文章
         queryWrapper.eq(Article::getStatus, Constant.ARTICLE_STATUS_NORMAL);

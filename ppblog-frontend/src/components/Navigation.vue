@@ -10,7 +10,7 @@
                     🗺️&nbsp;首页</div>
             </el-col>
             <el-col :span="2">
-                <div class="link" ref="toRecommend" @mouseenter="playAnime(toRecommend, 'rubberBand', true)">
+                <div @click="toPage('/articles/all')" class="link" ref="toRecommend" @mouseenter="playAnime(toRecommend, 'rubberBand', true)">
                     🏆&nbsp;博文荟萃</div>
             </el-col>
             <el-col :span="2">

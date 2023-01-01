@@ -9,7 +9,7 @@ import com.marvelouspp.ppblog.domain.entity.Article;
 public interface ArticleService extends IService<Article> {
     public ResponseObject<?> getArticlePreviews(Integer pageNum, Integer pageSize, boolean isPublic);
 
-    public ResponseObject<?> getArticlePreviewsByTag(Integer pageNum, Integer pageSize, BigInteger tagId);
+    public ResponseObject<?> getArticlePreviewsByTag(Integer pageNum, Integer pageSize, String tagName);
 
     public ResponseObject<?> getArticleById(BigInteger id, Boolean isPublic);
 

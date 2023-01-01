@@ -18,7 +18,7 @@ export default {
         });
     },
 
-    getPublicArticles(pageNum, pageSize=5) {
+    getPublicArticles(pageNum, pageSize = 5) {
         return axios.get(paths.publicArticlesUrl, {
             params: {
                 "pageNum": pageNum,
@@ -33,5 +33,23 @@ export default {
 
     getTags() {
         return axios.get(paths.getTagsUrl)
+    },
+
+    getHitokoto() {
+        return axios.get(paths.hitokotoURL)
+    },
+
+    getPublicArticlesByTag(tagName, pageNum, pageSize = 10) {
+        if (tagName === "all") {
+            return this.getPublicArticles(pageNum, pageSize)
+        } else {
+            return axios.get(paths.getArticleByTagUrl, {
+                params: {
+                    "tagName": tagName,
+                    "pageNum": pageNum,
+                    "pageSize": pageSize
+                }
+            })
+        }
     }
 }

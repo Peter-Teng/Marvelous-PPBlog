@@ -41,7 +41,7 @@ public class SecurityConfiguration {
             .antMatchers("/general/user/login").anonymous()
             .antMatchers("/general/**").permitAll()
             .antMatchers("/admin/**").authenticated()
-            .anyRequest().denyAll();
+            .anyRequest().permitAll();
 
         http.exceptionHandling()
             .authenticationEntryPoint(authenticationEntryPoint)

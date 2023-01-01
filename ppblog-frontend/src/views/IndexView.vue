@@ -64,7 +64,7 @@ import wave from "../components/Wave.vue"
 import infoCard from "../components/InfoCard.vue"
 import pageFoot from "../components/PageFoot.vue"
 import newsCard from "../components/NewsCard.vue"
-import tagCard from "../components/TagCard.vue"
+import tagCard from "../components/IndexTagCard.vue"
 import articleCard from "../components/ArticlesCard.vue"
 
 const waveColor = "#251B37fa"
@@ -185,7 +185,7 @@ onMounted(() => {
 
 .content {
   margin: 0px auto;
-  padding: 20px 75px 0px 75px;
+  margin: 20px 75px 0px 75px;
   width: 90%;
   border-radius: 30px;
   background-color: #00000000;

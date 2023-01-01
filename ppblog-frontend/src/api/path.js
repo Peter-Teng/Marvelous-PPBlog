@@ -5,7 +5,9 @@ const paths = {
     infoUrl: baseUrl + "/general/user/info",
     publicArticlesUrl: baseUrl + "/general/article/list",
     getNewsUrl: baseUrl + "/general/news/list",
-    getTagsUrl: baseUrl + "/general/tag/list"
+    getTagsUrl: baseUrl + "/general/tag/list",
+    getArticleByTagUrl: baseUrl + "/general/article/tagList",
+    hitokotoURL: "https://v1.hitokoto.cn/"
 }
 
 export default paths
