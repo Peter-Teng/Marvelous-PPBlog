@@ -1,5 +1,6 @@
 package com.marvelouspp.ppblog.configuration;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
@@ -25,6 +26,7 @@ public class FastJsonConverter implements WebMvcConfigurer {
         fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
 		
         SerializeConfig.globalInstance.put(Long.class, ToStringSerializer.instance);
+        SerializeConfig.globalInstance.put(BigInteger.class, ToStringSerializer.instance);
 
         fastJsonConfig.setSerializeConfig(SerializeConfig.globalInstance);
         fastConverter.setFastJsonConfig(fastJsonConfig);

@@ -51,5 +51,9 @@ export default {
                 }
             })
         }
+    },
+
+    getArticleById(articleId) {
+        return axios.get(`${paths.getArticleDetailUrl}/${articleId}`)
     }
 }

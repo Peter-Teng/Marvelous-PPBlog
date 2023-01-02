@@ -1,9 +1,13 @@
 <template>
     <div v-wave class="wrap">
         <div class="tagList">🏕️标签们——(The Tags)</div>
-        <div class="tags"><el-tag v-for="tag in tags" :key="tag.id" class="tagItem" @click="toArticles(tag.name)">
-                <div class="tag" >#{{ tag.name }}</div>
-            </el-tag></div>
+        <div class="tags">
+            <div style="display: grid; width: 100%;"><el-tag class="tagAll" @click="toArticles('all')"><div>🥑全部博文</div></el-tag></div>
+            <br/>
+            <el-tag v-for="tag in tags" :key="tag.id" class="tagItem" @click="toArticles(tag.name)">
+                <div class="tag">#{{ tag.name }}</div>
+            </el-tag>
+        </div>
     </div>
 </template>
 
@@ -37,7 +41,7 @@ const toArticles = (tagName) => {
     height: 250px;
     border-radius: 20px;
     box-shadow: .5px .5px 1px 1px #eef1ff2f;
-    background-image: linear-gradient( 135deg, #FD6585 10%, #0D25B9 100%);
+    background-image: linear-gradient(135deg, #FD6585 10%, #0D25B9 100%);
     margin-bottom: 50px;
     text-align: center;
     border: 2px solid #0A2647;
@@ -70,5 +74,22 @@ const toArticles = (tagName) => {
 .tagItem:hover {
     background-color: #EFF5F5;
     color: #9F73AB;
+}
+
+.tagAll{
+    cursor: pointer;  
+    width: 150px;
+    height: 35px;
+    color: #153462;
+    background-color: #EFF5F5;
+    box-shadow: .5px .5px 1px 1px #46346f;
+    margin: 5px auto 5px auto;
+    font-size: 1.15em;
+    border: 0px;
+}
+
+.tagAll:hover {
+    background-color: #153462;
+    color: #EFF5F5;
 }
 </style>

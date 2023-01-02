@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.druid.util.StringUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -111,6 +112,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             // 转换为对应的articleVo
             articleDetailVo = CopyUtils.copyBean(article, ArticleDetailVo.class);
             articleDetailVo.setTagName(tagService.getById(articleDetailVo.getTagId()).getName());
+        } else {
+            return ResponseObject.failure(Code.ARTICLE_NOT_EXIST);
         }
         return ResponseObject.success(articleDetailVo);
     }
@@ -118,7 +121,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Override
     public ResponseObject<?> writeArticle(Article article) {
         if(article.getCreateDate() == null) article.setCreateDate(new Date());
-        if(article.getModifyDate() == null)article.setModifyDate(new Date());
+        if(article.getModifyDate() == null) article.setModifyDate(new Date());
+        if(StringUtils.isEmpty(article.getSummary())) {
+            article.setSummary(article.getContent().substring(50));
+        }
         boolean success = save(article);
         if(success) {
             return ResponseObject.success();

@@ -6,7 +6,7 @@
 }" class="wrap">
         <el-row>
             <el-col :span="11" class="columns">
-                <div class="title" ref="titleRef" @mouseenter="playAnime(titleRef, 'bounceIn')">{{ article.title }}
+                <div class="title" ref="titleRef" @mouseenter="playAnime(titleRef, 'bounceIn')" @click="toArticle(article.id)">{{ article.title }}
                 </div>
                 <el-row>
                     <el-col :span="1"></el-col>
@@ -20,11 +20,11 @@
                     <el-col :span="1"></el-col>
                 </el-row>
                 <div class="heat">🔥{{ article.heat }}</div>
-                <div class="summary">{{ article.summary }}</div>
+                <div class="summary" @click="toArticle(article.id)">{{ article.summary }}</div>
                 <div class="tag">🏷️[{{ article.tagName }}]</div>
             </el-col>
             <el-col :span="13" class="columns">
-                <div ref="thumbnailRef" @mouseenter="playAnime(thumbnailRef, 'pulse', true)"
+                <div ref="thumbnailRef" @mouseenter="playAnime(thumbnailRef, 'pulse', true)" @click="toArticle(article.id)"
                     style="width: 100%; height: 100%;"><el-image class="thumbnail" :src="article.thumbnail" :fit="fit"
                         lazy /></div>
             </el-col>
@@ -34,19 +34,22 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
 import playAnime from '../utils/animate'
 
 const props = defineProps({
     article: Object
 });
 
+const router = useRouter()
 const titleRef = ref('')
 const thumbnailRef = ref('')
 
 const fit = ref("cover")
 
-const test = () => {
-    console.log(123);
+const toArticle = (articleId) => {
+    router.push(`/article/${articleId}`)
 }
 
 </script>

@@ -12,3 +12,13 @@
     font-family: BubbleTea;
     src:url('./HanyiSentyBubbleTea.ttf');
 }
+
+@font-face {
+    font-family: Article;
+    src:url('./FeiHuaSongTi-2.ttf');
+}
+
+@font-face {
+    font-family: JetBrainsMono;
+    src:url('./JetBrainsMono.ttf');
+}

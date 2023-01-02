@@ -6,7 +6,6 @@ import store from './store'
 import elementIcon from "./plugins/icons";
 import VWave from 'v-wave'
 
-
 import './assets/fonts/index.css'
 import 'animate.css';
 

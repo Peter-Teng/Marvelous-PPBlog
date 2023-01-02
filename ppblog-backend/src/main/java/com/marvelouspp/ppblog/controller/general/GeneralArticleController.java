@@ -35,9 +35,9 @@ public class GeneralArticleController {
         return articleService.getArticlePreviewsByTag(pageNum, pageSize, tagName);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{articleId}")
     @SystemLog(businessName = "Public:获取文章详细信息")
-    public ResponseObject<?> getArticleByIdPublic(@PathVariable BigInteger id) {
-        return articleService.getArticleById(id, true);
+    public ResponseObject<?> getArticleByIdPublic(@PathVariable BigInteger articleId) {
+        return articleService.getArticleById(articleId, true);
     }
 }

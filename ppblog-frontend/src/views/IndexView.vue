@@ -4,7 +4,7 @@
       <bar></bar>
       <div class="bannerEffect">
         <div class="taboo">
-          {{ taboo }}
+          {{ userInfo.taboo }}
         </div>
         <div class="printer" @click="changePoem()">
           <h3 class="poem">
@@ -68,7 +68,6 @@ import tagCard from "../components/IndexTagCard.vue"
 import articleCard from "../components/ArticlesCard.vue"
 
 const waveColor = "#251B37fa"
-const taboo = ref("")
 const poem = ref("")
 const total = ref(0)
 const articles = ref([])
@@ -98,7 +97,6 @@ const loadArticles = (pageNum) => {
 onMounted(() => {
   api.getInfo().then(res => {
     userInfo.value = res.data.data
-    taboo.value = userInfo.value.taboo
   })
 })
 
@@ -145,7 +143,7 @@ onMounted(() => {
 }
 
 .poem {
-  font-size: 1.5em;
+  font-size: 1.35em;
   text-align: center;
   line-height: 50px;
   font-weight: lighter;

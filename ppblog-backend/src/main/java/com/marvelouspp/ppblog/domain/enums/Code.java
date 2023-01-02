@@ -18,7 +18,7 @@ public enum Code {
     UPDATE_FAILURE(1006, "User Information update failed"),
     
     // 文章相关状态码
-
+    ARTICLE_NOT_EXIST(2000, "The articile does not exist!"),
     // 标签相关状态码
     
     // 文件上传相关状态码

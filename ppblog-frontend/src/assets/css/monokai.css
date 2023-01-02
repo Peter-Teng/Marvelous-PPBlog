@@ -1,0 +1,131 @@
+webkit-scrollbar :root {
+    font-family: "Article";
+    --bg-color: #272822;
+    --blur-text-color: #333333;
+    --control-text-color: #C8C8C8;
+    --select-text-bg-color: #a2a192;
+    --text-color: #C8C8C8;
+}
+
+.articleBody .md-math-block,
+.articleBody .md-rawblock,
+.articleBody h1,
+.articleBody h2,
+.articleBody h3,
+.articleBody h4,
+.articleBody h5,
+.articleBody h6,
+.articleBody p {
+    margin: 2rem 0;
+}
+
+.articleBody a {
+    color: #FFBF00;
+    font-size: 1.0rem;
+    text-decoration: none;
+}
+
+.articleBody a:hover {
+    color: #F2E5E5;
+}
+
+.articleBody code {
+    font-family: 'JetBrainsMono';
+    color: #f92672;
+}
+
+.articleBody mark {
+    background-color: #fff;
+}
+
+.articleBody blockquote {
+    border-left: 7px solid #424241;
+    padding: 5px 10px;
+    background-color: #333332;
+}
+
+.articleBody ul,
+.articleBody ol {
+    margin-left: 40px;
+}
+
+.articleBody li {
+    margin-bottom: 0.5rem;
+}
+
+.articleBody p>.md-image:only-child:not(.md-img-error) img,
+.articleBody p>img:only-child {
+    margin: 0;
+}
+
+.articleBody mark {
+    padding: 1px 2px;
+    background-color: #78DCE8;
+}
+
+.articleBody table {
+    background-color: transparent;
+    width: auto;
+    max-width: 100%;
+    margin-bottom: 20px;
+    display: inline-flexbox;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #03031c;
+}
+
+.articleBody td {
+    min-width: 50px;
+    text-align: center;
+    border: 1px solid azure;
+    background-color: #7878a6;
+    color: aliceblue;
+    padding: 10px;
+}
+
+.articleBody th {
+    font-size: larger;
+    min-width: 50px;
+    text-align: center;
+    color: #EAFDFC;
+    border: 1px solid azure;
+    padding: 10px;
+}
+
+.articleBody pre.md-meta-block {
+    margin-top: 40px;
+    border-bottom: 0.5px dotted white;
+    padding: 10px;
+    line-height: 20px;
+    background: #272822;
+}
+
+.articleBody hr {
+    margin: 50px 0;
+}
+
+.articleBody img {
+    margin: 3px auto;
+    display: block;
+    max-width: 800px;
+    max-height: 800px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d1d1d1;
+}
+
+

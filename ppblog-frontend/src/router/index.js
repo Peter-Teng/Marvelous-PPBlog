@@ -17,6 +17,11 @@ const routes = [
     path: '/articles/:tagName',
     name: 'articlesListView',
     component: () => import('../views/ArticlesListView.vue')
+  },
+  {
+    path: '/article/:articleId',
+    name: 'articleDetailView',
+    component: () => import('../views/ArticleDetailView.vue')
   }
 ]
 

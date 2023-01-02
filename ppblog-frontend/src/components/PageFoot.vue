@@ -1,11 +1,11 @@
 <template>
     <div class="wrap">
-        <h3 class="poem">
+        <div class="poem">
             {{ poem }}
-        </h3>
-        <h3 class="case">
+        </div>
+        <div class="case">
             {{ caseInfo }}
-        </h3>
+        </div>
     </div>
 </template>
 
@@ -42,5 +42,6 @@ onMounted(() => {
     font-size: 1.05em;
     text-align: center;
     line-height: 5px;
+    color: #393E46;
 }
 </style>
