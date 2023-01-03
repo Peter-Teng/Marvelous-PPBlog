@@ -22,6 +22,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
+div {
+    font-family: 'ZCOOL';
+}
+
 .wrap {
     margin-top: 20px;
     width: 100%;

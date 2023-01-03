@@ -1,0 +1,53 @@
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes hideToShow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes articleCard {
+    0% {
+        transform: translateY(0);
+        box-shadow: 1px 1px 2px 2px #3F3B6C;
+    }
+    100% {
+        transform: translateY(-1%);
+        box-shadow: 1px 1px 10px 8px #eafdfc88;
+    }
+}
+
+@keyframes shadow {
+    0% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: 1px 1px 15px 10px #F1F6F588;
+    }
+}
+
+@keyframes newsShadow {
+    0% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: 1.5px 1.5px 10px 5px #3642c4dd;
+    }
+}

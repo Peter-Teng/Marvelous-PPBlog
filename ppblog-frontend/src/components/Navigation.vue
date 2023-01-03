@@ -14,11 +14,11 @@
                     🏆&nbsp;博文荟萃</div>
             </el-col>
             <el-col :span="2">
-                <div class="link" ref="toUsefulLinks" @mouseenter="playAnime(toUsefulLinks, 'rubberBand', true)">
-                    🧭&nbsp;实用导航</div>
+                <div @click="toPage('/navigation')" class="link" ref="toUsefulLinks" @mouseenter="playAnime(toUsefulLinks, 'rubberBand', true)">
+                    🧭&nbsp;资源导航</div>
             </el-col>
             <el-col :span="2">
-                <div class="link" ref="toStatistic" @mouseenter="playAnime(toStatistic, 'rubberBand', true)">
+                <div @click="toPage('/statistic')" class="link" ref="toStatistic" @mouseenter="playAnime(toStatistic, 'rubberBand', true)">
                     🧮&nbsp;本站统计</div>
             </el-col>
             <el-col :span="2">
@@ -66,6 +66,7 @@ div {
     color: aliceblue;
     text-align: center;
     line-height: 50px;
+    font-family: "ZCOOL";
 }
 
 

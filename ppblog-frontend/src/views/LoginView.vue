@@ -1,8 +1,8 @@
 <template>
-  <div id="loginBG">
+  <div id="loginBG" :style="{ 'background-image': 'url(' + background.login + ')' }">
     <bar></bar>
-    <LoginForm class="Form" v-if="isLogin" @flip="flipForm"></LoginForm>
-    <registerForm class="Form" v-else @flip="flipForm"></registerForm>
+    <LoginForm v-wave class="Form" v-if="isLogin" @flip="flipForm"></LoginForm>
+    <registerForm v-wave class="Form" v-else @flip="flipForm"></registerForm>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ import { ref } from 'vue'
 import LoginForm from "../components/LoginForm.vue"
 import registerForm from "../components/RegisterForm.vue"
 import bar from "../components/Navigation"
-
+import background from '../utils/background'
 
 const isLogin= ref(true)
 
@@ -23,7 +23,6 @@ function flipForm() {
 <style scoped>
 #loginBG {
   width: 100%;
-  background-image: url("https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2FloginViewBG.jpg");
   height: calc(100vh);
   background-size: cover;
   background-position: center;

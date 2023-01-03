@@ -1,4 +1,4 @@
-package com.marvelouspp.ppblog.service.serviceImpl_v1;
+package com.marvelouspp.ppblog.service.v1;
 
 import java.math.BigInteger;
 import java.util.List;

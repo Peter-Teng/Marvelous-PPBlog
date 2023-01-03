@@ -1,6 +1,6 @@
 <template>
     <div class="wrap">
-        <div class="banner" v-if="article.thumbnail" :style="{ 'background-image': 'url(' + article.thumbnail + ')' }">
+        <div v-wave class="banner" v-if="article.thumbnail" :style="{ 'background-image': 'url(' + article.thumbnail + ')' }">
             <bar></bar>
         </div>
         <div class="body">
@@ -104,7 +104,7 @@ onMounted(() => {
 }
 
 .title {
-    font-family: 'Article';
+    font-family: 'JetBrainsMono';
     font-size: 3.5em;
     text-shadow: 2px 3px 1px rgba(16, 16, 16, 0.85);
     text-align: center;

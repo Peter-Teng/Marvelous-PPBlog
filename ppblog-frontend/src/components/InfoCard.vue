@@ -5,7 +5,7 @@
                 <el-avatar :size="180" :src="info.avatar" />
             </div>
         </div>
-        <div class="username">{{ info.username }}🥭</div>
+        <div class="username">{{ info.username }}®️</div>
         <div>
             <el-row class="icons">
                 <el-col :span="2"></el-col>
@@ -64,6 +64,9 @@ const newPage = (dest) => {
 </script>
 
 <style scoped>
+div {
+    font-family: 'ZCOOL';
+}
 .wrap {
     width: 300px;
     height: 400px;

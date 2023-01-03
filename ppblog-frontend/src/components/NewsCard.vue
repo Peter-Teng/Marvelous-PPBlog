@@ -42,34 +42,26 @@ onMounted(() => {
 
 <style scoped>
 .wrap {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
-    height: 200px;
+    height: 230px;
     border-radius: 5px;
     box-shadow: 1px 1px 2px 2px #0a0a0a4a;
     background: linear-gradient(220.55deg, #9F25FF 0%, #FF7A00 100%);
 }
 
+.wrap:hover {
+    animation: newsShadow .3s 1;
+    animation-fill-mode: forwards;
+}
+
 .icon {
     font-size: 4.5em;
-    line-height: 200px;
+    line-height: 230px;
     animation: scale 1.5s infinite;
     text-align: center;
 }
 
-@keyframes scale {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.25);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
 
 .newsWrap{
     width: 90%;
@@ -80,14 +72,14 @@ onMounted(() => {
 .title {
     padding: 5px auto 0px auto;
     text-align: center;
-    font-size: 1.3em;
+    font-size: 1.35em;
     color: #E7F6F2;
-    font-family: "BubbleTea";
+    font-family: "Article";
 }
 
 .content {
     text-align: left;
-    font-size: 1.15em;
+    font-size: 1.2em;
     margin-top: 5px;
     font-family: "MUYAO";
 }

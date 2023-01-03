@@ -7,18 +7,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.marvelouspp.ppblog.annotations.SystemLog;
 import com.marvelouspp.ppblog.domain.ResponseObject;
-import com.marvelouspp.ppblog.service.NewsService;
+import com.marvelouspp.ppblog.service.NavigationService;
 
 @RestController
-@RequestMapping("/general/news")
-public class GeneralNewsController {
-
+@RequestMapping("/general/navigation")
+public class GeneralNavitionCotroller {
     @Autowired
-    private NewsService newsService;
+    private NavigationService navigationService;
 
     @GetMapping("/list")
-    @SystemLog(businessName = "Public:获取全部公告信息")
-    public ResponseObject<?> getNews() {
-        return newsService.getNews();
+    @SystemLog(businessName = "Public:获取全部导航链接")
+    public ResponseObject<?> getNavigations() {
+        return navigationService.getNavigations();
     }
 }

@@ -24,19 +24,19 @@ public class AdminNewsController {
     private NewsService newsService;
 
     @PostMapping("/create")
-    @SystemLog(businessName = "Admin:新建新闻")
+    @SystemLog(businessName = "Admin:新建公告")
     public ResponseObject<?> createNews(@RequestBody News news) {
         return newsService.createNews(news);
     }
 
     @PutMapping("/modify")
-    @SystemLog(businessName = "Admin:修改新闻")
+    @SystemLog(businessName = "Admin:修改公告")
     public ResponseObject<?> modifyNews(@RequestBody News news) {
         return newsService.modifyNews(news);
     }
 
     @DeleteMapping("/{id}")
-    @SystemLog(businessName = "Admin:删除标签")
+    @SystemLog(businessName = "Admin:删除公告")
     public ResponseObject<?> deleteNews(@PathVariable BigInteger id) {
         return newsService.deleteNews(id);
     }

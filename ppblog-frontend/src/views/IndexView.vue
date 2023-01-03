@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <div class="banner">
+    <div v-wave class="banner" :style="{ 'background-image': 'url(' + background.index + ')' }">
       <bar></bar>
       <div class="bannerEffect">
         <div class="taboo">
@@ -58,6 +58,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import api from '../api/index'
+import background from '../utils/background'
 
 import bar from "../components/Navigation.vue"
 import wave from "../components/Wave.vue"
@@ -111,6 +112,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
+div {
+  font-family: 'ZCOOL';
+}
+
 .wrap {
   background-color: #251B37;
 }
@@ -122,7 +127,6 @@ onMounted(() => {
 .banner {
   display: flex;
   width: 100%;
-  background-image: url("https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2FindexViewBG.jpg");
   height: calc(100vh);
   background-size: cover;
   background-position: center;
@@ -155,15 +159,7 @@ onMounted(() => {
   font-weight: 200;
 }
 
-@keyframes hideToShow {
-  from {
-    opacity: 0;
-  }
 
-  to {
-    opacity: 1;
-  }
-}
 
 .printer {
   cursor: pointer;

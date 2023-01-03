@@ -7,6 +7,7 @@ import elementIcon from "./plugins/icons";
 import VWave from 'v-wave'
 
 import './assets/fonts/index.css'
+import './assets/css/animation.css'
 import 'animate.css';
 
 

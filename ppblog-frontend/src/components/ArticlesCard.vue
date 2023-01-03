@@ -6,7 +6,8 @@
 }" class="wrap">
         <el-row>
             <el-col :span="11" class="columns">
-                <div class="title" ref="titleRef" @mouseenter="playAnime(titleRef, 'bounceIn')" @click="toArticle(article.id)">{{ article.title }}
+                <div class="title" ref="titleRef" @mouseenter="playAnime(titleRef, 'bounceIn')"
+                    @click="toArticle(article.id)">{{ article.title }}
                 </div>
                 <el-row>
                     <el-col :span="1"></el-col>
@@ -24,9 +25,9 @@
                 <div class="tag">🏷️[{{ article.tagName }}]</div>
             </el-col>
             <el-col :span="13" class="columns">
-                <div ref="thumbnailRef" @mouseenter="playAnime(thumbnailRef, 'pulse', true)" @click="toArticle(article.id)"
-                    style="width: 100%; height: 100%;"><el-image class="thumbnail" :src="article.thumbnail" :fit="fit"
-                        lazy /></div>
+                <div ref="thumbnailRef" @mouseenter="playAnime(thumbnailRef, 'pulse', true)"
+                    @click="toArticle(article.id)" style="width: 100%; height: 100%;"><el-image class="thumbnail"
+                        :src="article.thumbnail" :fit="fit" lazy /></div>
             </el-col>
         </el-row>
     </div>
@@ -57,6 +58,7 @@ const toArticle = (articleId) => {
 <style scoped>
 div {
     text-align: center;
+    font-family: "ZCOOL";
 }
 
 .wrap {
@@ -65,7 +67,12 @@ div {
     height: 300px;
     border-radius: 20px;
     box-shadow: 1px 1px 2px 2px #3F3B6C;
-    background-image: linear-gradient( 135deg, #412e75 10%, #8555e3 100%);
+    background-image: linear-gradient(135deg, #412e75 10%, #8555e3 100%);
+}
+
+.wrap:hover {
+    animation: articleCard .3s 1;
+    animation-fill-mode: forwards;
 }
 
 .columns {
@@ -82,11 +89,13 @@ div {
 }
 
 .title {
-    height: 20%;
-    width: 85%;
+    font-family: 'ZCOOL';
+    height: 60px;
+    text-align: center;
+    width: 90%;
     margin: 15px auto 0px auto;
     cursor: pointer;
-    font-size: 2.25em;
+    font-size: 2.0em;
     color: #F1F6F5;
     text-shadow: 2px 3px 1px rgba(22, 22, 22, 0.823);
 }
@@ -95,8 +104,8 @@ div {
     width: 95%;
     height: 10%;
     font-family: 'MUYAO';
-    margin: 12px auto 2px auto;
-    font-size: 0.25em;
+    margin: 5px auto 0px auto;
+    font-size: 0.2em;
     color: #fff2cfec;
     font-style: oblique;
 }
@@ -116,9 +125,10 @@ div {
     text-align: left;
     margin: 10px 30px 5px 30px;
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: 1em;
+    font-style: italic;
     font-weight: lighter;
-    font-family: 'BubbleTea';
+    font-family: 'JetBrainsMono';
 }
 
 .tag {

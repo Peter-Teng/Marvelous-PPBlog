@@ -47,7 +47,13 @@ const toArticles = (tagName) => {
     border: 2px solid #0A2647;
 }
 
+.wrap:hover {
+    animation: shadow .3s 1;
+    animation-fill-mode: forwards;
+}
+
 .tagList {
+    font-family: 'ZCOOL';
     margin: 20px auto 25px auto;
     font-size: 1.75em;
     color: #E7F6F2;
@@ -64,7 +70,7 @@ const toArticles = (tagName) => {
     min-width: 100px;
     min-height: 30px;
     color: #EFF5F5;
-    background-color: #6C4AB6;
+    background-color: #144272;
     box-shadow: .5px .5px 1px 1px #46346f;
     margin: 5px 3px;
     font-size: 0.85em;
@@ -73,10 +79,11 @@ const toArticles = (tagName) => {
 
 .tagItem:hover {
     background-color: #EFF5F5;
-    color: #9F73AB;
+    color: #0081C9;
 }
 
 .tagAll{
+    font-family: 'BubbleTea';
     cursor: pointer;  
     width: 150px;
     height: 35px;

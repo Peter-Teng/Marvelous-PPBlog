@@ -1,6 +1,6 @@
 <template>
     <div class="wrap">
-        <div class="banner">
+        <div v-wave class="banner" :style="{ 'background-image': 'url(' + background.articlesList + ')' }">
             <bar></bar>
             <div class="bannerEffect">
                 <div class="source">
@@ -47,6 +47,7 @@ import { useRoute } from 'vue-router'
 
 import api from '../api/index'
 
+import background from '../utils/background'
 import bar from "../components/Navigation.vue"
 import tagCard from "../components/ArticleTagCard.vue"
 import pageFoot from "../components/PageFoot.vue"
@@ -106,7 +107,6 @@ watch(
 .banner {
     display: flex;
     width: 100%;
-    background-image: url("https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2FArticleListTop.jpg");
     height: 250px;
     box-shadow: 0px 5px 0px 0px #3c3c3cda;
     background-size: cover;

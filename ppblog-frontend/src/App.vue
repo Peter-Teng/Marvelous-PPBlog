@@ -9,7 +9,7 @@
 }
 
 div {
-  font-family: "ZCOOL";
+  font-family: "JetBrainsMono";
 }
 
 router-view {

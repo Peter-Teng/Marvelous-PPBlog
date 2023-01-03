@@ -1,6 +1,6 @@
 <template>
     <div v-wave class="wrap">
-        <div class="tagList">🏷️标签列表🏷️</div>
+        <div class="tagList">🏖️标签列表</div>
         <div class="tags"><el-tag v-for="tag in tags" :key="tag.id" class="tagItem" @click="toArticles(tag.name)">
                 #{{ tag.name }}
             </el-tag></div>
@@ -41,6 +41,11 @@ const toArticles = (tagName) => {
     margin-bottom: 50px;
     text-align: center;
     border: 2px solid #0A2647;
+}
+
+.wrap:hover {
+    animation: shadow .3s 1;
+    animation-fill-mode: forwards;
 }
 
 .tagList {

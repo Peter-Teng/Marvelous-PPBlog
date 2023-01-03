@@ -1,5 +1,4 @@
 webkit-scrollbar :root {
-    font-family: "Article";
     --bg-color: #272822;
     --blur-text-color: #333333;
     --control-text-color: #C8C8C8;
@@ -20,13 +19,16 @@ webkit-scrollbar :root {
 }
 
 .articleBody a {
-    color: #FFBF00;
+    background-color: #03031c;
+    color: #F7A76C;
     font-size: 1.0rem;
     text-decoration: none;
 }
 
 .articleBody a:hover {
-    color: #F2E5E5;
+    color: #2C74B3;
+    text-shadow: none;
+    background-color: #F7F7F7;
 }
 
 .articleBody code {
@@ -76,7 +78,6 @@ webkit-scrollbar :root {
 
 .articleBody td {
     min-width: 50px;
-    text-align: center;
     border: 1px solid azure;
     background-color: #7878a6;
     color: aliceblue;
@@ -107,8 +108,9 @@ webkit-scrollbar :root {
 .articleBody img {
     margin: 3px auto;
     display: block;
-    max-width: 800px;
-    max-height: 800px;
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: contain;
 }
 
 ::-webkit-scrollbar {

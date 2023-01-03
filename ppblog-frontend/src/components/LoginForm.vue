@@ -62,6 +62,10 @@ const flip = () => {
 </script>
 
 <style scoped>
+div {
+    font-family: 'ZCOOL';
+}
+
 #formbody {
     width: 800px;
     height: 450px;
@@ -91,6 +95,7 @@ const flip = () => {
 }
 
 .login-text {
+    color: #1A120B;
     font-size: 3em;
     width: 400px;
     text-align: center;
