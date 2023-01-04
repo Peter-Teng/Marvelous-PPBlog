@@ -26,7 +26,7 @@ const routes = [
   {
     path: '/navigation',
     name: 'NavigationView',
-    component: () => import('../views/NavigationView.vue')
+    component: () => import('../views/LinksView.vue')
   },
   {
     path: '/statistic',

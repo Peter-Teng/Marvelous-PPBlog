@@ -33,6 +33,7 @@ const toArticles = (tagName) => {
 
 <style scoped>
 .wrap {
+    user-select: none;
     width: 300px;
     height: 350px;
     border-radius: 20px;

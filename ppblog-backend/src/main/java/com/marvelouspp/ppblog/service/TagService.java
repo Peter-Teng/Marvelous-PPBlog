@@ -14,4 +14,6 @@ public interface TagService extends IService<Tag>{
     public ResponseObject<?> modifyTag(Tag tag);
 
     public ResponseObject<?> deleteTag(BigInteger id);
+
+    public String getTagWithMostArticle();
 }

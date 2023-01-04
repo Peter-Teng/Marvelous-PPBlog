@@ -62,6 +62,7 @@ div {
 }
 
 .wrap {
+    user-select: none;
     width: 90%;
     margin: 20px auto;
     height: 300px;

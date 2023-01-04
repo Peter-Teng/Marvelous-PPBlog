@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Navigation {
+public class Link {
 
     private BigInteger id;
 
@@ -22,7 +22,7 @@ public class Navigation {
 
     private String category;
 
-    private String link;
+    private String url;
     
     private Integer topped;
 }

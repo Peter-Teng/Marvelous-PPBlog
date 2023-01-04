@@ -66,7 +66,7 @@ import infoCard from "../components/InfoCard.vue"
 import pageFoot from "../components/PageFoot.vue"
 import newsCard from "../components/NewsCard.vue"
 import tagCard from "../components/IndexTagCard.vue"
-import articleCard from "../components/ArticlesCard.vue"
+import articleCard from "../components/ArticleCard.vue"
 
 const waveColor = "#251B37fa"
 const poem = ref("")
@@ -134,6 +134,7 @@ div {
 }
 
 .bannerEffect {
+  user-select: none;
   width: 40%;
   display: block;
   margin: 20% auto;
@@ -158,8 +159,6 @@ div {
   animation: hideToShow 1.0s infinite;
   font-weight: 200;
 }
-
-
 
 .printer {
   cursor: pointer;

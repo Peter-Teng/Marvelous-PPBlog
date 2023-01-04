@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="articleBody">
-                        <div v-html="renderedContent"></div>
+                        <div v-html="renderedContent" v-loading="rendering"></div>
                     </div>
                 </el-col>
                 <el-col :span="2"></el-col>
@@ -54,19 +54,20 @@ const article = ref({})
 const userInfo = ref({})
 const articleId = ref(0)
 
+const rendering = ref(true)
 const renderedContent = ref('')
 
 const loadArticle = (articleId) => {
     api.getArticleById(articleId).then(res => {
         article.value = res.data.data
         renderedContent.value = md.render(article.value.content)
-        console.log(renderedContent.value)
     })
 }
 
 onMounted(() => {
     articleId.value = route.params.articleId
     loadArticle(articleId.value)
+    rendering.value = false
 })
 
 onMounted(() => {
@@ -96,7 +97,7 @@ onMounted(() => {
     width: 100%;
     margin: 50px auto;
     text-align: center;
-    min-height: calc(60vh);
+    min-height: calc(80vh);
 }
 
 .articleInfo {

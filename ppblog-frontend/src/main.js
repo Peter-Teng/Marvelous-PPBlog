@@ -12,3 +12,7 @@ import 'animate.css';
 
 
 createApp(App).use(VWave).use(elementIcon).use(store).use(router).mount('#app')
+// 页面每次跳转回到顶部
+router.afterEach((to, from, next) => {
+    window.scrollTo(0, 0);
+})

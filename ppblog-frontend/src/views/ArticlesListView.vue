@@ -51,7 +51,7 @@ import background from '../utils/background'
 import bar from "../components/Navigation.vue"
 import tagCard from "../components/ArticleTagCard.vue"
 import pageFoot from "../components/PageFoot.vue"
-import articleCard from "../components/ArticlesCard.vue"
+import articleCard from "../components/ArticleCard.vue"
 
 const hitokoto = ref("今日の一言は何ですか？？")
 const source = ref("名前がない人")

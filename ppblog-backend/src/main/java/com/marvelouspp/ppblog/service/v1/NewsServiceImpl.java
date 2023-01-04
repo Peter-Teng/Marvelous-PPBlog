@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.marvelouspp.ppblog.configuration.Constant;
 import com.marvelouspp.ppblog.domain.ResponseObject;
 import com.marvelouspp.ppblog.domain.entity.News;
 import com.marvelouspp.ppblog.domain.enums.Code;
@@ -17,7 +19,9 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
 
     @Override
     public ResponseObject<?> getNews() {
-        List<News> newsList = list();
+        LambdaQueryWrapper<News> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(News::getValid, Constant.VALID);
+        List<News> newsList = list(lambdaQueryWrapper);
         return ResponseObject.success(newsList);
     }
 

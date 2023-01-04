@@ -61,6 +61,7 @@ const toPage = (dest) => {
 
 <style scoped>
 div {
+    user-select: none;
     height: 100%;
     font-size: 1.05em;
     color: aliceblue;

@@ -68,6 +68,7 @@ div {
 }
 
 #formbody {
+    user-select: none;
     width: 800px;
     height: 450px;
     background-color: #ffffff88;

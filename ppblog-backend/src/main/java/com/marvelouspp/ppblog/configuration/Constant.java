@@ -15,6 +15,7 @@ public class Constant {
     public static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
     public static final String COS_REGION = "ap-guangzhou";
 
+    public static final int VALID = 1;
     //文章是草稿
     public static final int ARTICLE_STATUS_DRAFT = 0;
     //文章是正常分布状态

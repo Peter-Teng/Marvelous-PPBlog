@@ -27,6 +27,7 @@ div {
 }
 
 .wrap {
+    user-select: none;
     margin-top: 20px;
     width: 100%;
     height: 60px;

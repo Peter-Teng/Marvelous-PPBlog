@@ -8,6 +8,7 @@ const paths = {
     getTagsUrl: baseUrl + "/general/tag/list",
     getArticleByTagUrl: baseUrl + "/general/article/tagList",
     getArticleDetailUrl: baseUrl + "/general/article",
+    getLinksUrl: baseUrl + "/general/link/list",
     hitokotoURL: "https://v1.hitokoto.cn/"
 }
 

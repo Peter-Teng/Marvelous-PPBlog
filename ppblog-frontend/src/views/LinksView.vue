@@ -7,19 +7,18 @@
             </div>
         </div>
         <div class="body">
-            <div class="body">
-                <el-row>
-                    <el-col :span="3"></el-col>
-                    <el-col :span="18">
-                        <div class="content">
-                            <div class="linkCards">
-                                <linkCard></linkCard>
-                            </div>
+            <el-row>
+                <el-col :span="3"></el-col>
+                <el-col :span="18" class="content">
+                    <div>
+                        <div class="linkCards">
+                            <linkCard v-for="(links, key, index) in allLinks" :key="index" :links="links" :title="key" v-loading="loading">
+                            </linkCard>
                         </div>
-                    </el-col>
-                    <el-col :span="3"></el-col>
-                </el-row>
-            </div>
+                    </div>
+                </el-col>
+                <el-col :span="3"></el-col>
+            </el-row>
         </div>
         <div>
             <pageFoot></pageFoot>
@@ -39,9 +38,27 @@ import bar from "../components/Navigation.vue"
 import linkCard from "../components/LinksCard.vue"
 import pageFoot from "../components/PageFoot.vue"
 
+const allLinks = ref({})
+const loading = ref(true)
+
+onMounted(() => {
+    api.getLinks().then(res => {
+        for (let item of res.data.data) {
+            if (item.category in allLinks.value) {
+                if(item.topped > 0) {
+                    allLinks.value[item.category].unshift(item)
+                } else {
+                    allLinks.value[item.category].push(item)
+                }
+            } else {
+                allLinks.value[item.category] = [item]
+            }
+        }
+        loading.value = false
+    })
+})
+
 </script>
-
-
 
 <style scoped>
 div {
@@ -66,7 +83,6 @@ div {
     width: 100%;
     margin: 50px auto;
     text-align: center;
-    min-height: calc(60vh);
 }
 
 .title {
@@ -74,12 +90,13 @@ div {
     display: block;
     margin: auto;
     font-size: 2.0em;
-    text-shadow: 2px 3px 1px rgba(16, 16, 16, 0.85);
+    text-shadow: 2px 3px 1px #3a3b3e;
     text-align: center;
     color: azure;
 }
 
 .content {
+    min-height: calc(60vh);
     display: inline-block;
     box-shadow: 3.5px 3.5px 20px 20px #041C32;
     background-color: #0F0F0F;

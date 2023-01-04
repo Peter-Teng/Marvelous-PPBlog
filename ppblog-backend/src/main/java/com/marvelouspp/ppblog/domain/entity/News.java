@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("sys_news")
+@TableName("news")
 public class News {
 
     private BigInteger id;
@@ -21,4 +21,6 @@ public class News {
     private String content;
 
     private Integer topped;
+
+    private Integer valid;
 }

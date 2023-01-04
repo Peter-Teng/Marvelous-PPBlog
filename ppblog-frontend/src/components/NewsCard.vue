@@ -60,6 +60,7 @@ onMounted(() => {
     line-height: 230px;
     animation: scale 1.5s infinite;
     text-align: center;
+    user-select:none; 
 }
 
 

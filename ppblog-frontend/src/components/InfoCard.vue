@@ -68,6 +68,7 @@ div {
     font-family: 'ZCOOL';
 }
 .wrap {
+    user-select: none;
     width: 300px;
     height: 400px;
     border-radius: 5px;

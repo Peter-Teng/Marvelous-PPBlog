@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.marvelouspp.ppblog.annotations.SystemLog;
 import com.marvelouspp.ppblog.domain.ResponseObject;
-import com.marvelouspp.ppblog.service.NavigationService;
+import com.marvelouspp.ppblog.service.LinkService;
 
 @RestController
-@RequestMapping("/general/navigation")
-public class GeneralNavitionCotroller {
+@RequestMapping("/general/link")
+public class GeneralLinkCotroller {
     @Autowired
-    private NavigationService navigationService;
+    private LinkService navigationService;
 
     @GetMapping("/list")
     @SystemLog(businessName = "Public:获取全部导航链接")
-    public ResponseObject<?> getNavigations() {
-        return navigationService.getNavigations();
+    public ResponseObject<?> getLinks() {
+        return navigationService.getLinks();
     }
 }
