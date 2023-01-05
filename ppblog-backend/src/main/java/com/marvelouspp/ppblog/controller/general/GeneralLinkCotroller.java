@@ -13,11 +13,11 @@ import com.marvelouspp.ppblog.service.LinkService;
 @RequestMapping("/general/link")
 public class GeneralLinkCotroller {
     @Autowired
-    private LinkService navigationService;
+    private LinkService linkService;
 
     @GetMapping("/list")
     @SystemLog(businessName = "Public:获取全部导航链接")
     public ResponseObject<?> getLinks() {
-        return navigationService.getLinks();
+        return linkService.getLinks();
     }
 }

@@ -6,10 +6,4 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class PpblogApplicationTests {
 
-	
-	@Test
-	void users() {
-		
-	}
-
 }

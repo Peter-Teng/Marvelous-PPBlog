@@ -31,7 +31,7 @@ const toLink = (dest) => {
 }
 
 onMounted(() => {
-    if(props.link.topped > 0) {
+    if (props.link.topped > 0) {
         titleRef.value.classList.add('topped')
     }
 })
@@ -85,7 +85,7 @@ onMounted(() => {
 
 .description {
     color: black;
-    font-size: 0.9em;
+    font-size: 0.85em;
     max-height: 40%;
     text-align: left;
     overflow: hidden;

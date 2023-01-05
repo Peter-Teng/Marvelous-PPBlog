@@ -8,9 +8,9 @@
 
 <script setup>
 import { ref } from 'vue'
-import LoginForm from "../components/LoginForm.vue"
-import registerForm from "../components/RegisterForm.vue"
-import bar from "../components/Navigation"
+import LoginForm from "../components/general/LoginForm.vue"
+import registerForm from "../components/general/RegisterForm.vue"
+import bar from "../components/general/Navigation"
 import background from '../utils/background'
 
 const isLogin= ref(true)

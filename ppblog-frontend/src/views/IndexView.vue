@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <div v-wave class="banner" :style="{ 'background-image': 'url(' + background.index + ')' }">
+    <div class="banner" :style="{ 'background-image': 'url(' + background.index + ')' }">
       <bar></bar>
       <div class="bannerEffect">
         <div class="taboo">
@@ -60,13 +60,13 @@ import { onMounted, ref } from 'vue'
 import api from '../api/index'
 import background from '../utils/background'
 
-import bar from "../components/Navigation.vue"
-import wave from "../components/Wave.vue"
-import infoCard from "../components/InfoCard.vue"
-import pageFoot from "../components/PageFoot.vue"
-import newsCard from "../components/NewsCard.vue"
-import tagCard from "../components/IndexTagCard.vue"
-import articleCard from "../components/ArticleCard.vue"
+import bar from "../components/general/Navigation.vue"
+import wave from "../components/general/Wave.vue"
+import infoCard from "../components/general/InfoCard.vue"
+import pageFoot from "../components/general/PageFoot.vue"
+import newsCard from "../components/general/NewsCard.vue"
+import tagCard from "../components/general/IndexTagCard.vue"
+import articleCard from "../components/general/ArticleCard.vue"
 
 const waveColor = "#251B37fa"
 const poem = ref("")

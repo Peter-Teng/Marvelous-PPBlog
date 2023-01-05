@@ -11,7 +11,7 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
-import api from '../api/index'
+import api from '../../api/index'
 
 const poem = ref("")
 const caseInfo = ref("🏙️  @Powered by MarvelousPP")

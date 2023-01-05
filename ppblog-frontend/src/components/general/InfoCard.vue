@@ -12,22 +12,22 @@
                 <el-col class="icon" :span="4">
                     <el-popover placement="bottom" title="Email" :width="200" trigger="click">
                         <template #reference>
-                            <img src="../assets/images/email.svg" ref="email"
+                            <img src="../../assets/images/email.svg" ref="email"
                                 @mouseenter="playAnime(email, 'shakeY')" />
                         </template>
                         <div style="text-align: center;">{{ info.email }}</div>
                     </el-popover>
                 </el-col>
-                <el-col class="icon" :span="4"><img src="../assets/images/github.svg" ref="github"
+                <el-col class="icon" :span="4"><img src="../../assets/images/github.svg" ref="github"
                         @mouseenter="playAnime(github, 'shakeY')" @click="newPage(info.github)" /></el-col>
-                <el-col class="icon" :span="4"><img src="../assets/images/bilibili.svg" ref="bilibili"
+                <el-col class="icon" :span="4"><img src="../../assets/images/bilibili.svg" ref="bilibili"
                         @mouseenter="playAnime(bilibili, 'shakeY')" @click="newPage(info.bilibili)" /></el-col>
-                <el-col class="icon" :span="4"><img src="../assets/images/leetcode.png" ref="leetcode"
+                <el-col class="icon" :span="4"><img src="../../assets/images/leetcode.png" ref="leetcode"
                         @mouseenter="playAnime(leetcode, 'shakeY')" @click="newPage(info.leetcode)" /></el-col>
                 <el-col class="icon" :span="4"><el-popover placement="bottom" title="Wechat" :width="220"
                         trigger="click">
                         <template #reference>
-                            <img src="../assets/images/wechat.svg" ref="wechat"
+                            <img src="../../assets/images/wechat.svg" ref="wechat"
                                 @mouseenter="playAnime(wechat, 'shakeY')" />
                         </template>
                         <div style="text-align: center;">
@@ -44,7 +44,7 @@
 <script setup>
 import { ref } from 'vue'
 
-import playAnime from '../utils/animate'
+import playAnime from '../../utils/animate'
 
 const props = defineProps({
     info: Object

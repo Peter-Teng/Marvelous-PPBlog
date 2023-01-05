@@ -7,6 +7,10 @@ export default {
         return axios.post(paths.loginUrl, user)
     },
 
+    register(user) {
+        return axios.post(paths.registerUrl, user)
+    },
+
     getInfo() {
         return axios.get(paths.infoUrl)
 
@@ -59,5 +63,17 @@ export default {
     
     getLinks() {
         return axios.get(paths.getLinksUrl)
+    },
+
+    getOverviewStatistic() {
+        return axios.get(paths.getStatisticUrl);
+    },
+
+    getTagStatistic() {
+        return axios.get(paths.getTagStatisticUrl);
+    },
+
+    getLinkStatistic() {
+        return axios.get(paths.getLinkStatisticUrl);
     },
 }

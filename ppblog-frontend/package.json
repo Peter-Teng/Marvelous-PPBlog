@@ -11,6 +11,7 @@
     "animate.css": "^4.1.1",
     "axios": "^1.2.1",
     "core-js": "^3.8.3",
+    "echarts": "^5.4.1",
     "element-plus": "^2.2.27",
     "highlight.js": "^11.7.0",
     "jinrishici": "^1.0.6",

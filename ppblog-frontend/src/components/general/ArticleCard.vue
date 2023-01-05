@@ -37,7 +37,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import playAnime from '../utils/animate'
+import playAnime from '../../utils/animate'
 
 const props = defineProps({
     article: Object

@@ -34,9 +34,9 @@ import { onMounted, ref } from 'vue'
 
 import background from '../utils/background'
 import api from '../api/index'
-import bar from "../components/Navigation.vue"
-import linkCard from "../components/LinksCard.vue"
-import pageFoot from "../components/PageFoot.vue"
+import bar from "../components/general/Navigation.vue"
+import linkCard from "../components/general/LinksCard.vue"
+import pageFoot from "../components/general/PageFoot.vue"
 
 const allLinks = ref({})
 const loading = ref(true)

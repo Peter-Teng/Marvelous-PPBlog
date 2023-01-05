@@ -35,7 +35,7 @@
                         </template>
                     </el-input>
                     <br/>
-                    <el-button v-wave color="#EB455F" class="Botton">注册</el-button>
+                    <el-button v-wave color="#EB455F" class="Botton" @click="register()">注册</el-button>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import api from '../api/index'
+import api from '../../api/index'
 import { User, Key } from '@element-plus/icons-vue'
 
 // 变量区域
@@ -58,6 +58,28 @@ const emit = defineEmits(['flip'])
 
 const flip = () => {
     emit("flip")
+}
+
+const register = () => {
+    if(username.value.length < 3 || username.value.length > 8) {
+        ElMessage.warning("用户名要在3到8个字符之间哦")
+        return;
+    }
+    if(password.value.length < 4 || password.value.length > 16) {
+        ElMessage.warning("密码要在4到16个字符之间哦!")
+        return;
+    }
+    if(password.value !== passwordAgain.value) {
+        ElMessage.warning("两次输入的密码不一致哦")
+        return;
+    }
+    const user = {
+        "username": username.value,
+        "password": password.value,
+    }
+    api.register(user).then(res => {
+        ElMessage.success("注册成功！快去登录吧！")
+    })
 }
 
 </script>

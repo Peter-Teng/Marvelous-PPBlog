@@ -19,8 +19,8 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 
-import api from '../api/index'
-import playAnime from '../utils/animate'
+import api from '../../api/index'
+import playAnime from '../../utils/animate'
 
 const news = ref([])
 const iconRef = ref("")

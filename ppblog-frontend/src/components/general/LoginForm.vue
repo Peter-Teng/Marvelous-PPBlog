@@ -36,7 +36,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import api from '../api/index'
+import api from '../../api/index'
 import { User, Key } from '@element-plus/icons-vue'
 
 // 变量区域
@@ -47,11 +47,21 @@ const emit = defineEmits(['flip'])
 
 // 函数区
 function login() {
-    const user = {
-        "username": username,
-        "password": password
+    if(username.value.length < 3 || username.value.length > 8) {
+        ElMessage.warning("用户名要在3到8个字符之间哦")
+        return;
     }
-    api.login(user)
+    if(password.value.length < 4 || password.value.length > 16) {
+        ElMessage.warning("密码要在4到16个字符之间哦!")
+        return;
+    }
+    const user = {
+        "username": username.value,
+        "password": password.value,
+    }
+    api.login(user).then(res => {
+        ElMessage.success("登录成功！")
+    })
 }
 
 const flip = () => {

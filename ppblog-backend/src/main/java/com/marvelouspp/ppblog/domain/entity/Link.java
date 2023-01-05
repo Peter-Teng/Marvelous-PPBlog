@@ -1,7 +1,6 @@
 package com.marvelouspp.ppblog.domain.entity;
 
 import java.math.BigInteger;
-import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

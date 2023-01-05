@@ -21,24 +21,24 @@ import com.marvelouspp.ppblog.service.LinkService;
 public class AdminLinkController {
     
     @Autowired
-    private LinkService navigationService;
+    private LinkService linkService;
 
     @PostMapping("/create")
     @SystemLog(businessName = "Admin:新建导航")
     public ResponseObject<?> createLink(@RequestBody Link link) {
-        return navigationService.createLink(link);
+        return linkService.createLink(link);
     }
 
     @PutMapping("/modify")
     @SystemLog(businessName = "Admin:修改导航信息")
     public ResponseObject<?> modifyLink(@RequestBody Link link) {
-        return navigationService.modifyLink(link);
+        return linkService.modifyLink(link);
     }
 
     @DeleteMapping("/{id}")
     @SystemLog(businessName = "Admin:删除导航")
     public ResponseObject<?> deleteLink(@PathVariable BigInteger id) {
-        return navigationService.deleteLink(id);
+        return linkService.deleteLink(id);
     }
 
 

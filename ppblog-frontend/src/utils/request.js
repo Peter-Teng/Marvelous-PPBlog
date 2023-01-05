@@ -5,7 +5,11 @@ import axios from "axios"
 const instance = axios.create({})
 
 const showError = (code, message) => {
-    ElMessage.error(`[Error] Status : ${code} as ${message}`)
+    ElNotification({
+        title: `Error ${code}`,
+        message: message,
+        type: 'error',
+      })
 }
 
 instance.interceptors.response.use(
@@ -17,7 +21,7 @@ instance.interceptors.response.use(
         } else {
             if ("code" in response.data) {
                 if (response.data.code != 200) {
-                    ElMessage.warning(`Status : [${response.data.code}] ${response.data.message}`)
+                    ElMessage.error(`Status : [${response.data.code}] ${response.data.message}`)
                     return Promise.reject(response)
                 }
             }

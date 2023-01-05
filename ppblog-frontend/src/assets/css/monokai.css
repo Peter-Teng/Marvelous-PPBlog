@@ -15,7 +15,7 @@ webkit-scrollbar :root {
 .articleBody h5,
 .articleBody h6,
 .articleBody p {
-    margin: 2rem 0;
+    margin: 0 0;
 }
 
 .articleBody a {

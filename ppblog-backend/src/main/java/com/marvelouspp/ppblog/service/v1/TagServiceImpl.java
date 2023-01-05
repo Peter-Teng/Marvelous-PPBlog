@@ -2,8 +2,10 @@ package com.marvelouspp.ppblog.service.v1;
 
 import java.math.BigInteger;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -22,6 +24,7 @@ import com.marvelouspp.ppblog.service.TagService;
 public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagService {
 
     @Autowired
+    @Lazy
     ArticleService articleService;
 
     @Override
@@ -60,11 +63,17 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagSe
     @Override
     public String getTagWithMostArticle() {
         QueryWrapper<Article> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("COUNT(id) as number, tag_id as id");
         queryWrapper.eq("status", Constant.ARTICLE_STATUS_NORMAL);
         queryWrapper.groupBy("tag_id");
-        List<Article> articles = articleService.list(queryWrapper);
-        
-        return null;
+        queryWrapper.orderByDesc("number");
+        Map<String, Object> result = articleService.getMap(queryWrapper);
+
+        BigInteger id = new BigInteger(result.get("id").toString());
+        LambdaQueryWrapper<Tag> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(Tag::getId, id);
+        Tag tag = getOne(lambdaQueryWrapper);
+        return tag.getName();
     }
     
 }

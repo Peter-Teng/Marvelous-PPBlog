@@ -11,17 +11,18 @@
                 <el-col :span="1"></el-col>
                 <el-col :span="22" class="content">
                     <el-divider border-style="dashed" />
-                    <div class="summary">
-                        <div class="summaryTitle">站点数据</div>
+                    <div class="summaryBlock">
+                        <div class="blockTitle">站点数据</div>
                         <el-row>
                             <el-col :span="1"></el-col>
                             <el-col :span="10">
-                                <div class="webStatistic">
+                                <div class="webStatistic" v-loading="loadingOverview" v-wave>
                                     <div class="statisticTitle">站内统计</div>
                                     <div class="staticItems">
-                                        <div class="statisticItem">
-                                            <div class="ItemTitle">统计title</div>
-                                            <div class="ItemStat">888</div>
+                                        <div class="statisticItem" v-for="(item, key, index) in overviewStatistic"
+                                            :key="index">
+                                            <div class="ItemTitle">{{ item.key }}</div>
+                                            <div class="ItemStat">{{ item.value }}</div>
                                         </div>
                                     </div>
                                     <div class="source">
@@ -31,16 +32,16 @@
                             </el-col>
                             <el-col :span="2"></el-col>
                             <el-col :span="10">
-                                <div class="webStatistic">
+                                <div class="webStatistic" v-loading="loadingRequest" v-wave>
                                     <div class="statisticTitle">访问数据统计</div>
                                     <div class="staticItems">
                                         <div class="statisticItem">
-                                            <div class="ItemTitle">统计title</div>
-                                            <div class="ItemStat">888</div>
+                                            <div class="ItemTitle">Field</div>
+                                            <div class="ItemStat">Number</div>
                                         </div>
                                     </div>
                                     <div class="source">
-                                        统计信息来源于<span class="sourceLink" @click="toLink(localhost)">访问数据来源</span>
+                                        统计信息来源于<span class="sourceLink" @click="toLink(localhost)">Source</span>
                                     </div>
                                 </div>
                             </el-col>
@@ -48,6 +49,21 @@
                         </el-row>
                     </div>
                     <el-divider border-style="dashed" border-color="black" />
+                    <div class="summaryBlock">
+                        <div class="blockTitle">统计图表</div>
+                        <div class="chartWrap" v-loading="loadingBlogChart" element-loading-text="正在加载图表"
+                            element-loading-background="rgba(255, 255, 255, 0.5)">
+                            <div id="blogChart" class="chart" v-wave></div>
+                        </div>
+                        <div class="chartWrap" v-loading="loadingTagChart" element-loading-text="正在加载图表"
+                            element-loading-background="rgba(255, 255, 255, 0.5)">
+                            <div id="tagChart" class="chart" v-wave></div>
+                        </div>
+                        <div class="chartWrap" v-loading="loadingLinkChart" element-loading-text="正在加载图表"
+                            element-loading-background="rgba(255, 255, 255, 0.5)">
+                            <div id="linkChart" class="chart" v-wave></div>
+                        </div>
+                    </div>
                 </el-col>
                 <el-col :span="1"></el-col>
             </el-row>
@@ -63,18 +79,58 @@
 
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, inject, watch } from 'vue'
 
 import background from '../utils/background'
+import Charts from '../utils/chart'
 import api from '../api/index'
-import bar from "../components/Navigation.vue"
-import pageFoot from "../components/PageFoot.vue"
+import bar from "../components/general/Navigation.vue"
+import pageFoot from "../components/general/PageFoot.vue"
+
+let echarts = inject('echarts')
 
 const localhost = ref("http://www.baidu.com")
+const overviewStatistic = ref({})
+const loadingOverview = ref(true)
+
+const loadingRequest = ref(true)
+
+const blogChartStatistic = ref({})
+const loadingBlogChart = ref(true)
+
+const tagChartStatistic = ref([])
+const loadingTagChart = ref(true)
+
+const linkChartStatistic = ref([])
+const loadingLinkChart = ref(true)
 
 const toLink = (dest) => {
     window.open(dest)
 }
+
+onMounted(() => {
+    api.getOverviewStatistic().then(res => {
+        overviewStatistic.value = res.data.data
+        loadingOverview.value = false
+    })
+
+    api.getTagStatistic().then(res => {
+        tagChartStatistic.value = res.data.data
+        Charts.tagChart(echarts, tagChartStatistic.value, loadingTagChart);
+    })
+
+    api.getLinkStatistic().then(res => {
+        linkChartStatistic.value = res.data.data
+        Charts.linkChart(echarts, linkChartStatistic.value, loadingLinkChart);
+    })
+})
+
+watch(
+    () => blogChartStatistic.value,
+    async => {
+        Charts.overviewChart(echarts, blogChartStatistic.value, loadingBlogChart);
+    }
+)
 </script>
 
 <style scoped>
@@ -121,7 +177,11 @@ div {
     border-radius: 25px;
 }
 
-.summaryTitle {
+.summaryBlock {
+    min-height: calc(30vh);
+}
+
+.blockTitle {
     text-align: left;
     margin: 10px 50px;
     font-size: 1.85em;
@@ -130,6 +190,10 @@ div {
 .webStatistic {
     background-color: beige;
     border-radius: 20px;
+}
+
+.webStatistic:hover {
+    box-shadow: 1px 1px 20px 1px #EEB76B;
 }
 
 .statisticTitle {
@@ -160,7 +224,8 @@ div {
 
 .ItemStat {
     margin-top: 10px;
-    font-size: 2.5em;
+    font-size: 2.75em;
+    color: #150485;
 }
 
 .source {
@@ -173,5 +238,18 @@ div {
 .sourceLink {
     cursor: pointer;
     color: chocolate;
+}
+
+.chart {
+    margin: 20px auto;
+    display: inline-block;
+    min-width: 1200px;
+    min-height: 500px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.chart:hover {
+    box-shadow: 0.25px 0.25px 10px 1px #0F3460;
 }
 </style>

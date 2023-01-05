@@ -25,5 +25,7 @@ public class Constant {
     public static final String USER_PROFILE = "USER_PROFILE_CACHE";
     public static final String USER_LOGIN_OBJECT = "USER_LOGIN_OBJECT_%s";
     public static final String HEAT_MAP = "ARTICLE_HEAT_MAP";
+    public static final String NEWS_CACHE = "NEWS_CACHE";
+    public static final String LINKS_CACHE = "LINKS_CACHE";
 
 }

@@ -2,6 +2,20 @@
   <router-view />
 </template>
 
+<script>
+import Echarts from './plugins/echart'
+import { provide } from 'vue'
+
+export default {
+  name: 'App',
+  setup() {
+    provide('echarts', Echarts) // provide Echarts
+  },
+  components: {
+  }
+}
+</script>
+
 <style>
 * {
   margin: 0;
@@ -16,6 +30,7 @@
 
 div {
   font-family: "JetBrainsMono";
+  white-space: pre-wrap;
 }
 
 router-view {

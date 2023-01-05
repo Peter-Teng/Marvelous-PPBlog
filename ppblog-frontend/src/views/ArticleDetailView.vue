@@ -46,8 +46,8 @@ import { useRoute } from 'vue-router'
 import api from '../api/index'
 import md from '../utils/marked'
 
-import bar from "../components/Navigation.vue"
-import pageFoot from "../components/PageFoot.vue"
+import bar from "../components/general/Navigation.vue"
+import pageFoot from "../components/general/PageFoot.vue"
 
 const route = useRoute()
 const article = ref({})
@@ -97,7 +97,7 @@ onMounted(() => {
     width: 100%;
     margin: 50px auto;
     text-align: center;
-    min-height: calc(80vh);
+    min-height: calc(50vh);
 }
 
 .articleInfo {

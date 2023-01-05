@@ -11,7 +11,7 @@
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import api from '../api/index'
+import api from '../../api/index'
 
 const tags = ref([])
 

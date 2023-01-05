@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import Link from "../components/Link.vue"
+import Link from "./Link.vue"
 
 const props = defineProps({
     title: String,
