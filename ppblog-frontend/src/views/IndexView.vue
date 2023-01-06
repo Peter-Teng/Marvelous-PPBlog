@@ -30,7 +30,7 @@
                 <newsCard></newsCard>
               </div>
               <el-divider content-position="left">
-                <div style="font-size: 0.1rem;">💡博文推荐</div>
+                <div style="font-size: 0.9rem;">💡博文推荐</div>
               </el-divider>
               <div class="articleList">
                 <div>
@@ -164,14 +164,14 @@ div {
 }
 
 .taboo {
-  font-size: 0.35rem;
+  font-size: 3rem;
   text-shadow: 2px 3px 1px rgba(16, 16, 16, 0.85);
   text-align: center;
   color: azure;
 }
 
 .poem {
-  font-size: 0.15rem;
+  font-size: 1.5rem;
   text-align: center;
   line-height: 50px;
   font-weight: lighter;
@@ -271,7 +271,7 @@ div {
 }
 
 .indexPaginationWrap .el-pagination .el-pagination__goto {
-  font-size: 0.1rem;
+  font-size: 0.9rem;
   color: aliceblue !important;
   padding-right: 20px;
 }
@@ -282,6 +282,6 @@ div {
 
 .indexPaginationWrap .el-pagination .el-input__inner {
   color: aliceblue !important;
-  font-size: 0.1rem;
+  font-size: 0.9rem;
 }
 </style>

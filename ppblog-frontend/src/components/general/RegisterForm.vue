@@ -4,7 +4,7 @@
             <div class="loginPrompt">
                 <div class="PromptText">本博客已经存在主人了？</div>
                 <br />
-                <div class="PromptText" style="padding-top: 15px; font-size: 0.25rem; padding-bottom: 30px;">马上登录!💥</div>
+                <div class="PromptText" style="padding-top: 15px; font-size: 2rem; padding-bottom: 30px;">马上登录!💥</div>
                 <br />
                 <el-button v-wave color="#282A3A" class="Botton" @click="flip">去登录</el-button>
             </div>
@@ -120,7 +120,7 @@ div {
     height: 40px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: lighter;
-    font-size: 0.1rem;
+    font-size: 0.9rem;
     border-radius: 10px;
 }
 
@@ -130,7 +130,7 @@ div {
 
 .register-text {
     color: #1A120B;
-    font-size: 0.3rem;
+    font-size: 3rem;
     width: 400px;
     text-align: center;
     padding-bottom: 25px;
@@ -139,7 +139,7 @@ div {
 
 .PromptText {
     color:#FAF8F1;
-    font-size: 0.2rem;
+    font-size: 2.5rem;
     width: 400px;
     text-align: center;
     padding-bottom: 30px;

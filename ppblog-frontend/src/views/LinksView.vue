@@ -13,9 +13,9 @@
                     <el-col :span="3"></el-col>
                     <el-col :span="18" class="content">
                         <div>
-                            <div class="linkCards">
+                            <div class="linkCards" v-loading="loading">
                                 <linkCard v-for="(links, key, index) in allLinks" :key="index" :links="links"
-                                    :title="key" v-loading="loading">
+                                    :title="key">
                                 </linkCard>
                             </div>
                         </div>
@@ -118,7 +118,7 @@ div {
     width: 40%;
     display: block;
     margin: auto;
-    font-size: 0.25rem;
+    font-size: 2.5rem;
     text-shadow: 2px 3px 1px #3a3b3e;
     text-align: center;
     color: azure;
@@ -131,5 +131,9 @@ div {
     background-color: #0F0F0F;
     padding: 10px auto;
     border-radius: 25px;
+}
+
+.linkCards {
+    min-height: calc(40vh);
 }
 </style>

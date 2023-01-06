@@ -44,8 +44,8 @@ onMounted(() => {
     background-color: #F3F3F3;
     box-shadow: 1.5px 1.5px 5px 1px #02237fef;
     height: 300px;
-    width: 1.65rem;
-    margin: 10px 5px;
+    width: 250px;
+    margin: 10px 10px;
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
@@ -79,13 +79,13 @@ onMounted(() => {
     text-overflow: ellipsis;
     word-wrap: break-word;
     margin: auto 10px;
-    font-size: 0.15rem;
+    font-size: 1.5rem;
     max-height: 35px;
 }
 
 .description {
     color: black;
-    font-size: 0.1rem;
+    font-size: 0.9rem;
     max-height: 40%;
     text-align: left;
     overflow: hidden;

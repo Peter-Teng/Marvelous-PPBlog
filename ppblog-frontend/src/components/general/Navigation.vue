@@ -70,7 +70,7 @@ const toPage = (dest) => {
 div {
     user-select: none;
     height: 100%;
-    font-size: 0.125rem;
+    font-size: 1.2rem;
     color: aliceblue;
     text-align: center;
     line-height: 50px;
@@ -97,9 +97,9 @@ div {
 }
 
 .avatar {
-    width: 0.275rem;
-    height: 0.275rem;
-    background-size: 0.275rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: 2.5rem;
     margin-top: 5px;
     display: inline-block;
     border-radius: 50px;

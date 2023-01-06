@@ -82,6 +82,8 @@ div {
 .avatar {
     width: 100%;
     height: 200px;
+    max-width: 200px;
+    max-height: 200px;
     margin: 0px auto;
     padding-top: 20px;
 }
@@ -89,7 +91,7 @@ div {
 .username {
     padding-top: 10px;
     text-shadow: 2px 3px 1px rgba(246, 114, 114, 0.732);
-    font-size: 0.25rem;
+    font-size: 2.25rem;
     font-weight: bold;
     color: black;
 }

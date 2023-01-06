@@ -21,7 +21,7 @@ webkit-scrollbar :root {
 .articleBody a {
     background-color: #03031c;
     color: #F7A76C;
-    font-size: 0.1rem;
+    font-size: 1.0rem;
     text-decoration: none;
 }
 
@@ -52,7 +52,7 @@ webkit-scrollbar :root {
 }
 
 .articleBody li {
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.5rem;
 }
 
 .articleBody p>.md-image:only-child:not(.md-img-error) img,
@@ -129,5 +129,4 @@ webkit-scrollbar :root {
 ::-webkit-scrollbar-thumb:hover {
     background: #d1d1d1;
 }
-
 

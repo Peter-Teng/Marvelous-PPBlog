@@ -183,7 +183,7 @@ div {
     width: 40%;
     display: block;
     margin: auto;
-    font-size: 0.25rem;
+    font-size: 2.5rem;
     text-shadow: 2px 3px 1px #3a3b3e;
     text-align: center;
     color: azure;
@@ -211,7 +211,7 @@ div {
 .blockTitle {
     text-align: left;
     margin: 10px 50px;
-    font-size: 0.2rem;
+    font-size: 2rem;
 }
 
 .webStatistic {
@@ -227,7 +227,7 @@ div {
     text-align: left;
     padding-top: 10px;
     margin: 5px 15px;
-    font-size: 0.175rem;
+    font-size: 1.75rem;
 }
 
 .staticItems {
@@ -246,12 +246,12 @@ div {
 }
 
 .ItemTitle {
-    font-size: 0.15rem;
+    font-size: 1.5rem;
 }
 
 .ItemStat {
     margin-top: 10px;
-    font-size: 0.3rem;
+    font-size: 2rem;
     color: #150485;
 }
 

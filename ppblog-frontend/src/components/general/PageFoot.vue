@@ -38,7 +38,7 @@ div {
 }
 
 .poem {
-    font-size: 0.1rem;
+    font-size: 0.9rem;
     text-align: center;
     line-height: 40px;
     font-weight: lighter;
@@ -46,7 +46,7 @@ div {
 }
 
 .case {
-    font-size: 0.1rem;
+    font-size: 0.9rem;
     text-align: center;
     line-height: 5px;
     color: #393E46;

@@ -150,7 +150,7 @@ watch(
 }
 
 .source {
-    font-size: 0.25rem;
+    font-size: 2rem;
     text-shadow: 2px 3px 1px rgba(16, 16, 16, 0.85);
     text-align: center;
     color: azure;
@@ -158,7 +158,7 @@ watch(
 }
 
 .hitokoto {
-    font-size: 0.2rem;
+    font-size: 1.75rem;
     padding-top: 20px;
     text-shadow: 2px 3px 1px rgba(16, 16, 16, 0.85);
     text-align: center;
