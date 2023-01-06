@@ -19,7 +19,7 @@
                         </template>
                     </el-input>
                     <br />
-                    <el-input type="password" class="inputs" v-model="password" placeholder="请输入密码">
+                    <el-input type="password" class="inputs" v-model="password" placeholder="请输入密码" show-password>
                         <template #prefix>
                             <el-icon class="input-icon" :size="20">
                                 <key />
@@ -27,7 +27,7 @@
                         </template>
                     </el-input>
                     <br />
-                    <el-input type="password" class="inputs" v-model="passwordAgain" placeholder="请再次输入密码">
+                    <el-input type="password" class="inputs" v-model="passwordAgain" placeholder="请再次输入密码" show-password>
                         <template #prefix>
                             <el-icon class="input-icon" :size="20">
                                 <key />
@@ -103,6 +103,11 @@ div {
     width: 300px;
     margin: auto auto;
     height: 45px;
+}
+
+.inputs ::selection {
+  background-color: #3a3a3a;
+  color: #FAF8F1;
 }
 
 .Botton {

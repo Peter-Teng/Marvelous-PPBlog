@@ -1,32 +1,33 @@
 <template>
-    <div class="wrap">
-        <div v-wave class="banner" :style="{ 'background-image': 'url(' + background.navigation + ')' }">
-            <bar></bar>
-            <div class="title">
-                资源导航——发现各种有趣的网站
+    <el-scrollbar ref="scrollbarRef" height="calc(100vh)" @scroll="scroll">
+        <div class="wrap">
+            <div class="banner" :style="{ 'background-image': 'url(' + background.navigation + ')' }">
+                <bar v-show="showNavigation" :background-color="navigationColor" :font-color="navigationFontColor">
+                </bar>
+                <div class="title">
+                    资源导航——发现各种有趣的网站
+                </div>
+            </div>
+            <div class="body">
+                <el-row>
+                    <el-col :span="3"></el-col>
+                    <el-col :span="18" class="content">
+                        <div>
+                            <div class="linkCards">
+                                <linkCard v-for="(links, key, index) in allLinks" :key="index" :links="links"
+                                    :title="key" v-loading="loading">
+                                </linkCard>
+                            </div>
+                        </div>
+                    </el-col>
+                    <el-col :span="3"></el-col>
+                </el-row>
+            </div>
+            <div>
+                <pageFoot></pageFoot>
             </div>
         </div>
-        <div class="body">
-            <el-row>
-                <el-col :span="3"></el-col>
-                <el-col :span="18" class="content">
-                    <div>
-                        <div class="linkCards">
-                            <linkCard v-for="(links, key, index) in allLinks" :key="index" :links="links" :title="key" v-loading="loading">
-                            </linkCard>
-                        </div>
-                    </div>
-                </el-col>
-                <el-col :span="3"></el-col>
-            </el-row>
-        </div>
-        <div>
-            <pageFoot></pageFoot>
-        </div>
-        <el-backtop :right="30" :bottom="80">
-            <div>🚀</div>
-        </el-backtop>
-    </div>
+    </el-scrollbar>
 </template>
 
 <script setup>
@@ -41,11 +42,36 @@ import pageFoot from "../components/general/PageFoot.vue"
 const allLinks = ref({})
 const loading = ref(true)
 
+const showNavigation = ref(true)
+const prevPos = ref(0)
+const navigationColor = ref("transparent")
+const navigationFontColor = ref("aliceblue")
+
+const scroll = (pos) => {
+    if (pos.scrollTop < 200) {
+        showNavigation.value = true
+        navigationColor.value = "transparent"
+        navigationFontColor.value = "aliceblue"
+        return
+    }
+    if (pos.scrollTop - prevPos.value > 50) {
+        showNavigation.value = false
+    }
+    if (prevPos.value - pos.scrollTop > 25) {
+        showNavigation.value = true
+        if (pos.scrollTop > 200) {
+            navigationColor.value = "#EEEEEEF0"
+            navigationFontColor.value = "#202020"
+        }
+    }
+    prevPos.value = pos.scrollTop
+}
+
 onMounted(() => {
     api.getLinks().then(res => {
         for (let item of res.data.data) {
             if (item.category in allLinks.value) {
-                if(item.topped > 0) {
+                if (item.topped > 0) {
                     allLinks.value[item.category].unshift(item)
                 } else {
                     allLinks.value[item.category].push(item)

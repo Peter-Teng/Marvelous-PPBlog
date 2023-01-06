@@ -22,6 +22,14 @@ export default {
   padding: 0;
 }
 
+.explicit {
+  background: #F8F8F8;
+}
+
+.explicit div {
+  color: #0a0a0a;
+}
+
 ::selection {
   background-color: #FAF8F1;
   color: #3a3a3a;

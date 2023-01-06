@@ -1,24 +1,27 @@
 <template>
     <div class="wrap">
-        <el-row class="naviBar" ref="bar">
+        <el-row class="naviBar" ref="bar" :style="{ 'background': props.backgroundColor }">
             <el-col class="name" :span="3">
-                <div>MarvelousPP</div>
+                <div :style="{ 'color': props.fontColor }">MarvelousPP</div>
             </el-col>
             <el-col :span="10"></el-col>
             <el-col :span="2">
-                <div @click="toPage('/')" class="link" ref="toMain" @mouseenter="playAnime(toMain, 'rubberBand', true)">
+                <div @click="toPage('/')" class="link" ref="toMain" @mouseenter="playAnime(toMain, 'rubberBand', true)" :style="{ 'color': props.fontColor }">
                     🗺️&nbsp;首页</div>
             </el-col>
             <el-col :span="2">
-                <div @click="toPage('/articles/all')" class="link" ref="toRecommend" @mouseenter="playAnime(toRecommend, 'rubberBand', true)">
+                <div @click="toPage('/articles/all')" class="link" ref="toRecommend"
+                    @mouseenter="playAnime(toRecommend, 'rubberBand', true)" :style="{ 'color': props.fontColor }">
                     🏆&nbsp;博文荟萃</div>
             </el-col>
             <el-col :span="2">
-                <div @click="toPage('/navigation')" class="link" ref="toUsefulLinks" @mouseenter="playAnime(toUsefulLinks, 'rubberBand', true)">
+                <div @click="toPage('/navigation')" class="link" ref="toUsefulLinks"
+                    @mouseenter="playAnime(toUsefulLinks, 'rubberBand', true)" :style="{ 'color': props.fontColor }">
                     🧭&nbsp;资源导航</div>
             </el-col>
             <el-col :span="2">
-                <div @click="toPage('/statistic')" class="link" ref="toStatistic" @mouseenter="playAnime(toStatistic, 'rubberBand', true)">
+                <div @click="toPage('/statistic')" class="link" ref="toStatistic"
+                    @mouseenter="playAnime(toStatistic, 'rubberBand', true)" :style="{ 'color': props.fontColor }">
                     🧮&nbsp;本站统计</div>
             </el-col>
             <el-col :span="2">
@@ -26,7 +29,6 @@
                     @mouseenter="playAnime(toLogin, 'jello', true)"><el-avatar :size="40" class="avatar"
                         src="https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2Fpp-icon.png" />
                 </div>
-
             </el-col>
             <el-col :span="1">
                 <div></div>
@@ -41,6 +43,11 @@ import { useRouter } from 'vue-router'
 
 import playAnime from '../../utils/animate'
 
+const props = defineProps({
+    backgroundColor: { type: String, default: "transparent" },
+    fontColor: { type: String, default: "aliceblue" },
+});
+
 const bar = ref("")
 const toMain = ref("")
 const toRecommend = ref("")
@@ -49,8 +56,6 @@ const toStatistic = ref("")
 const toLogin = ref("")
 
 const router = useRouter()
-
-//bar.addEventListener('scroll', scrolling)
 
 const toPage = (dest) => {
     router.push(dest)
@@ -70,6 +75,9 @@ div {
     font-family: "ZCOOL";
 }
 
+.wrap {
+    z-index: 2001;
+}
 
 .link {
     cursor: pointer;
@@ -78,10 +86,6 @@ div {
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
     transition: all .3s ease-in;
-}
-
-.link:hover {
-    color:goldenrod;
 }
 
 .naviBar {

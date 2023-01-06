@@ -1,44 +1,45 @@
 <template>
-    <div class="wrap">
-        <div v-wave class="banner" :style="{ 'background-image': 'url(' + background.articlesList + ')' }">
-            <bar></bar>
-            <div class="bannerEffect">
-                <div class="source">
-                    {{ source }}
-                </div>
-                <div class="hitokoto">
-                    {{ hitokoto }}
+    <el-scrollbar ref="scrollbarRef" height="calc(100vh)" @scroll="scroll">
+        <div class="wrap">
+            <div class="banner" :style="{ 'background-image': 'url(' + background.articlesList + ')' }">
+                <bar v-show="showNavigation" :background-color="navigationColor" :font-color="navigationFontColor">
+                </bar>
+                <div class="bannerEffect">
+                    <div class="source">
+                        {{ source }}
+                    </div>
+                    <div class="hitokoto">
+                        {{ hitokoto }}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="body">
-            <el-row>
-                <el-col :span="3"></el-col>
-                <el-col :span="18">
-                    <div class="tags">
-                        <tagCard></tagCard>
-                    </div>
-                    <div class="articleList">
-                        <div>
-                            <articleCard v-for="article in articles" :key="article.id" :article="article"></articleCard>
+            <div class="body">
+                <el-row>
+                    <el-col :span="3"></el-col>
+                    <el-col :span="18">
+                        <div class="tags">
+                            <tagCard></tagCard>
                         </div>
-                        <div style="text-align: center; color: blue;">
-                            <el-pagination class="pagination" :page-size="pageSize" :pager-count="7"
-                                layout="prev, pager, next, jumper" :total="total" @current-change="handleChange"
-                                background />
+                        <div class="articleList">
+                            <div>
+                                <articleCard v-for="article in articles" :key="article.id" :article="article">
+                                </articleCard>
+                            </div>
+                            <div style="text-align: center; color: blue;">
+                                <el-pagination class="pagination" :page-size="pageSize" :pager-count="7"
+                                    layout="prev, pager, next, jumper" :total="total" @current-change="handleChange"
+                                    background />
+                            </div>
                         </div>
-                    </div>
-                </el-col>
-                <el-col :span="3"></el-col>
-            </el-row>
+                    </el-col>
+                    <el-col :span="3"></el-col>
+                </el-row>
+            </div>
+            <div>
+                <pageFoot></pageFoot>
+            </div>
         </div>
-        <div>
-            <pageFoot></pageFoot>
-        </div>
-        <el-backtop :right="30" :bottom="80">
-            <div>🚀</div>
-        </el-backtop>
-    </div>
+    </el-scrollbar>
 </template>
 
 <script setup>
@@ -61,6 +62,31 @@ const route = useRoute()
 const total = ref(0)
 const articles = ref([])
 const pageSize = ref(10)
+
+const showNavigation = ref(true)
+const prevPos = ref(0)
+const navigationColor = ref("transparent")
+const navigationFontColor = ref("aliceblue")
+
+const scroll = (pos) => {
+    if (pos.scrollTop < 200) {
+        showNavigation.value = true
+        navigationColor.value = "transparent"
+        navigationFontColor.value = "aliceblue"
+        return
+    }
+    if (pos.scrollTop - prevPos.value > 50) {
+        showNavigation.value = false
+    }
+    if (prevPos.value - pos.scrollTop > 25) {
+        showNavigation.value = true
+        if (pos.scrollTop > 200) {
+            navigationColor.value = "#EEEEEEF0"
+            navigationFontColor.value = "#202020"
+        }
+    }
+    prevPos.value = pos.scrollTop
+}
 
 const handleChange = (value) => {
     articles.value = []
