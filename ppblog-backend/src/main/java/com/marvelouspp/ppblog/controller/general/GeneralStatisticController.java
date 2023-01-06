@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.marvelouspp.ppblog.annotations.SystemLog;
 import com.marvelouspp.ppblog.domain.ResponseObject;
+import com.marvelouspp.ppblog.service.RecordService;
 import com.marvelouspp.ppblog.service.StatisticService;
 
 @RestController
@@ -15,6 +16,9 @@ public class GeneralStatisticController {
 
     @Autowired
     StatisticService statisticService;
+
+    @Autowired
+    RecordService recordService;
 
     @GetMapping("/overview")
     @SystemLog(businessName = "Public:获取总览数据")
@@ -33,4 +37,11 @@ public class GeneralStatisticController {
     public ResponseObject<?> getLinksStatistics() {
         return statisticService.getLinksStatistics();
     }
+
+    @GetMapping("/record")
+    @SystemLog(businessName = "Public:获取博客记录数据")
+    public ResponseObject<?> getRecords() {
+        return recordService.getRecords();
+    }
+
 }

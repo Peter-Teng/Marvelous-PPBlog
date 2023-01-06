@@ -32,7 +32,7 @@ const props = defineProps({
 
 .cardTitle {
     font-family: 'ZCOOL';
-    font-size: 2.25em;
+    font-size: 0.25rem;
     padding-left: 50px;
     padding-top: 25px;
 }

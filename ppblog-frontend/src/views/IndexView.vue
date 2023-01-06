@@ -30,13 +30,13 @@
                 <newsCard></newsCard>
               </div>
               <el-divider content-position="left">
-                <div style="font-size: 1.0em;">💡博文推荐</div>
+                <div style="font-size: 0.1rem;">💡博文推荐</div>
               </el-divider>
               <div class="articleList">
                 <div>
                   <articleCard v-for="article in articles" :key="article.id" :article="article"></articleCard>
                 </div>
-                <div style="text-align: center; color: blue;">
+                <div class="indexPaginationWrap" style="text-align: center; color: blue;">
                   <el-pagination class="pagination" :page-size="pageSize" :pager-count="7"
                     layout="prev, pager, next, jumper" :total="total" @current-change="handleChange" background />
                 </div>
@@ -48,6 +48,9 @@
       <div>
         <pageFoot></pageFoot>
       </div>
+      <el-backtop :right="30" :bottom="80" target=".el-scrollbar__wrap" :visibility-height="400">
+        <div>🚀</div>
+      </el-backtop>
     </div>
   </el-scrollbar>
 </template>
@@ -80,7 +83,7 @@ const navigationFontColor = ref("aliceblue")
 const scroll = (pos) => {
   if (pos.scrollTop < 400) {
     showNavigation.value = true
-    navigationColor.value = "transparent"
+    navigationColor.value = "#202020f3"
     navigationFontColor.value = "aliceblue"
     return
   }
@@ -161,14 +164,14 @@ div {
 }
 
 .taboo {
-  font-size: 3em;
+  font-size: 0.35rem;
   text-shadow: 2px 3px 1px rgba(16, 16, 16, 0.85);
   text-align: center;
   color: azure;
 }
 
 .poem {
-  font-size: 1.35em;
+  font-size: 0.15rem;
   text-align: center;
   line-height: 50px;
   font-weight: lighter;
@@ -220,65 +223,65 @@ div {
 </style>
 
 <style>
-.el-pagination .el-icon {
+.indexPaginationWrap .el-pagination .el-icon {
   font-size: 18px !important;
 }
 
-.el-pagination.is-background .btn-prev {
+.indexPaginationWrap .el-pagination.is-background .btn-prev {
   background-color: #251B37 !important;
   color: aliceblue !important;
 }
 
-.el-pagination.is-background .btn-prev:hover {
+.indexPaginationWrap .el-pagination.is-background .btn-prev:hover {
   background-color: #251B37 !important;
   color: #FFF80A !important;
 }
 
-.el-pager li {
+.indexPaginationWrap .el-pager li {
   font-weight: bold;
   background: #251B37 !important;
   color: aliceblue !important;
 }
 
-.el-pager li:hover {
+.indexPaginationWrap .el-pager li:hover {
   background: #fefefe !important;
   color: #000000 !important;
 }
 
-.el-pager li.is-active {
+.indexPaginationWrap .el-pager li.is-active {
   font-weight: bold;
   background: #fefefe !important;
   color: #000000 !important;
 }
 
-.el-pager li.is-active:hover {
+.indexPaginationWrap .el-pager li.is-active:hover {
   font-weight: bold;
   background: #fefefe !important;
   color: #000000 !important;
 }
 
-.el-pagination.is-background .btn-next {
+.indexPaginationWrap .el-pagination.is-background .btn-next {
   background-color: #251B37 !important;
   color: aliceblue !important;
 }
 
-.el-pagination.is-background .btn-next:hover {
+.indexPaginationWrap .el-pagination.is-background .btn-next:hover {
   background-color: #251B37 !important;
   color: #FFF80A !important;
 }
 
-.el-pagination .el-pagination__goto {
-  font-size: 1em;
+.indexPaginationWrap .el-pagination .el-pagination__goto {
+  font-size: 0.1rem;
   color: aliceblue !important;
   padding-right: 20px;
 }
 
-.el-pagination .el-input__wrapper {
+.indexPaginationWrap .el-pagination .el-input__wrapper {
   background-color: #251B37 !important;
 }
 
-.el-pagination .el-input__inner {
+.indexPaginationWrap .el-pagination .el-input__inner {
   color: aliceblue !important;
-  font-size: 1em;
+  font-size: 0.1rem;
 }
 </style>

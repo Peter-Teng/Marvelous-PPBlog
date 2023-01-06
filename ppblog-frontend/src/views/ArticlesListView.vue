@@ -38,6 +38,9 @@
             <div>
                 <pageFoot></pageFoot>
             </div>
+            <el-backtop :right="30" :bottom="80" target=".el-scrollbar__wrap" :visibility-height="400">
+                <div>🚀</div>
+            </el-backtop>
         </div>
     </el-scrollbar>
 </template>
@@ -71,7 +74,7 @@ const navigationFontColor = ref("aliceblue")
 const scroll = (pos) => {
     if (pos.scrollTop < 200) {
         showNavigation.value = true
-        navigationColor.value = "transparent"
+        navigationColor.value = "#202020f3"
         navigationFontColor.value = "aliceblue"
         return
     }
@@ -147,7 +150,7 @@ watch(
 }
 
 .source {
-    font-size: 1.85em;
+    font-size: 0.25rem;
     text-shadow: 2px 3px 1px rgba(16, 16, 16, 0.85);
     text-align: center;
     color: azure;
@@ -155,7 +158,7 @@ watch(
 }
 
 .hitokoto {
-    font-size: 1.65em;
+    font-size: 0.2rem;
     padding-top: 20px;
     text-shadow: 2px 3px 1px rgba(16, 16, 16, 0.85);
     text-align: center;

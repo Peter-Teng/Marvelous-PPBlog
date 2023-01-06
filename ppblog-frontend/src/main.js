@@ -6,6 +6,7 @@ import store from './store'
 import elementIcon from "./plugins/icons";
 import VWave from 'v-wave'
 
+import 'amfe-flexible';
 import './assets/fonts/index.css'
 import './assets/css/animation.css'
 import 'animate.css';

@@ -13,6 +13,7 @@ const paths = {
     getStatisticUrl: baseUrl + "/general/statistic/overview",
     getTagStatisticUrl: baseUrl + "/general/statistic/tag",
     getLinkStatisticUrl: baseUrl + "/general/statistic/link",
+    getBlogRecordUrl: baseUrl + "/general/statistic/record",
     
     hitokotoURL: "https://v1.hitokoto.cn/"
 }

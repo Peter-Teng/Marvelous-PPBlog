@@ -1,6 +1,6 @@
 <template>
     <div id="formbody">
-        <div class="Half">
+        <div class="half">
             <div class="loginForm">
                 <div class="login-text">登录</div>
                 <div class="loginInfo">
@@ -26,7 +26,7 @@
             <div class="registerPrompt">
                 <div class="PromptText">本博客还没有主人吗？</div>
                 <br />
-                <div class="PromptText" style="padding-top: 15px; font-size: 1.5em; padding-bottom: 30px;">立即注册!🥳</div>
+                <div class="PromptText" style="padding-top: 15px; font-size: 0.25rem; padding-bottom: 30px;">立即注册!🥳</div>
                 <br />
                 <el-button v-wave color="#3A4F7A" class="Botton" @click="flip">去注册</el-button>
             </div>
@@ -85,6 +85,10 @@ div {
     box-shadow: 1px 1px 2px 2px #0a0a0a4a;
 }
 
+.half {
+ display: flex;
+}
+
 .inputs {
     width: 300px;
     margin: auto auto;
@@ -102,7 +106,7 @@ div {
     height: 40px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: lighter;
-    font-size: 1em;
+    font-size: 0.1rem;
     border-radius: 10px;
 }
 
@@ -112,7 +116,7 @@ div {
 
 .login-text {
     color: #1A120B;
-    font-size: 3em;
+    font-size: 0.3rem;
     width: 400px;
     text-align: center;
     padding-bottom: 30px;
@@ -120,7 +124,7 @@ div {
 }
 
 .PromptText {
-    font-size: 2.5em;
+    font-size: 0.2rem;
     width: 400px;
     text-align: center;
     padding-bottom: 30px;
@@ -139,15 +143,12 @@ div {
 .loginForm {
     width: 400px;
     height: 100%;
-    float: left;
-
 }
 
 .registerPrompt {
     background-color: #ffb30092;
     width: 400px;
     height: 450px;
-    float: right;
     text-align: center;
 }
 </style>

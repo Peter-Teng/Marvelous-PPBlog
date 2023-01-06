@@ -26,6 +26,9 @@
             <div>
                 <pageFoot></pageFoot>
             </div>
+            <el-backtop :right="30" :bottom="80" target=".el-scrollbar__wrap" :visibility-height="400">
+                <div>🚀</div>
+            </el-backtop>
         </div>
     </el-scrollbar>
 </template>
@@ -50,7 +53,7 @@ const navigationFontColor = ref("aliceblue")
 const scroll = (pos) => {
     if (pos.scrollTop < 200) {
         showNavigation.value = true
-        navigationColor.value = "transparent"
+        navigationColor.value = "#202020f3"
         navigationFontColor.value = "aliceblue"
         return
     }
@@ -115,7 +118,7 @@ div {
     width: 40%;
     display: block;
     margin: auto;
-    font-size: 2.0em;
+    font-size: 0.25rem;
     text-shadow: 2px 3px 1px #3a3b3e;
     text-align: center;
     color: azure;

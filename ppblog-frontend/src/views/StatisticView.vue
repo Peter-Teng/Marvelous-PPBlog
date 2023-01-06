@@ -74,13 +74,16 @@
             <div>
                 <pageFoot></pageFoot>
             </div>
+            <el-backtop :right="30" :bottom="80" target=".el-scrollbar__wrap" :visibility-height="400">
+                <div>🚀</div>
+            </el-backtop>
         </div>
     </el-scrollbar>
 </template>
 
 
 <script setup>
-import { onMounted, ref, inject, watch } from 'vue'
+import { onMounted, ref, inject } from 'vue'
 
 import background from '../utils/background'
 import Charts from '../utils/chart'
@@ -90,7 +93,7 @@ import pageFoot from "../components/general/PageFoot.vue"
 
 let echarts = inject('echarts')
 
-const localhost = ref("http://www.baidu.com")
+const localhost = ref("http://www.marvelouspp.com")
 const overviewStatistic = ref({})
 const loadingOverview = ref(true)
 
@@ -113,7 +116,7 @@ const navigationFontColor = ref("aliceblue")
 const scroll = (pos) => {
     if (pos.scrollTop < 200) {
         showNavigation.value = true
-        navigationColor.value = "transparent"
+        navigationColor.value = "#202020f3"
         navigationFontColor.value = "aliceblue"
         return
     }
@@ -140,6 +143,11 @@ onMounted(() => {
         loadingOverview.value = false
     })
 
+    api.getBlogRecords().then(res => {
+        blogChartStatistic.value = res.data.data
+        Charts.blogChart(echarts, blogChartStatistic.value, loadingBlogChart)
+    })
+
     api.getTagStatistic().then(res => {
         tagChartStatistic.value = res.data.data
         Charts.tagChart(echarts, tagChartStatistic.value, loadingTagChart);
@@ -150,13 +158,6 @@ onMounted(() => {
         Charts.linkChart(echarts, linkChartStatistic.value, loadingLinkChart);
     })
 })
-
-watch(
-    () => blogChartStatistic.value,
-    async => {
-        Charts.overviewChart(echarts, blogChartStatistic.value, loadingBlogChart);
-    }
-)
 </script>
 
 <style scoped>
@@ -182,7 +183,7 @@ div {
     width: 40%;
     display: block;
     margin: auto;
-    font-size: 2.0em;
+    font-size: 0.25rem;
     text-shadow: 2px 3px 1px #3a3b3e;
     text-align: center;
     color: azure;
@@ -210,7 +211,7 @@ div {
 .blockTitle {
     text-align: left;
     margin: 10px 50px;
-    font-size: 1.85em;
+    font-size: 0.2rem;
 }
 
 .webStatistic {
@@ -226,7 +227,7 @@ div {
     text-align: left;
     padding-top: 10px;
     margin: 5px 15px;
-    font-size: 1.5em;
+    font-size: 0.175rem;
 }
 
 .staticItems {
@@ -245,18 +246,18 @@ div {
 }
 
 .ItemTitle {
-    font-size: 1.35em;
+    font-size: 0.15rem;
 }
 
 .ItemStat {
     margin-top: 10px;
-    font-size: 2.75em;
+    font-size: 0.3rem;
     color: #150485;
 }
 
 .source {
     text-align: left;
-    font-size: 0.8em;
+    font-size: 0.05em;
     margin: 5px 30px;
     padding-bottom: 10px;
 }

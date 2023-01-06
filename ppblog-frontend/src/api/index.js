@@ -76,4 +76,8 @@ export default {
     getLinkStatistic() {
         return axios.get(paths.getLinkStatisticUrl);
     },
+
+    getBlogRecords() {
+        return axios.get(paths.getBlogRecordUrl);
+    },
 }

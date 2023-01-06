@@ -56,7 +56,7 @@ onMounted(() => {
 }
 
 .icon {
-    font-size: 4.5em;
+    font-size: 0.55rem;
     line-height: 230px;
     animation: scale 1.5s infinite;
     text-align: center;
@@ -73,14 +73,14 @@ onMounted(() => {
 .title {
     padding: 5px auto 0px auto;
     text-align: center;
-    font-size: 1.35em;
+    font-size: 0.15rem;
     color: #E7F6F2;
     font-family: "Article";
 }
 
 .content {
     text-align: left;
-    font-size: 1.2em;
+    font-size: 0.125rem;
     margin-top: 5px;
     font-family: "MUYAO";
 }

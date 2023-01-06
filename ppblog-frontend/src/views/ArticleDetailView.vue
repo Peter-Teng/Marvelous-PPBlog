@@ -36,6 +36,9 @@
             <div>
                 <pageFoot></pageFoot>
             </div>
+            <el-backtop :right="30" :bottom="80" target=".el-scrollbar__wrap" :visibility-height="400">
+                <div>🚀</div>
+            </el-backtop>
         </div>
     </el-scrollbar>
 </template>
@@ -66,7 +69,7 @@ const navigationFontColor = ref("aliceblue")
 const scroll = (pos) => {
     if (pos.scrollTop < 200) {
         showNavigation.value = true
-        navigationColor.value = "transparent"
+        navigationColor.value = "#202020f3"
         navigationFontColor.value = "aliceblue"
         return
     }
@@ -133,7 +136,7 @@ onMounted(() => {
 
 .title {
     font-family: 'JetBrainsMono';
-    font-size: 3.5em;
+    font-size: 0.35rem;
     text-shadow: 2px 3px 1px rgba(16, 16, 16, 0.85);
     text-align: center;
     color: azure;
@@ -141,7 +144,7 @@ onMounted(() => {
 
 .tag {
     margin: 2px auto;
-    font-size: 1.5em;
+    font-size: 0.15rem;
     text-shadow: 2px 3px 1px rgba(16, 16, 16, 0.85);
     text-align: center;
     color: #EEEEEE;
@@ -155,7 +158,7 @@ onMounted(() => {
 
 .infoItem {
     display: inline-block;
-    font-size: 1em;
+    font-size: 0.1rem;
     color: #D2DAFF;
     margin: 2px 10px 3px 10px;
     font-family: "ZCOOL";
@@ -166,7 +169,7 @@ onMounted(() => {
     width: 80%;
     text-align: left;
     margin: 5px auto;
-    font-size: 1.1em;
+    font-size: 1.0.1rem;
     text-shadow: 1px 1.5px 0.5px #001d6ecf;
     color: #F9F9F9;
 }

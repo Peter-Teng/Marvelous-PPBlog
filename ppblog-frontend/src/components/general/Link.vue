@@ -40,12 +40,12 @@ onMounted(() => {
 <style scoped>
 .linkWrap {
     user-select: none;
-    display: block;
+    display: flexbox;
     background-color: #F3F3F3;
     box-shadow: 1.5px 1.5px 5px 1px #02237fef;
     height: 300px;
-    width: 250px;
-    margin: 10px 10px;
+    width: 1.65rem;
+    margin: 10px 5px;
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
@@ -79,13 +79,13 @@ onMounted(() => {
     text-overflow: ellipsis;
     word-wrap: break-word;
     margin: auto 10px;
-    font-size: 1.5em;
+    font-size: 0.15rem;
     max-height: 35px;
 }
 
 .description {
     color: black;
-    font-size: 0.85em;
+    font-size: 0.1rem;
     max-height: 40%;
     text-align: left;
     overflow: hidden;

@@ -32,11 +32,13 @@ div {
     width: 100%;
     height: 60px;
     border-radius: 50px 50px 0px 0px;
-    background: linear-gradient(90deg, #FFE15D, #F49D1A);
+    text-align: center;
+    background: linear-gradient(-90deg, #FD841F, #E14D2A, #CD104D, #9C2C77);
+    animation: gradientBG 10s linear infinite;
 }
 
 .poem {
-    font-size: 1em;
+    font-size: 0.1rem;
     text-align: center;
     line-height: 40px;
     font-weight: lighter;
@@ -44,7 +46,7 @@ div {
 }
 
 .case {
-    font-size: 1.05em;
+    font-size: 0.1rem;
     text-align: center;
     line-height: 5px;
     color: #393E46;

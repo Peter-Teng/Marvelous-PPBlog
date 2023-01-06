@@ -6,7 +6,8 @@
             </el-col>
             <el-col :span="10"></el-col>
             <el-col :span="2">
-                <div @click="toPage('/')" class="link" ref="toMain" @mouseenter="playAnime(toMain, 'rubberBand', true)" :style="{ 'color': props.fontColor }">
+                <div @click="toPage('/')" class="link" ref="toMain" @mouseenter="playAnime(toMain, 'rubberBand', true)"
+                    :style="{ 'color': props.fontColor }">
                     🗺️&nbsp;首页</div>
             </el-col>
             <el-col :span="2">
@@ -26,8 +27,8 @@
             </el-col>
             <el-col :span="2">
                 <div @click="toPage('/login')" class="link" ref="toLogin"
-                    @mouseenter="playAnime(toLogin, 'jello', true)"><el-avatar :size="40" class="avatar"
-                        src="https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2Fpp-icon.png" />
+                    @mouseenter="playAnime(toLogin, 'jello', true)">
+                    <div class="avatar" :style="{ 'background-image': 'url(' + avatarSource + ')' }" />
                 </div>
             </el-col>
             <el-col :span="1">
@@ -54,6 +55,7 @@ const toRecommend = ref("")
 const toUsefulLinks = ref("")
 const toStatistic = ref("")
 const toLogin = ref("")
+const avatarSource = ref("https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2Fpp-icon.png")
 
 const router = useRouter()
 
@@ -68,7 +70,7 @@ const toPage = (dest) => {
 div {
     user-select: none;
     height: 100%;
-    font-size: 1.05em;
+    font-size: 0.125rem;
     color: aliceblue;
     text-align: center;
     line-height: 50px;
@@ -92,18 +94,14 @@ div {
     position: absolute;
     height: 50px;
     width: 100%;
-    color: transparent;
-    -moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .5s ease-in;
-}
-
-.naviBar:hover {
-    background: #202020f3;
 }
 
 .avatar {
-    margin-top: 8px;
+    width: 0.275rem;
+    height: 0.275rem;
+    background-size: 0.275rem;
+    margin-top: 5px;
+    display: inline-block;
+    border-radius: 50px;
 }
 </style>

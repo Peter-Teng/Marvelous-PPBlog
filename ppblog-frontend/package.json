@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.10",
+    "amfe-flexible": "^2.2.1",
     "animate.css": "^4.1.1",
     "axios": "^1.2.1",
     "core-js": "^3.8.3",
@@ -28,6 +29,7 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "postcss-pxtorem": "4.0",
     "unplugin-auto-import": "^0.12.1",
     "unplugin-vue-components": "^0.22.12"
   }

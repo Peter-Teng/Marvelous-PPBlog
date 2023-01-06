@@ -96,7 +96,7 @@ div {
     width: 90%;
     margin: 15px auto 0px auto;
     cursor: pointer;
-    font-size: 2.0em;
+    font-size: 0.2rem;
     color: #F1F6F5;
     text-shadow: 2px 3px 1px rgba(22, 22, 22, 0.823);
 }
@@ -106,14 +106,14 @@ div {
     height: 10%;
     font-family: 'MUYAO';
     margin: 5px auto 0px auto;
-    font-size: 0.2em;
+    font-size: 0.05rem;
     color: #fff2cfec;
     font-style: oblique;
 }
 
 .heat {
     height: 5%;
-    font-size: 1.0em;
+    font-size: 0.1rem;
     color: #DD5353;
     font-weight: bolder;
 }
@@ -126,7 +126,7 @@ div {
     text-align: left;
     margin: 10px 30px 5px 30px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 0.1rem;
     font-style: italic;
     font-weight: lighter;
     font-family: 'JetBrainsMono';
@@ -136,7 +136,7 @@ div {
     height: 5%;
     text-align: left;
     margin: 10px auto 0px 50px;
-    font-size: 1em;
+    font-size: 0.1rem;
     color: #FFF8EA;
 }
 </style>

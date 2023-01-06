@@ -51,7 +51,7 @@ const toArticles = (tagName) => {
 
 .tagList {
     margin: 40px auto 25px auto;
-    font-size: 1.75em;
+    font-size: 0.2rem;
     color: #E7F6F2;
 }
 
@@ -68,7 +68,7 @@ const toArticles = (tagName) => {
     color: #112031;
     background-color: #F9F9F9;
     margin: 5px 3px;
-    font-size: 0.75em;
+    font-size: 0.075rem;
     border: 0px;
 }
 

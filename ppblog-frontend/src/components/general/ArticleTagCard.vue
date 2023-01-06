@@ -56,7 +56,7 @@ const toArticles = (tagName) => {
 .tagList {
     font-family: 'ZCOOL';
     margin: 20px auto 25px auto;
-    font-size: 1.75em;
+    font-size: 0.2rem;
     color: #E7F6F2;
 }
 
@@ -74,7 +74,7 @@ const toArticles = (tagName) => {
     background-color: #144272;
     box-shadow: .5px .5px 1px 1px #46346f;
     margin: 5px 3px;
-    font-size: 0.85em;
+    font-size: 0.1rem;
     border: 0px;
 }
 
@@ -92,7 +92,7 @@ const toArticles = (tagName) => {
     background-color: #EFF5F5;
     box-shadow: .5px .5px 1px 1px #46346f;
     margin: 5px auto 5px auto;
-    font-size: 1.15em;
+    font-size: 0.125rem;
     border: 0px;
 }
 

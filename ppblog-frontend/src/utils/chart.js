@@ -1,9 +1,28 @@
 const drawCharts = {
-    overviewChart: (echarts, statistics, loading) => {
+    blogChart: (echarts, statistics, loading) => {
         //需要获取到element,所以是onMounted的Hook
-        let overviewChart = echarts.init(document.getElementById("blogChart"));
+        let blogChart = echarts.init(document.getElementById("blogChart"));
+        let blogData = {
+            date: [],
+            articles: [],
+            links: [],
+            news: [],
+            tags: []
+        }
+        for (var i = statistics.length - 1; i >= 0; i--) {
+            for (let key in statistics[i]) {
+                if (key in blogData) {
+                    blogData[key].push(statistics[i][key])
+                }
+            }
+        }
+        for (var i = 0; i < blogData.date.length; i++) {
+            var strArr = blogData.date[i].split('-')
+            blogData.date[i] = strArr[0] + "-" + strArr[1]
+        }
+        console.log(blogData)
         // 绘制图表
-        overviewChart.setOption({
+        blogChart.setOption({
             title: {
                 text: '博客统计总览'
             },
@@ -29,7 +48,7 @@ const drawCharts = {
                 {
                     type: 'category',
                     boundaryGap: false,
-                    data: ['2022-09', '2022-10', '2022-11', '2022-12', '2023-1']
+                    data: blogData.date
                 }
             ],
             yAxis: [
@@ -46,7 +65,7 @@ const drawCharts = {
                     emphasis: {
                         focus: 'series'
                     },
-                    data: [0, 5, 7, 9, 11]
+                    data: blogData.articles
                 },
                 {
                     name: '标签',
@@ -56,7 +75,7 @@ const drawCharts = {
                     emphasis: {
                         focus: 'series'
                     },
-                    data: [0, 2, 3, 4, 7]
+                    data: blogData.articles
                 },
                 {
                     name: '导航',
@@ -66,7 +85,7 @@ const drawCharts = {
                     emphasis: {
                         focus: 'series'
                     },
-                    data: [12, 15, 19, 20, 21]
+                    data: blogData.links
                 },
                 {
                     name: '公告',
@@ -76,13 +95,14 @@ const drawCharts = {
                     emphasis: {
                         focus: 'series'
                     },
-                    data: [2, 2, 3, 4, 5]
+                    data: blogData.news
                 },
             ]
         });
         window.onresize = function () {//自适应大小
             overviewChart.resize();
         };
+        loading.value = false
     },
     tagChart: (echarts, statistics, loading) => {
         //需要获取到element,所以是onMounted的Hook

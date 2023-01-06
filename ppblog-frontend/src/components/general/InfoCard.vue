@@ -89,7 +89,7 @@ div {
 .username {
     padding-top: 10px;
     text-shadow: 2px 3px 1px rgba(246, 114, 114, 0.732);
-    font-size: 2.5em;
+    font-size: 0.25rem;
     font-weight: bold;
     color: black;
 }
