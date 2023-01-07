@@ -78,7 +78,7 @@ div {
 
 #formbody {
     user-select: none;
-    width: 800px;
+    width: 750px;
     height: 450px;
     background-color: #ffffff88;
     border-radius: 5px;
@@ -117,7 +117,7 @@ div {
 .login-text {
     color: #1A120B;
     font-size: 3rem;
-    width: 400px;
+    width: 375px;
     text-align: center;
     padding-bottom: 30px;
     padding-top: 95px;
@@ -125,7 +125,7 @@ div {
 
 .PromptText {
     font-size: 2.5rem;
-    width: 400px;
+    width: 375px;
     text-align: center;
     padding-bottom: 30px;
     padding-top: 115px;
@@ -141,13 +141,13 @@ div {
 }
 
 .loginForm {
-    width: 400px;
+    width: 375px;
     height: 100%;
 }
 
 .registerPrompt {
     background-color: #ffb30092;
-    width: 400px;
+    width: 375px;
     height: 450px;
     text-align: center;
 }

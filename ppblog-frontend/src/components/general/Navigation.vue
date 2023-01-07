@@ -4,23 +4,23 @@
             <el-col class="name" :span="3">
                 <div :style="{ 'color': props.fontColor }">MarvelousPP</div>
             </el-col>
-            <el-col :span="10"></el-col>
-            <el-col :span="2">
+            <el-col :span="7"></el-col>
+            <el-col :span="3">
                 <div @click="toPage('/')" class="link" ref="toMain" @mouseenter="playAnime(toMain, 'rubberBand', true)"
                     :style="{ 'color': props.fontColor }">
                     🗺️&nbsp;首页</div>
             </el-col>
-            <el-col :span="2">
+            <el-col :span="3">
                 <div @click="toPage('/articles/all')" class="link" ref="toRecommend"
                     @mouseenter="playAnime(toRecommend, 'rubberBand', true)" :style="{ 'color': props.fontColor }">
                     🏆&nbsp;博文荟萃</div>
             </el-col>
-            <el-col :span="2">
+            <el-col :span="3">
                 <div @click="toPage('/navigation')" class="link" ref="toUsefulLinks"
                     @mouseenter="playAnime(toUsefulLinks, 'rubberBand', true)" :style="{ 'color': props.fontColor }">
                     🧭&nbsp;资源导航</div>
             </el-col>
-            <el-col :span="2">
+            <el-col :span="3">
                 <div @click="toPage('/statistic')" class="link" ref="toStatistic"
                     @mouseenter="playAnime(toStatistic, 'rubberBand', true)" :style="{ 'color': props.fontColor }">
                     🧮&nbsp;本站统计</div>
@@ -30,9 +30,6 @@
                     @mouseenter="playAnime(toLogin, 'jello', true)">
                     <div class="avatar" :style="{ 'background-image': 'url(' + avatarSource + ')' }" />
                 </div>
-            </el-col>
-            <el-col :span="1">
-                <div></div>
             </el-col>
         </el-row>
     </div>
@@ -71,6 +68,8 @@ div {
     user-select: none;
     height: 100%;
     font-size: 1.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: aliceblue;
     text-align: center;
     line-height: 50px;
@@ -100,7 +99,7 @@ div {
     width: 2.5rem;
     height: 2.5rem;
     background-size: 2.5rem;
-    margin-top: 5px;
+    margin-top: 0.25rem;
     display: inline-block;
     border-radius: 50px;
 }

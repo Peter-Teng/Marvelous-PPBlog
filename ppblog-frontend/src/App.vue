@@ -1,10 +1,11 @@
 <template>
-  <router-view />
+  <router-view class="wrap" />
 </template>
 
 <script>
 import Echarts from './plugins/echart'
 import { provide } from 'vue'
+import $ from 'jquery'
 
 export default {
   name: 'App',
@@ -13,6 +14,34 @@ export default {
   },
   components: {
   },
+  mounted() {
+    let width = $("body").width();
+    let widthCache = width
+    if (width < 750) {
+      this.$router.replace("/sorry")
+    }
+    let fontsize = width / 1536 * 16;//fontsize为当前屏幕的基数字体，相对于设计稿计算得到的。
+    $("html").css("font-size", `${fontsize}px`)
+    //当加载页面的时候设置生效
+    window.onresize = () => {//当页面尺寸改变的时候生效
+      return (() => {
+        let width = $("body").width();
+        let fontsize = width / 1536 * 16;
+        $("html").css("font-size", `${fontsize}px`)
+      })()
+    }
+
+    window.addEventListener("resize", () => {
+      let width = $("body").width();
+      if (width < 750) {
+        this.$router.replace("/sorry")
+        widthCache = width
+      } else if (widthCache < 750 && width >= 750) {
+        this.$router.replace("/")
+        widthCache = width
+      }
+    });
+  }
 }
 </script>
 
@@ -22,13 +51,6 @@ export default {
   padding: 0;
 }
 
-.explicit {
-  background: #F8F8F8;
-}
-
-.explicit div {
-  color: #0a0a0a;
-}
 
 ::selection {
   background-color: #FAF8F1;

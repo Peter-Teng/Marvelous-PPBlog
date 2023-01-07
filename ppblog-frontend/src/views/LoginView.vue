@@ -28,6 +28,7 @@ function flipForm() {
   background-position: center;
 }
 .Form{ 
+  width: 50%;
   position: absolute;
   left: 50%;
   top: 50%;

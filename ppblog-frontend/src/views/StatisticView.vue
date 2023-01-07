@@ -272,6 +272,7 @@ div {
 }
 
 .sourceLink {
+    font-size: 0.5rem;
     cursor: pointer;
     color: chocolate;
 }

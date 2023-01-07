@@ -91,7 +91,7 @@ div {
 
 #formbody {
     user-select: none;
-    width: 800px;
+    width: 750px;
     height: 450px;
     background-color: #ffffff88;
     color: #f5f5f68d;
@@ -131,7 +131,7 @@ div {
 .register-text {
     color: #1A120B;
     font-size: 3rem;
-    width: 400px;
+    width: 375px;
     text-align: center;
     padding-bottom: 25px;
     padding-top: 80px;
@@ -140,7 +140,7 @@ div {
 .PromptText {
     color:#FAF8F1;
     font-size: 2.5rem;
-    width: 400px;
+    width: 375px;
     text-align: center;
     padding-bottom: 30px;
     padding-top: 115px;
@@ -157,13 +157,13 @@ div {
 
 .loginPrompt {
     background-color: #144172c5;
-    width: 400px;
+    width: 375px;
     height: 450px;
     text-align: center;
 }
 
 .registerForm {
-    width: 400px;
+    width: 375px;
     height: 100%;
 }
 </style>

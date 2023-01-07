@@ -2,7 +2,7 @@
     <div v-wave class="wrap">
         <div class="avatar">
             <div ref="protrait" @mouseenter="playAnime(protrait, 'tada')">
-                <el-avatar :size="180" :src="info.avatar" />
+                <el-avatar :size="avatarSize" :src="info.avatar" />
             </div>
         </div>
         <div class="username">{{ info.username }}®️</div>
@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 import playAnime from '../../utils/animate'
 
@@ -56,10 +56,18 @@ const github = ref('')
 const bilibili = ref('')
 const wechat = ref('')
 const leetcode = ref('')
+const avatarSize = ref(150)
 
 const newPage = (dest) => {
     window.open(dest)
 }
+
+onMounted(() => {
+    avatarSize.value = window.innerWidth / 24 * 5 * 0.6
+    window.addEventListener("resize", () => {
+        avatarSize.value = window.innerWidth / 24 * 5 * 0.6
+    });
+})
 
 </script>
 
@@ -67,6 +75,7 @@ const newPage = (dest) => {
 div {
     font-family: 'ZCOOL';
 }
+
 .wrap {
     user-select: none;
     width: 100%;

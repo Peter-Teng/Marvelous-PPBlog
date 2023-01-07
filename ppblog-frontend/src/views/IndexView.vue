@@ -160,7 +160,7 @@ div {
   user-select: none;
   width: 40%;
   display: block;
-  margin: 20% auto;
+  margin: calc(40vh) auto;
 }
 
 .taboo {
@@ -189,7 +189,7 @@ div {
   color: antiquewhite;
   background: #17171795;
   border-radius: 10px;
-  width: 450px;
+  width: 90%;
   height: 50px;
   padding-left: 10px;
   padding-right: 10px;
@@ -200,8 +200,7 @@ div {
 }
 
 .content {
-  margin: 0px auto;
-  margin: 20px 75px 0px 75px;
+  margin: calc(5vh) 75px 0px 75px;
   width: 90%;
   border-radius: 30px;
   background-color: #00000000;

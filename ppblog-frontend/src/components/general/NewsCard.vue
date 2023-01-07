@@ -1,7 +1,7 @@
 <template>
     <div v-wave class="wrap">
         <el-row>
-            <el-col :span="4">
+            <el-col :span="4" style="display: table;">
                 <div ref="iconRef" class="icon" @click="playAnime(iconRef, 'heartBeat')">📢</div>
             </el-col>
             <el-col :span="20">
@@ -57,7 +57,9 @@ onMounted(() => {
 
 .icon {
     font-size: 5rem;
-    line-height: 230px;
+    line-height: 0;
+    display: table-cell;
+    vertical-align: middle;
     animation: scale 1.5s infinite;
     text-align: center;
     user-select:none; 
