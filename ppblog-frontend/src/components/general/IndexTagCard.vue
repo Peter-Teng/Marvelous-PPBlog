@@ -34,8 +34,8 @@ const toArticles = (tagName) => {
 <style scoped>
 .wrap {
     user-select: none;
-    width: 300px;
-    height: 350px;
+    width: 100%;
+    height: 20%;
     border-radius: 20px;
     box-shadow: .5px .5px 1px 1px #eef1ff2f;
     background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);

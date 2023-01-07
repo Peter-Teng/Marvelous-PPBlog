@@ -173,6 +173,7 @@ watch(
 }
 
 .tags {
+    width: 100%;
     display: inline-block;
 }
 

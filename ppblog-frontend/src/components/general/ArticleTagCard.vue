@@ -38,12 +38,13 @@ const toArticles = (tagName) => {
 <style scoped>
 .wrap {
     user-select: none;
-    width: 1200px;
-    height: 250px;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
     border-radius: 20px;
     box-shadow: .5px .5px 1px 1px #eef1ff2f;
     background-image: linear-gradient(135deg, #FD6585 10%, #0D25B9 100%);
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: center;
     border: 2px solid #0A2647;
 }

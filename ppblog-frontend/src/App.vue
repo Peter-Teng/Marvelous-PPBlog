@@ -12,7 +12,7 @@ export default {
     provide('echarts', Echarts) // provide Echarts
   },
   components: {
-  }
+  },
 }
 </script>
 

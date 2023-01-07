@@ -20,7 +20,6 @@ const drawCharts = {
             var strArr = blogData.date[i].split('-')
             blogData.date[i] = strArr[0] + "-" + strArr[1]
         }
-        console.log(blogData)
         // 绘制图表
         blogChart.setOption({
             title: {
@@ -99,10 +98,8 @@ const drawCharts = {
                 },
             ]
         });
-        window.onresize = function () {//自适应大小
-            overviewChart.resize();
-        };
         loading.value = false
+        return blogChart
     },
     tagChart: (echarts, statistics, loading) => {
         //需要获取到element,所以是onMounted的Hook
@@ -154,12 +151,10 @@ const drawCharts = {
                 }
             ]
         })
-        window.onresize = function () {//自适应大小
-            tagChart.resize();
-        }
         loading.value = false
+        return tagChart
     },
-    linkChart: (echarts, statistics, loading) => {
+    linkChart: (echarts, statistics, width, loading) => {
         //需要获取到element,所以是onMounted的Hook
         let linkChart = echarts.init(document.getElementById("linkChart"));
         let linkData = []
@@ -184,7 +179,7 @@ const drawCharts = {
                 {
                     name: '导航分类',
                     type: 'pie',
-                    radius: [25, 200],
+                    radius: [width * (11/12) * 0.85 / 20, width * (11/12) * 0.85 / 5],
                     center: ['50%', '50%'],
                     roseType: 'area',
                     itemStyle: {
@@ -194,10 +189,8 @@ const drawCharts = {
                 }
             ]
         })
-        window.onresize = function () {//自适应大小
-            tagChart.resize();
-        }
         loading.value = false
+        return linkChart
     }
 };
 

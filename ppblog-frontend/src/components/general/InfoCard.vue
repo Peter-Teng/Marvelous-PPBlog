@@ -69,8 +69,8 @@ div {
 }
 .wrap {
     user-select: none;
-    width: 300px;
-    height: 400px;
+    width: 100%;
+    height: 20%;
     border-radius: 5px;
     box-shadow: .5px .5px 1px 1px #fbf2cf22;
     background: url("https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2FinfoBG.jpeg");

@@ -44,7 +44,7 @@ onMounted(() => {
 .wrap {
     width: 95%;
     margin: 0 auto;
-    height: 230px;
+    height: 20%;
     border-radius: 5px;
     box-shadow: 1px 1px 2px 2px #0a0a0a4a;
     background: linear-gradient(220.55deg, #9F25FF 0%, #FF7A00 100%);

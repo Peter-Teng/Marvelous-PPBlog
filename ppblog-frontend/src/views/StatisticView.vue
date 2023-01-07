@@ -145,17 +145,26 @@ onMounted(() => {
 
     api.getBlogRecords().then(res => {
         blogChartStatistic.value = res.data.data
-        Charts.blogChart(echarts, blogChartStatistic.value, loadingBlogChart)
+        let blogChart = Charts.blogChart(echarts, blogChartStatistic.value, loadingBlogChart)
+        window.addEventListener("resize", () => {
+            blogChart.resize();
+        });
     })
 
     api.getTagStatistic().then(res => {
         tagChartStatistic.value = res.data.data
-        Charts.tagChart(echarts, tagChartStatistic.value, loadingTagChart);
+        let tagChart = Charts.tagChart(echarts, tagChartStatistic.value, loadingTagChart);
+        window.addEventListener("resize", () => {
+            tagChart.resize();
+        });
     })
 
     api.getLinkStatistic().then(res => {
         linkChartStatistic.value = res.data.data
-        Charts.linkChart(echarts, linkChartStatistic.value, loadingLinkChart);
+        let linkChart = Charts.linkChart(echarts, linkChartStatistic.value, window.innerWidth,loadingLinkChart);
+        window.addEventListener("resize", () => {
+            linkChart.resize();
+        });
     })
 })
 </script>
@@ -270,7 +279,7 @@ div {
 .chart {
     margin: 20px auto;
     display: inline-block;
-    min-width: 1200px;
+    min-width: 85%;
     min-height: 500px;
     border-radius: 20px;
     padding: 5px;
