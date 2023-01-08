@@ -39,7 +39,7 @@
                 <pageFoot></pageFoot>
             </div>
             <el-backtop :right="30" :bottom="80" target=".el-scrollbar__wrap" :visibility-height="400">
-                <div>🚀</div>
+                <img class="backtop" src="../assets/images/rocket.svg" />
             </el-backtop>
         </div>
     </el-scrollbar>
@@ -189,5 +189,10 @@ watch(
     margin: 5px auto auto 0px;
     padding-bottom: 10px;
     display: inline-flex;
+}
+
+.backtop {
+    width: 2rem;
+    height: 2rem;
 }
 </style>

@@ -27,7 +27,7 @@
                 <pageFoot></pageFoot>
             </div>
             <el-backtop :right="30" :bottom="80" target=".el-scrollbar__wrap" :visibility-height="400">
-                <div>🚀</div>
+                <img class="backtop" src="../assets/images/rocket.svg" />
             </el-backtop>
         </div>
     </el-scrollbar>
@@ -135,5 +135,10 @@ div {
 
 .linkCards {
     min-height: calc(40vh);
+}
+
+.backtop {
+    width: 2rem;
+    height: 2rem;
 }
 </style>

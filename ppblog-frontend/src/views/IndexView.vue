@@ -49,7 +49,7 @@
         <pageFoot></pageFoot>
       </div>
       <el-backtop :right="30" :bottom="80" target=".el-scrollbar__wrap" :visibility-height="400">
-        <div>🚀</div>
+        <img class="backtop" src="../assets/images/rocket.svg" />
       </el-backtop>
     </div>
   </el-scrollbar>
@@ -69,7 +69,7 @@ import tagCard from "../components/general/IndexTagCard.vue"
 import articleCard from "../components/general/ArticleCard.vue"
 
 const waveColor = "#251B37fa"
-const poem = ref("")
+const poem = ref("本来无一物，何处惹尘埃？")
 const total = ref(0)
 const articles = ref([])
 const userInfo = ref({})
@@ -218,6 +218,11 @@ div {
   margin: 5px auto auto 0px;
   padding-bottom: 10px;
   display: inline-flex;
+}
+
+.backtop {
+    width: 2rem;
+    height: 2rem;
 }
 </style>
 

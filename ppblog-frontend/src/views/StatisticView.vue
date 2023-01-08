@@ -75,7 +75,7 @@
                 <pageFoot></pageFoot>
             </div>
             <el-backtop :right="30" :bottom="80" target=".el-scrollbar__wrap" :visibility-height="400">
-                <div>🚀</div>
+                <img class="backtop" src="../assets/images/rocket.svg" />
             </el-backtop>
         </div>
     </el-scrollbar>
@@ -161,7 +161,7 @@ onMounted(() => {
 
     api.getLinkStatistic().then(res => {
         linkChartStatistic.value = res.data.data
-        let linkChart = Charts.linkChart(echarts, linkChartStatistic.value, window.innerWidth,loadingLinkChart);
+        let linkChart = Charts.linkChart(echarts, linkChartStatistic.value, window.innerWidth, loadingLinkChart);
         window.addEventListener("resize", () => {
             linkChart.resize();
         });
@@ -288,5 +288,10 @@ div {
 
 .chart:hover {
     box-shadow: 0.25px 0.25px 10px 1px #0F3460;
+}
+
+.backtop {
+    width: 2rem;
+    height: 2rem;
 }
 </style>

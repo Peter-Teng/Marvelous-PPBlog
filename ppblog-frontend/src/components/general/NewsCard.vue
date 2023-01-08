@@ -2,7 +2,8 @@
     <div v-wave class="wrap">
         <el-row>
             <el-col :span="4" style="display: table;">
-                <div ref="iconRef" class="icon" @click="playAnime(iconRef, 'heartBeat')">📢</div>
+                <div ref="iconRef" class="icon" @click="playAnime(iconRef, 'heartBeat')"><img class="trumpet"
+                        src="../../assets/images/trumpet.svg" /></div>
             </el-col>
             <el-col :span="20">
                 <div v-for="item in news" :key="item.id">
@@ -56,17 +57,19 @@ onMounted(() => {
 }
 
 .icon {
-    font-size: 5rem;
-    line-height: 0;
     display: table-cell;
     vertical-align: middle;
     animation: scale 1.5s infinite;
     text-align: center;
-    user-select:none; 
+    user-select: none;
 }
 
+.trumpet {
+    width: 6rem;
+    height: 6rem;
+}
 
-.newsWrap{
+.newsWrap {
     width: 90%;
     height: 100%;
     margin: 10px auto;

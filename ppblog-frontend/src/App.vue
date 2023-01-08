@@ -18,7 +18,8 @@ export default {
     let width = $("body").width()
     let height = $("body").height()
     let widthCache = width
-    if (width < 750 || height < 500) {
+    // 检查展示尺寸，当页面没加载时height可能为0，会导致错误跳转，故排除此种情况
+    if (width < 750 || (height != 0 && height < 500)) {
       this.$router.replace("/sorry")
     }
     let fontsize = width / 1536 * 16;//fontsize为当前屏幕的基数字体，相对于设计稿计算得到的。
@@ -32,17 +33,18 @@ export default {
       })()
     }
 
+    // 添加窗口尺寸监听
     window.addEventListener("resize", () => {
       let width = $("body").width()
       let height = $("body").height()
-      if (width < 750 || height < 500) {
+      if (width < 750 || (height != 0 && height < 500)) {
         this.$router.replace("/sorry")
         widthCache = width
       } else if (widthCache < 750 && width >= 750 && height >= 500) {
         this.$router.replace("/")
         widthCache = width
       }
-    });
+    })
   }
 }
 </script>
@@ -62,7 +64,7 @@ export default {
 
 div {
   font-family: "JetBrainsMono";
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 
 router-view {

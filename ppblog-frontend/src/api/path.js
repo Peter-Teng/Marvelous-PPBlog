@@ -1,4 +1,4 @@
-const baseUrl="http://114.132.47.193:8888"
+const baseUrl="http://202.38.247.210:8888"
 
 const paths = {
     loginUrl: baseUrl + "/general/user/login",

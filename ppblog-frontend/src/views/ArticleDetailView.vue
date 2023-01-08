@@ -37,7 +37,7 @@
                 <pageFoot></pageFoot>
             </div>
             <el-backtop :right="30" :bottom="80" target=".el-scrollbar__wrap" :visibility-height="400">
-                <div>🚀</div>
+                <img class="backtop" src="../assets/images/rocket.svg" />
             </el-backtop>
         </div>
     </el-scrollbar>
@@ -172,5 +172,10 @@ onMounted(() => {
     font-size: 1rem;
     text-shadow: 1px 1.5px 0.5px #001d6ecf;
     color: #F9F9F9;
+}
+
+.backtop {
+    width: 2rem;
+    height: 2rem;
 }
 </style>
