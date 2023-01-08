@@ -35,11 +35,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import api from '../../api/index'
 import { User, Key } from '@element-plus/icons-vue'
+import { useRouter } from 'vue-router'
 
 // 变量区域
+const router = useRouter()
+const userStore = inject("userStore")
+
 const username = ref('')
 const password = ref('')
 
@@ -61,6 +65,8 @@ function login() {
     }
     api.login(user).then(res => {
         ElMessage.success("登录成功！")
+        userStore.methods.login(userStore, res.data.data.token)
+        router.push('/admin')
     })
 }
 

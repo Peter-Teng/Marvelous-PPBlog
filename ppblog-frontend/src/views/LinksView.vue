@@ -36,7 +36,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 
-import background from '../utils/background'
+import background from '../storage/background'
 import api from '../api/index'
 import bar from "../components/general/Navigation.vue"
 import linkCard from "../components/general/LinksCard.vue"

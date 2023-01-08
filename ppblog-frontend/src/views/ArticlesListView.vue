@@ -51,7 +51,7 @@ import { useRoute } from 'vue-router'
 
 import api from '../api/index'
 
-import background from '../utils/background'
+import background from '../storage/background'
 import bar from "../components/general/Navigation.vue"
 import tagCard from "../components/general/ArticleTagCard.vue"
 import pageFoot from "../components/general/PageFoot.vue"

@@ -11,7 +11,7 @@ import { ref } from 'vue'
 import LoginForm from "../components/general/LoginForm.vue"
 import registerForm from "../components/general/RegisterForm.vue"
 import bar from "../components/general/Navigation"
-import background from '../utils/background'
+import background from '../storage/background'
 
 const isLogin= ref(true)
 

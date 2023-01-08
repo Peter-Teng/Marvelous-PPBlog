@@ -26,8 +26,7 @@
                     🧮&nbsp;本站统计</div>
             </el-col>
             <el-col :span="2">
-                <div @click="toPage('/login')" class="link" ref="toLogin"
-                    @mouseenter="playAnime(toLogin, 'jello', true)">
+                <div @click="toAdmin()" class="link" ref="toLogin" @mouseenter="playAnime(toLogin, 'jello', true)">
                     <div class="avatar" :style="{ 'background-image': 'url(' + avatarSource + ')' }" />
                 </div>
             </el-col>
@@ -36,7 +35,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import { useRouter } from 'vue-router'
 
 import playAnime from '../../utils/animate'
@@ -55,11 +54,20 @@ const toLogin = ref("")
 const avatarSource = ref("https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2Fpp-icon.png")
 
 const router = useRouter()
+const userStore = inject("userStore")
 
 const toPage = (dest) => {
     router.push(dest)
 }
 
+const toAdmin = () => {
+    if (userStore.methods.hasLogin(userStore)) {
+        ElNotification({ title: 'Hey,主人!', message: '欢迎回来!', type: 'success' })
+        router.push("/admin")
+    } else {
+        router.push("/login")
+    }
+}
 
 </script>
 
@@ -82,11 +90,6 @@ div {
 
 .link {
     cursor: pointer;
-    animation-duration: 1.5s;
-    -moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .3s ease-in;
 }
 
 .naviBar {

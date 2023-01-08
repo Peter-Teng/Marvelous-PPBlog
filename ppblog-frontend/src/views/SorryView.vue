@@ -17,7 +17,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import $ from 'jquery'
 
-import background from '../utils/background'
+import background from '../storage/background'
 
 const router = useRouter()
 const textCHN = ref("抱歉,本站尚未完成适合您设备尺寸的适配\n请使用PC(最大化)或平板(横屏)后刷新访问")

@@ -58,7 +58,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import api from '../api/index'
-import background from '../utils/background'
+import background from '../storage/background'
 
 import bar from "../components/general/Navigation.vue"
 import wave from "../components/general/Wave.vue"

@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
-import store from './store'
 import elementIcon from "./plugins/icons";
 import VWave from 'v-wave'
 
@@ -12,7 +11,7 @@ import 'animate.css';
 
 
 let app = createApp(App)
-app.use(VWave).use(elementIcon).use(store).use(router).mount('#app')
+app.use(VWave).use(elementIcon).use(router).mount('#app')
 
 
 // 页面每次跳转回到顶部

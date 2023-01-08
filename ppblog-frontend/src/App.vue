@@ -4,6 +4,7 @@
 
 <script>
 import Echarts from './plugins/echart'
+import userStore from './storage/user'
 import { provide } from 'vue'
 import $ from 'jquery'
 
@@ -11,6 +12,7 @@ export default {
   name: 'App',
   setup() {
     provide('echarts', Echarts) // provide Echarts
+    provide('userStore', userStore)
   },
   components: {
   },

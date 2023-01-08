@@ -85,13 +85,13 @@
 <script setup>
 import { onMounted, ref, inject } from 'vue'
 
-import background from '../utils/background'
+import background from '../storage/background'
 import Charts from '../utils/chart'
 import api from '../api/index'
 import bar from "../components/general/Navigation.vue"
 import pageFoot from "../components/general/PageFoot.vue"
 
-let echarts = inject('echarts')
+const echarts = inject('echarts')
 
 const localhost = ref("http://www.marvelouspp.com")
 const overviewStatistic = ref({})

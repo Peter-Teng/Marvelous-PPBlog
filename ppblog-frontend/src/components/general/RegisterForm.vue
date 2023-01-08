@@ -79,6 +79,7 @@ const register = () => {
     }
     api.register(user).then(res => {
         ElMessage.success("注册成功！快去登录吧！")
+        flip()
     })
 }
 

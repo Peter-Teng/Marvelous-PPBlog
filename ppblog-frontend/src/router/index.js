@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import IndexView from '../views/IndexView'
 
 const routes = [
+  // 公共页面
   {
     path: '/',
     name: 'index',
@@ -37,6 +38,13 @@ const routes = [
     path: '/sorry',
     name: 'SorryView',
     component: () => import('../views/SorryView.vue')
+  },
+
+  // 管理端页面
+  {
+    path: '/admin',
+    name: 'AdminView',
+    component: () => import('../views/AdminView.vue')
   }
 ]
 
