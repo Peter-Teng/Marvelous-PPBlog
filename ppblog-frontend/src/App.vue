@@ -15,9 +15,10 @@ export default {
   components: {
   },
   mounted() {
-    let width = $("body").width();
+    let width = $("body").width()
+    let height = $("body").height()
     let widthCache = width
-    if (width < 750) {
+    if (width < 750 || height < 500) {
       this.$router.replace("/sorry")
     }
     let fontsize = width / 1536 * 16;//fontsize为当前屏幕的基数字体，相对于设计稿计算得到的。
@@ -25,18 +26,19 @@ export default {
     //当加载页面的时候设置生效
     window.onresize = () => {//当页面尺寸改变的时候生效
       return (() => {
-        let width = $("body").width();
+        let width = $("body").width()
         let fontsize = width / 1536 * 16;
         $("html").css("font-size", `${fontsize}px`)
       })()
     }
 
     window.addEventListener("resize", () => {
-      let width = $("body").width();
-      if (width < 750) {
+      let width = $("body").width()
+      let height = $("body").height()
+      if (width < 750 || height < 500) {
         this.$router.replace("/sorry")
         widthCache = width
-      } else if (widthCache < 750 && width >= 750) {
+      } else if (widthCache < 750 && width >= 750 && height >= 500) {
         this.$router.replace("/")
         widthCache = width
       }

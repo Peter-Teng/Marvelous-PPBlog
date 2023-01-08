@@ -36,7 +36,7 @@
                 <div>
                   <articleCard v-for="article in articles" :key="article.id" :article="article"></articleCard>
                 </div>
-                <div class="indexPaginationWrap" style="text-align: center; color: blue;">
+                <div class="paginationWrap" style="text-align: center; color: blue;">
                   <el-pagination class="pagination" :page-size="pageSize" :pager-count="7"
                     layout="prev, pager, next, jumper" :total="total" @current-change="handleChange" background />
                 </div>
@@ -222,64 +222,64 @@ div {
 </style>
 
 <style>
-.indexPaginationWrap .el-pagination .el-icon {
+.paginationWrap .el-pagination .el-icon {
   font-size: 18px !important;
 }
 
-.indexPaginationWrap .el-pagination.is-background .btn-prev {
+.paginationWrap .el-pagination.is-background .btn-prev {
   background-color: #251B37 !important;
   color: aliceblue !important;
 }
 
-.indexPaginationWrap .el-pagination.is-background .btn-prev:hover {
+.paginationWrap .el-pagination.is-background .btn-prev:hover {
   background-color: #251B37 !important;
   color: #FFF80A !important;
 }
 
-.indexPaginationWrap .el-pager li {
+.paginationWrap .el-pager li {
   font-weight: bold;
   background: #251B37 !important;
   color: aliceblue !important;
 }
 
-.indexPaginationWrap .el-pager li:hover {
+.paginationWrap .el-pager li:hover {
   background: #fefefe !important;
   color: #000000 !important;
 }
 
-.indexPaginationWrap .el-pager li.is-active {
+.paginationWrap .el-pager li.is-active {
   font-weight: bold;
   background: #fefefe !important;
   color: #000000 !important;
 }
 
-.indexPaginationWrap .el-pager li.is-active:hover {
+.paginationWrap .el-pager li.is-active:hover {
   font-weight: bold;
   background: #fefefe !important;
   color: #000000 !important;
 }
 
-.indexPaginationWrap .el-pagination.is-background .btn-next {
+.paginationWrap .el-pagination.is-background .btn-next {
   background-color: #251B37 !important;
   color: aliceblue !important;
 }
 
-.indexPaginationWrap .el-pagination.is-background .btn-next:hover {
+.paginationWrap .el-pagination.is-background .btn-next:hover {
   background-color: #251B37 !important;
   color: #FFF80A !important;
 }
 
-.indexPaginationWrap .el-pagination .el-pagination__goto {
+.paginationWrap .el-pagination .el-pagination__goto {
   font-size: 0.9rem;
   color: aliceblue !important;
   padding-right: 20px;
 }
 
-.indexPaginationWrap .el-pagination .el-input__wrapper {
+.paginationWrap .el-pagination .el-input__wrapper {
   background-color: #251B37 !important;
 }
 
-.indexPaginationWrap .el-pagination .el-input__inner {
+.paginationWrap .el-pagination .el-input__inner {
   color: aliceblue !important;
   font-size: 0.9rem;
 }

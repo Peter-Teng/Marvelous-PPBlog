@@ -20,12 +20,13 @@ import $ from 'jquery'
 import background from '../utils/background'
 
 const router = useRouter()
-const textCHN = ref("抱歉,本站尚未完成适合您设备宽度的适配\n请使用PC(最大化)或平板(横屏)后刷新访问")
-const textENG = ref("Sorry! The website does not support your device. \nPlease visit via PC (maximize the browser) or tablets (landscape mode)")
+const textCHN = ref("抱歉,本站尚未完成适合您设备尺寸的适配\n请使用PC(最大化)或平板(横屏)后刷新访问")
+const textENG = ref("Sorry! The website does not support the size of the current window. \nPlease visit via PC (maximize the browser) or tablets (landscape mode)")
 
 onMounted(() => {
     let width = $("body").width();
-    if (width >= 750) {
+    let height = $("body").height()
+    if (width >= 750 && height >= 500) {
         router.push("/")
     }
 })

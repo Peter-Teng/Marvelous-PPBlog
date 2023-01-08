@@ -99,7 +99,7 @@ div {
     width: 2.5rem;
     height: 2.5rem;
     background-size: 2.5rem;
-    margin-top: 0.25rem;
+    vertical-align: middle;
     display: inline-block;
     border-radius: 50px;
 }

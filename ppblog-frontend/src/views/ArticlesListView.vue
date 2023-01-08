@@ -25,7 +25,7 @@
                                 <articleCard v-for="article in articles" :key="article.id" :article="article">
                                 </articleCard>
                             </div>
-                            <div style="text-align: center; color: blue;">
+                            <div style="text-align: center; color: blue;" class="paginationWrap">
                                 <el-pagination class="pagination" :page-size="pageSize" :pager-count="7"
                                     layout="prev, pager, next, jumper" :total="total" @current-change="handleChange"
                                     background />
