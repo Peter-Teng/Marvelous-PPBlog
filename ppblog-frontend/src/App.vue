@@ -6,7 +6,9 @@
 import Echarts from './plugins/echart'
 import userStore from './storage/user'
 import { provide } from 'vue'
+import api from './api/index'
 import $ from 'jquery'
+import background from './storage/background'
 
 export default {
   name: 'App',
@@ -17,6 +19,7 @@ export default {
   components: {
   },
   mounted() {
+    // 屏幕尺寸检查
     let width = $("body").width()
     let height = $("body").height()
     let widthCache = width
@@ -45,6 +48,15 @@ export default {
       } else if (widthCache < 750 && width >= 750 && height >= 500) {
         this.$router.replace("/")
         widthCache = width
+      }
+    })
+
+    // 加载背景图像
+    api.getBackgrounds().then(res => {
+      for(let item of res.data.data) {
+        if(item.name in background) {
+          background[item.name] = item.url
+        }
       }
     })
   }

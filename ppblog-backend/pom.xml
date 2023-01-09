@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.marvelouspp</groupId>
 	<artifactId>ppblog</artifactId>
-	<version>0.0.1</version>
+	<version>1.0.0</version>
 	<name>ppblog</name>
 	<description>The Marvelous PPBlog backend (JAVA).</description>
 	<properties>

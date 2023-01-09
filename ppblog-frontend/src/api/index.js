@@ -11,6 +11,10 @@ export default {
         return axios.post(paths.registerUrl, user)
     },
 
+    getBackgrounds() {
+        return axios.get(paths.backgroundUrl)
+    },
+
     getInfo() {
         return axios.get(paths.infoUrl)
 
@@ -23,7 +27,7 @@ export default {
     },
 
     getPublicArticles(pageNum, pageSize = 5) {
-        return axios.get(paths.publicArticlesUrl, {
+        return axios.get(paths.getPublicArticlesUrl, {
             params: {
                 "pageNum": pageNum,
                 "pageSize": pageSize

@@ -14,6 +14,9 @@ import com.alibaba.fastjson.JSON;
 import com.marvelouspp.ppblog.domain.ResponseObject;
 import com.marvelouspp.ppblog.domain.enums.Code;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Component
 public class AccessDeninedHandlerImpl implements AccessDeniedHandler {
 
@@ -21,6 +24,11 @@ public class AccessDeninedHandlerImpl implements AccessDeniedHandler {
     public void handle(HttpServletRequest request, HttpServletResponse response,
             AccessDeniedException accessDeniedException) throws IOException, ServletException {
         accessDeniedException.printStackTrace();
+        log.info("[ERROR] =======ACCESS DENINED=======");
+        log.info("IP             : {}", request.getRemoteHost());
+        log.info("URL            : {}", request.getRequestURL());
+        log.info("=======End=======" + System.lineSeparator());
+
         ResponseObject<?> result = ResponseObject.failure(Code.NO_AUTH);
         ResponseObject.renderResult(response, JSON.toJSONString(result));
     }

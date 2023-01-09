@@ -4,7 +4,9 @@ const paths = {
     loginUrl: baseUrl + "/general/user/login",
     registerUrl: baseUrl + "/general/user/register",
     infoUrl: baseUrl + "/general/user/info",
-    publicArticlesUrl: baseUrl + "/general/article/list",
+    backgroundUrl: baseUrl + "/general/background/list",
+
+    getPublicArticlesUrl: baseUrl + "/general/article/list",
     getNewsUrl: baseUrl + "/general/news/list",
     getTagsUrl: baseUrl + "/general/tag/list",
     getArticleByTagUrl: baseUrl + "/general/article/tagList",

@@ -44,7 +44,44 @@ const routes = [
   {
     path: '/admin',
     name: 'AdminView',
-    component: () => import('../views/AdminView.vue')
+    component: () => import('../views/AdminView.vue'),
+    children: [
+      {
+        path: '',
+        name: 'HomeFragment',
+        component: () => import('../components/admin/HomeFragment.vue')
+      },
+      {
+        path: 'ariticle/list',
+        name: 'ArticleListFragment',
+        component: () => import('../components/admin/ArticleListFragment.vue')
+      },
+      {
+        path: 'article/edit',
+        name: 'EditArticleFragment',
+        component: () => import('../components/admin/EditArticleFragment.vue')
+      },
+      {
+        path: 'tag',
+        name: 'TagFragment',
+        component: () => import('../components/admin/TagFragment.vue')
+      },
+      {
+        path: 'news',
+        name: 'NewsFragment',
+        component: () => import('../components/admin/NewsFragment.vue')
+      },
+      {
+        path: 'link',
+        name: 'LinkFragment',
+        component: () => import('../components/admin/LinkFragment.vue')
+      },
+      {
+        path: 'background',
+        name: 'BackgroundFragment',
+        component: () => import('../components/admin/BackgroundFragment.vue')
+      }
+    ]
   }
 ]
 

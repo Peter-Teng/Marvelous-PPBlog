@@ -30,5 +30,6 @@ public class Constant {
     public static final String NEWS_CACHE = "NEWS_CACHE";
     public static final String LINKS_CACHE = "LINKS_CACHE";
     public static final String RECORDS_CACHE = "RECORDS_CACHE";
+    public static final String BACKGROUND_CACHE = "BACKGROUND_CACHE";
 
 }

@@ -70,6 +70,6 @@ public class LogAspect {
 
     private void logAfter(Object result) {
         // 打印结果
-        log.info("Response       : {}", JSON.toJSONString(result));
+        //log.info("Response       : {}", JSON.toJSONString(result));
     }
 }
