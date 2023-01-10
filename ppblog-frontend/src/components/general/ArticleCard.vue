@@ -69,6 +69,7 @@ div {
     border-radius: 20px;
     box-shadow: 1px 1px 2px 2px #3F3B6C;
     background-image: linear-gradient(135deg, #412e75 10%, #8555e3 100%);
+    white-space: pre-line;
 }
 
 .wrap:hover {

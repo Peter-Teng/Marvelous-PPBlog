@@ -108,6 +108,13 @@
 			<version>5.6.75</version>
 		</dependency>
 
+		<!-- 图像压缩 -->
+		<dependency>
+			<groupId>com.tinify</groupId>
+			<artifactId>tinify</artifactId>
+			<version>1.8.0</version>
+		  </dependency>
+
 	</dependencies>
 
 	<build>

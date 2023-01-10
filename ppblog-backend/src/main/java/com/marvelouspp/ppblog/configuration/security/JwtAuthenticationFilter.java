@@ -23,6 +23,7 @@ import com.marvelouspp.ppblog.utils.JWTUtils;
 import com.marvelouspp.ppblog.utils.RedisUtils;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter{
@@ -44,14 +45,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
             claims = JWTUtils.parseJWT(token);
         } catch (Exception e) {
             e.printStackTrace();
-            ResponseObject<?> result = ResponseObject.failure(Code.TOKEN_ISSUE);
+            Code errorCode = e instanceof ExpiredJwtException ? Code.TOKEN_EXPIRED : Code.TOKEN_PARSED_FAILURE;
+            ResponseObject<?> result = ResponseObject.failure(errorCode);
             ResponseObject.renderResult(response, JSON.toJSONString(result));
             return;
         }
         String username = claims.getSubject();
         LoginUser user = redisUtils.getCacheObject(String.format(Constant.USER_LOGIN_OBJECT, username));
         if(user == null) {
-            ResponseObject<?> result = ResponseObject.failure(Code.TOKEN_ISSUE);
+            ResponseObject<?> result = ResponseObject.failure(Code.TOKEN_EXPIRED);
             ResponseObject.renderResult(response, JSON.toJSONString(result));
             return;
         }

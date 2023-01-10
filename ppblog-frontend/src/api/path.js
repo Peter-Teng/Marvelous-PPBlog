@@ -1,4 +1,5 @@
 const baseUrl="http://114.132.47.193:8888"
+// const baseUrl="http://202.38.247.210:8888"
 
 const paths = {
     loginUrl: baseUrl + "/general/user/login",
@@ -16,6 +17,10 @@ const paths = {
     getTagStatisticUrl: baseUrl + "/general/statistic/tag",
     getLinkStatisticUrl: baseUrl + "/general/statistic/link",
     getBlogRecordUrl: baseUrl + "/general/statistic/record",
+
+    imageUploadUrl: baseUrl + "/admin/file/upload",
+    
+    postArticleUrl: baseUrl + "/admin/article/create",
     
     hitokotoURL: "https://v1.hitokoto.cn/"
 }

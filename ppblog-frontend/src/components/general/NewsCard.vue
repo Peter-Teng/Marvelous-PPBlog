@@ -49,6 +49,7 @@ onMounted(() => {
     border-radius: 5px;
     box-shadow: 1px 1px 2px 2px #0a0a0a4a;
     background: linear-gradient(220.55deg, #9F25FF 0%, #FF7A00 100%);
+    white-space: pre-line;  
 }
 
 .wrap:hover {

@@ -1,5 +1,6 @@
 import axios from "../utils/request"
 import paths from "./path"
+
 const jinrishici = require('jinrishici');
 
 export default {
@@ -64,7 +65,7 @@ export default {
     getArticleById(articleId) {
         return axios.get(`${paths.getArticleDetailUrl}/${articleId}`)
     },
-    
+
     getLinks() {
         return axios.get(paths.getLinksUrl)
     },
@@ -83,5 +84,19 @@ export default {
 
     getBlogRecords() {
         return axios.get(paths.getBlogRecordUrl);
+    },
+
+    uploadImage(image, squeeze) {
+        const data = new FormData()
+        data.append("image", image.raw)
+        data.append("squeeze", squeeze)
+        const token = window.sessionStorage.getItem("token")
+        console.log(squeeze)
+        return axios.post(paths.imageUploadUrl, data, { headers: { "token": token, "Content-Type": "multipart/form-data;" } })
+    },
+
+    postArticle(article) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.post(paths.postArticleUrl, article, { headers: { "token": token } })
     },
 }

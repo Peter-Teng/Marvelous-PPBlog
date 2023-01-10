@@ -2,23 +2,28 @@
     <div id="formbody">
         <div class="half">
             <div class="loginForm">
-                <div class="login-text">登录</div>
+                <div class="login-text">登录<el-icon :size="25" color="#4A3933" class="tips" @click="tipsInfo">
+                        <Ticket />
+                    </el-icon></div>
                 <div class="loginInfo">
-                    <el-input type="text" class="inputs" v-model="username" placeholder="请输入用户名">
-                        <template #prefix>
-                            <el-icon class="input-icon" :size="20">
-                                <user />
-                            </el-icon>
-                        </template>
-                    </el-input>
-                    <br />
-                    <el-input type="password" class="inputs" v-model="password" placeholder="请输入密码" show-password>
-                        <template #prefix>
-                            <el-icon class="input-icon" :size="20">
-                                <key />
-                            </el-icon>
-                        </template>
-                    </el-input>
+                    <el-form :model="user">
+                        <el-input type="text" class="inputs" v-model="user.username" placeholder="请输入用户名">
+                            <template #prefix>
+                                <el-icon class="input-icon" :size="20">
+                                    <User />
+                                </el-icon>
+                            </template>
+                        </el-input>
+                        <br />
+                        <el-input type="password" class="inputs" v-model="user.password" placeholder="请输入密码"
+                            show-password>
+                            <template #prefix>
+                                <el-icon class="input-icon" :size="20">
+                                    <Key />
+                                </el-icon>
+                            </template>
+                        </el-input>
+                    </el-form>
                     <br />
                     <el-button v-wave color="#227C70" class="Botton" @click="login">登录</el-button>
                 </div>
@@ -35,45 +40,58 @@
 </template>
 
 <script setup>
-import { ref, inject } from 'vue'
+import { reactive, inject } from 'vue'
 import api from '../../api/index'
-import { User, Key } from '@element-plus/icons-vue'
+import { User, Key, StarFilled } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
 
 // 变量区域
 const router = useRouter()
 const userStore = inject("userStore")
 
-const username = ref('')
-const password = ref('')
+const user = reactive({
+    username: "",
+    password: ""
+})
 
 const emit = defineEmits(['flip'])
 
 // 函数区
 function login() {
-    if(username.value.length < 3 || username.value.length > 8) {
+    if (user.username.length < 3 || user.username.length > 8) {
         ElMessage.warning("用户名要在3到8个字符之间哦")
         return;
     }
-    if(password.value.length < 4 || password.value.length > 16) {
+    if (user.password.length < 4 || user.password.length > 16) {
         ElMessage.warning("密码要在4到16个字符之间哦!")
         return;
     }
-    const user = {
-        "username": username.value,
-        "password": password.value,
-    }
-    api.login(user).then(res => {
+
+    // 参观者登录，赋予一个假Token
+    if (user.username === "Admin") {
         ElMessage.success("登录成功！")
-        userStore.methods.login(userStore, res.data.data.token)
+        userStore.methods.login(userStore, "fakeToken")
         router.push('/admin')
-    })
+    } else {
+        api.login(user).then(res => {
+            ElMessage.success("登录成功！")
+            userStore.methods.login(userStore, res.data.data.token)
+            router.push('/admin')
+        })
+    }
 }
 
 const flip = () => {
     emit("flip")
 }
 
+const tipsInfo = () => {
+    ElNotification({
+        title: '游客登录',
+        message: '可使用游客账号进入后台界面查看哦!\n 账户: Admin\n 密码: 任意4-16位密码',
+        icon: <el-icon color="#F0C929"><StarFilled /></el-icon>
+    })
+}
 
 </script>
 
@@ -92,18 +110,18 @@ div {
 }
 
 .half {
- display: flex;
+    display: flex;
 }
 
 .inputs {
     width: 300px;
-    margin: auto auto;
+    margin: 5px auto;
     height: 45px;
 }
 
 .inputs ::selection {
-  background-color: #3a3a3a;
-  color: #FAF8F1;
+    background-color: #3a3a3a;
+    color: #FAF8F1;
 }
 
 .Botton {
@@ -127,6 +145,13 @@ div {
     text-align: center;
     padding-bottom: 30px;
     padding-top: 95px;
+}
+
+.tips {
+    cursor: pointer;
+    vertical-align: super;
+    height: 100%;
+    margin-left: 10px;
 }
 
 .PromptText {

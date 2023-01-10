@@ -1,4 +1,5 @@
 const background = {
+    loaded: false,
     index: "",
     login: "",
     articlesList: "",

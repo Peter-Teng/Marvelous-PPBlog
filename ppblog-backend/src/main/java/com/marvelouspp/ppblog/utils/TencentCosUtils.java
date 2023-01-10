@@ -1,10 +1,14 @@
 package com.marvelouspp.ppblog.utils;
 
+import java.lang.Exception;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
+import com.tinify.*;
+
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -46,20 +50,20 @@ public class TencentCosUtils {
     }
 
 
-    public static String uploadFile(MultipartFile file) throws Exception {
+    public static String uploadFile(MultipartFile file, Boolean squeeze) throws Exception {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String today = sdf.format(new Date());
         String temporaryFile = String.format("%s/%s", "images", today);
 
         File localFile = new File(temporaryFile);
-        if(!localFile.exists()) {
+        if (!localFile.exists()) {
             localFile.mkdirs();
         }
 
         String fileName = file.getOriginalFilename();
-        String name = "/MarvelousPP" + System.currentTimeMillis() + System.nanoTime() + fileName.substring(fileName.lastIndexOf('.'));
-        
+        String name = "/MarvelousPP-" + System.currentTimeMillis() + System.nanoTime()
+                + fileName.substring(fileName.lastIndexOf('.'));
 
         temporaryFile = String.format("%s/%s", temporaryFile, name);
         FileOutputStream fos;
@@ -67,6 +71,12 @@ public class TencentCosUtils {
         fos.write(file.getBytes());
         fos.flush();
         fos.close();
+
+        if (squeeze) {
+            Tinify.setKey("m7qlVgfTDRhG9n5wjw1h3gkq1pKtkGbK");
+            Source source = Tinify.fromFile(temporaryFile);
+            source.toFile(temporaryFile);
+        }
 
         File COSfile = new File(temporaryFile);
         COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
@@ -81,8 +91,9 @@ public class TencentCosUtils {
         client.putObject(request);
         String saveUrl = String.format("%s/%s", accessUrl, request.getKey());
 
-        File localImageFile = new File(temporaryFile);
-        localImageFile.delete();
+        File localImageFiles = new File("images");
+        FileUtils.deleteDirectory(localImageFiles);
+
         return saveUrl;
     }
 }

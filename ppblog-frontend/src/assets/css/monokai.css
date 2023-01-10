@@ -14,8 +14,9 @@ webkit-scrollbar :root {
 .articleBody h4,
 .articleBody h5,
 .articleBody h6,
-.articleBody p {
-    margin: 0 0;
+.articleBody p, 
+.articleBody a {
+    margin: 1rem auto;
 }
 
 .articleBody a {
@@ -48,7 +49,7 @@ webkit-scrollbar :root {
 
 .articleBody ul,
 .articleBody ol {
-    margin-left: 40px;
+    margin: 1rem 2rem;
 }
 
 .articleBody li {
@@ -57,7 +58,7 @@ webkit-scrollbar :root {
 
 .articleBody p>.md-image:only-child:not(.md-img-error) img,
 .articleBody p>img:only-child {
-    margin: 0;
+    margin: 1 rem auto;
 }
 
 .articleBody mark {

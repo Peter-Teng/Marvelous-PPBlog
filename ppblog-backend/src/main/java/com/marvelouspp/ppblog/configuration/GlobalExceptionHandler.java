@@ -25,6 +25,7 @@ public class GlobalExceptionHandler {
     public ResponseObject<?> exceptionHandler(Exception e){
         //从异常对象中获取提示信息封装返回
         log.error("An Error has happened!", e);
-        return ResponseObject.failure(Code.SYSTEM_ERROR, e.getMessage());
+        String message = e.getMessage() == null ? e.toString() : e.getMessage();
+        return ResponseObject.failure(Code.SYSTEM_ERROR, message);
     }
 }

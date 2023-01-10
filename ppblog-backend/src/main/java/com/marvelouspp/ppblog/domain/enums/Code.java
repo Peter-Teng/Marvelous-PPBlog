@@ -14,8 +14,9 @@ public enum Code {
     NAME_OR_PASSWORD_ERROR(1002, "用户名或密码出错了"),
     REGISTER_FAILURE(1003, "注册失败了!"),
     EMPTY_INFO(1004, "没收到用户名或者密码哦"),
-    TOKEN_ISSUE(1005, "Token过期啦, 重新去登录吧!"),
-    UPDATE_FAILURE(1006, "更新用户信息失败"),
+    TOKEN_PARSED_FAILURE(1005, "Token没通过验证呢!"),
+    TOKEN_EXPIRED(1006, "Token过期啦, 重新去登录吧!"),
+    UPDATE_FAILURE(1007, "更新用户信息失败"),
     
     // 文章相关状态码
     ARTICLE_NOT_EXIST(2000, "查询的文章不存在哦"),

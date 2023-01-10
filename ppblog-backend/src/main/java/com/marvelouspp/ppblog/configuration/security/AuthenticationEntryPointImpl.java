@@ -16,15 +16,21 @@ import com.alibaba.fastjson.JSON;
 import com.marvelouspp.ppblog.domain.ResponseObject;
 import com.marvelouspp.ppblog.domain.enums.Code;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Component
 public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint{
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
             AuthenticationException authException) throws IOException, ServletException {
-                authException.printStackTrace();
-
+        
+        authException.printStackTrace();
+        log.warn("[WARN] =======ACCESS DENINED=======");
+        log.warn("IP             : {}", request.getRemoteHost());
+        log.warn("URL            : {}", request.getRequestURL());
+        log.warn("=======End=======" + System.lineSeparator());
         ResponseObject<?> result = null;
         if(authException instanceof BadCredentialsException) {
             result = ResponseObject.failure(Code.NAME_OR_PASSWORD_ERROR);

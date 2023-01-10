@@ -28,6 +28,7 @@ const props = defineProps({
     min-height: 200px;
     width: 100%;
     text-align: left;
+    white-space: pre-line;
 }
 
 .cardTitle {

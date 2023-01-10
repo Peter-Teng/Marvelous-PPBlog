@@ -51,6 +51,7 @@ export default {
       }
     })
 
+    if(!background.loaded) {
     // 加载背景图像
     api.getBackgrounds().then(res => {
       for(let item of res.data.data) {
@@ -58,7 +59,9 @@ export default {
           background[item.name] = item.url
         }
       }
+      background.loaded = true;
     })
+  }
   }
 }
 </script>
@@ -78,7 +81,6 @@ export default {
 
 div {
   font-family: "JetBrainsMono";
-  white-space: pre-line;
 }
 
 router-view {

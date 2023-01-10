@@ -24,10 +24,10 @@ public class AccessDeninedHandlerImpl implements AccessDeniedHandler {
     public void handle(HttpServletRequest request, HttpServletResponse response,
             AccessDeniedException accessDeniedException) throws IOException, ServletException {
         accessDeniedException.printStackTrace();
-        log.info("[ERROR] =======ACCESS DENINED=======");
-        log.info("IP             : {}", request.getRemoteHost());
-        log.info("URL            : {}", request.getRequestURL());
-        log.info("=======End=======" + System.lineSeparator());
+        log.warn("[WARN] =======ACCESS DENINED=======");
+        log.warn("IP             : {}", request.getRemoteHost());
+        log.warn("URL            : {}", request.getRequestURL());
+        log.warn("=======End=======" + System.lineSeparator());
 
         ResponseObject<?> result = ResponseObject.failure(Code.NO_AUTH);
         ResponseObject.renderResult(response, JSON.toJSONString(result));
