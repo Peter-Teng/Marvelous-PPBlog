@@ -14,16 +14,37 @@ webkit-scrollbar :root {
 .articleBody h4,
 .articleBody h5,
 .articleBody h6,
-.articleBody p, 
+.articleBody p,
 .articleBody a {
     margin: 1rem auto;
 }
 
+.articleBody h1,
+.articleBody h2,
+.articleBody h3,
+.articleBody h4,
+.articleBody h5,
+.articleBody h6 {
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.articleBody h1:before,
+.articleBody h2::before,
+.articleBody h3::before,
+.articleBody h4:before,
+.articleBody h5:before,
+.articleBody h6:before {
+    content: "♮";
+    left: 0;
+    color: #FEFCF3;
+    margin-right: 1rem;
+}
+
 .articleBody a {
-    background-color: #03031c;
+    background-color: inherit;
+    text-decoration: underline;
     color: #F7A76C;
     font-size: 1.0rem;
-    text-decoration: none;
 }
 
 .articleBody a:hover {
@@ -35,6 +56,8 @@ webkit-scrollbar :root {
 .articleBody code {
     font-family: 'JetBrainsMono';
     color: #f92672;
+    background-color: #000000;
+    font-style: italic;
 }
 
 .articleBody mark {
@@ -50,6 +73,7 @@ webkit-scrollbar :root {
 .articleBody ul,
 .articleBody ol {
     margin: 1rem 2rem;
+    color: #DBDBDB;
 }
 
 .articleBody li {
@@ -80,7 +104,7 @@ webkit-scrollbar :root {
 .articleBody td {
     min-width: 50px;
     border: 1px solid azure;
-    background-color: #7878a6;
+    background-color: #16213E;
     color: aliceblue;
     padding: 10px;
 }
@@ -108,7 +132,6 @@ webkit-scrollbar :root {
 
 .articleBody img {
     margin: 3px auto;
-    display: block;
     max-width: 100%;
     max-height: 500px;
     object-fit: contain;
@@ -130,4 +153,3 @@ webkit-scrollbar :root {
 ::-webkit-scrollbar-thumb:hover {
     background: #d1d1d1;
 }
-

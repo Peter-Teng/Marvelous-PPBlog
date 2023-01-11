@@ -92,7 +92,7 @@ div {
 
 .title {
     font-family: 'ZCOOL';
-    height: 60px;
+    height: 4.5rem;
     text-align: center;
     width: 90%;
     margin: 15px auto 0px auto;
@@ -107,7 +107,7 @@ div {
     height: 10%;
     font-family: 'MUYAO';
     margin: 5px auto 0px auto;
-    font-size: 0.5rem;
+    font-size: 0.25rem;
     color: #fff2cfec;
     font-style: oblique;
 }

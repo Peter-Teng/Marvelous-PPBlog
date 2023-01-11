@@ -92,6 +92,10 @@ div {
     cursor: pointer;
 }
 
+.link:hover {
+    text-shadow: 2px 3px 1px #F0A500;
+}
+
 .naviBar {
     position: absolute;
     height: 50px;

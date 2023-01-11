@@ -8,8 +8,8 @@
             </div>
             <div class="body">
                 <el-row>
-                    <el-col :span="2"></el-col>
-                    <el-col :span="20">
+                    <el-col :span="1"></el-col>
+                    <el-col :span="22">
                         <div class="articleInfo">
                             <div class="title">
                                 {{ article.title }}
@@ -30,7 +30,7 @@
                             <div v-html="renderedContent" v-loading="rendering"></div>
                         </div>
                     </el-col>
-                    <el-col :span="2"></el-col>
+                    <el-col :span="1"></el-col>
                 </el-row>
             </div>
             <div>
@@ -148,7 +148,7 @@ onMounted(() => {
     text-shadow: 2px 3px 1px rgba(16, 16, 16, 0.85);
     text-align: center;
     color: #EEEEEE;
-    font-family: "BubbleTea";
+    font-family: "ZCOOL";
 }
 
 .infoList {
@@ -165,8 +165,8 @@ onMounted(() => {
 }
 
 .articleBody {
-    font-family: 'Article';
-    width: 80%;
+    font-family: 'JetBrainsMono';
+    width: 85%;
     text-align: left;
     margin: 5px auto;
     font-size: 1rem;

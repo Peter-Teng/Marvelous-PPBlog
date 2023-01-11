@@ -81,7 +81,7 @@ onMounted(() => {
     text-align: center;
     font-size: 1.5rem;
     color: #E7F6F2;
-    font-family: "Article";
+    font-family: "ZCOOL";
 }
 
 .content {

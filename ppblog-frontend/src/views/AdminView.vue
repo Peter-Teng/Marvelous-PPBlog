@@ -1,10 +1,10 @@
 <template>
-    <el-scrollbar ref="scrollbarRef" height="calc(100vh)">
     <div class="wrap">
         <el-container>
             <el-header class="header">
                 <div class="headerWrap">
                     <div class="headerTitle">
+                        <img class="homeIcon" src="../assets/images/home.png" @click="toHome" />
                         <span class="headerSpan">
                             MarvelousPP同学
                         </span>
@@ -12,7 +12,7 @@
                         <el-popconfirm confirm-button-text="确认" cancel-button-text="取消" width="175" :icon="Promotion"
                             icon-color="#E14D2A" title="主人确定要登出吗？" @confirm="logout(userStore)">
                             <template #reference>
-                                <img class="logoutIcon" src="../assets/images/logout.svg" />
+                                <img class="logoutIcon" src="../assets/images/logout.png" />
                             </template>
                         </el-popconfirm>
                     </div>
@@ -22,9 +22,11 @@
                 <el-aside class="menu">
                     <manu></manu>
                 </el-aside>
-                <el-main class="content">
-                    <router-view />
-                </el-main>
+                <el-scrollbar ref="scrollbarRef" height="calc(92.5vh)">
+                    <el-main class="content">
+                        <router-view v-if="isAdminActive" />
+                    </el-main>
+                </el-scrollbar>
             </el-container>
             <div class="imageBed" @click="imageBedDialogVisible = true"></div>
             <el-dialog v-model="imageBedDialogVisible" title="上传图像" width="35%" name="image">
@@ -46,7 +48,7 @@
                     </div>
                 </el-upload>
                 <div class="squooshPrompt">
-                    <el-checkbox v-model="squeeze" label="使用TinyPNG进行图像压缩?" size="large"/>
+                    <el-checkbox v-model="squeeze" label="使用TinyPNG进行图像压缩?" size="large" />
                 </div>
                 <div class="fileName">
                     当前选择的文件是: 【<em style="color:orangered;">{{ imageFile.name }}</em>】
@@ -61,12 +63,11 @@
             </el-dialog>
         </el-container>
     </div>
-</el-scrollbar>
 </template>
 
 <script setup>
 import { Promotion } from '@element-plus/icons-vue';
-import { ref, onMounted, inject } from 'vue'
+import { ref, onMounted, inject, provide, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 
 import manu from '../components/admin/Manu.vue'
@@ -82,8 +83,21 @@ const squeeze = ref(true)
 const imageFile = ref({})
 const urlList = ref([])
 
+// 刷新admin router view
+const isAdminActive = ref(true)
+provide('reloadAdmin', () => {
+    isAdminActive.value = false
+    nextTick(() => {
+        isAdminActive.value = true
+    })
+})
+
 const logout = (userStore) => {
     userStore.methods.logout(userStore)
+    router.push('/')
+}
+
+const toHome = () => {
     router.push('/')
 }
 
@@ -130,7 +144,7 @@ onMounted(() => {
 }
 
 .header {
-    background-color: #1F1D36;
+    background-color: #1a1d1f;
     height: calc(7.5vh);
 }
 
@@ -167,23 +181,35 @@ onMounted(() => {
     height: 2rem;
 }
 
+.homeIcon {
+    float: left;
+    vertical-align: middle;
+    margin: 0 1rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
 .logoutIcon {
     float: right;
     vertical-align: middle;
     margin: 0 1rem;
-    width: 1.5em;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
 }
 
 .menu {
-    background-color: #202040;
+    background-color: #25282e;
     min-height: calc(92.5vh);
     width: calc(15vw);
 }
 
 .content {
-    background-color: #251B37;
+    padding: 0;
+    background-color: #0a0a0a;
+    min-height: calc(92.5vh);
+    width: calc(85vw);
 }
 
 .imageBed {

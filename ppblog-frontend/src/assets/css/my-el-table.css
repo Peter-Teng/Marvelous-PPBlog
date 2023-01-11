@@ -1,0 +1,38 @@
+.wrap .el-table {
+    border-radius: 10px;
+    border: 1px solid azure;
+}
+
+.wrap .el-table tr {
+    background-color: #1A120B;
+    color: azure;
+}
+
+.wrap .el-table--enable-row-hover .el-table__body tr:hover>td {
+    background-color: #282A3A !important;
+    color: azure !important;
+}
+
+.wrap .el-table th {
+    background-color: #16213E !important;
+    text-decoration: underline;
+    color: azure;
+    font-size: 1.05rem;
+}
+
+.wrap th.el-table-fixed-column--right {
+    background-color: #03506F !important;
+    color: azure !important;
+    border-left: 2px dashed cornflowerblue;
+}
+
+.wrap td.el-table-fixed-column--right {
+    background-color: #261C2C !important;
+    color: azure !important;
+    border-left: 2px dashed cornflowerblue;
+}
+
+.el-table .el-table__body tr.hover-row > td{
+    background-color: #282A3A !important;
+    color: azure !important;
+  }

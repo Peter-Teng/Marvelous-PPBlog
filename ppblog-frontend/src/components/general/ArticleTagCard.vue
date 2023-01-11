@@ -85,7 +85,7 @@ const toArticles = (tagName) => {
 }
 
 .tagAll{
-    font-family: 'BubbleTea';
+    font-family: 'ZCOOL';
     cursor: pointer;  
     width: 150px;
     height: 35px;

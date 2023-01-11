@@ -1,7 +1,7 @@
 <template>
     <div class="wrap">
         <el-scrollbar height="100%">
-            <el-menu active-text-color="#FF4301" background-color="#202040" text-color="#EEEEEE" default-active="/admin"
+            <el-menu style="border-right: 0" active-text-color="#2192FF" background-color="##25282e" text-color="#f6f6f6" default-active="/admin"
                 router>
                 <el-menu-item index="/admin">
                     <el-icon>

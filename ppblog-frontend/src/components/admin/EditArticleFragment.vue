@@ -4,7 +4,7 @@
             <el-col :span="1"></el-col>
             <el-col :span="22">
                 <div class="body">
-                    <div class="title">文章编辑</div>
+                    <div class="title">撰写文章</div>
                     <el-form :model="article" label-width="10rem" class="articleEdit">
                         <el-form-item label="文章标题">
                             <el-input v-model="article.title" />

@@ -99,4 +99,34 @@ export default {
         const token = window.sessionStorage.getItem("token")
         return axios.post(paths.postArticleUrl, article, { headers: { "token": token } })
     },
+
+    postTag(tag) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.post(paths.postTagUrl, tag, { headers: { "token": token } })
+    },
+
+    modifyTag(tag) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.put(paths.putTagUrl, tag, { headers: { "token": token } })
+    },
+
+    deleteTag(id) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.delete(paths.deleteTagUrl + id, { headers: { "token": token } })
+    },
+
+    postLink(link) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.post(paths.postLinkUrl, link, { headers: { "token": token } })
+    },
+
+    modifyLink(link) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.put(paths.putLinkUrl, link, { headers: { "token": token } })
+    },
+
+    deleteLink(id) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.delete(paths.deleteLinkUrl + id, { headers: { "token": token } })
+    },
 }

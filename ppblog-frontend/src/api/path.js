@@ -1,4 +1,4 @@
-const baseUrl="http://114.132.47.193:8888"
+const baseUrl = "http://114.132.47.193:8888"
 // const baseUrl="http://202.38.247.210:8888"
 
 const paths = {
@@ -19,9 +19,17 @@ const paths = {
     getBlogRecordUrl: baseUrl + "/general/statistic/record",
 
     imageUploadUrl: baseUrl + "/admin/file/upload",
-    
+
     postArticleUrl: baseUrl + "/admin/article/create",
-    
+
+    postTagUrl: baseUrl + "/admin/tag/create",
+    putTagUrl: baseUrl + "/admin/tag/modify",
+    deleteTagUrl: baseUrl + "/admin/tag/",
+
+    postLinkUrl: baseUrl + "/admin/link/create",
+    putLinkUrl: baseUrl + "/admin/link/modify",
+    deleteLinkUrl: baseUrl + "/admin/link/",
+
     hitokotoURL: "https://v1.hitokoto.cn/"
 }
 
