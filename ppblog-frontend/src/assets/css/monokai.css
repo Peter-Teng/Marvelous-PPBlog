@@ -29,12 +29,24 @@ webkit-scrollbar :root {
 }
 
 .articleBody h1:before,
-.articleBody h2::before,
+.articleBody h2::before {
+    content: "▌";
+    left: 0;
+    color: #FEFCF3;
+    margin-right: 1rem;
+}
+
 .articleBody h3::before,
-.articleBody h4:before,
+.articleBody h4:before {
+    content: "·";
+    left: 0;
+    color: #FEFCF3;
+    margin-right: 1rem;
+}
+
 .articleBody h5:before,
 .articleBody h6:before {
-    content: "♮";
+    content: "#";
     left: 0;
     color: #FEFCF3;
     margin-right: 1rem;
@@ -54,8 +66,8 @@ webkit-scrollbar :root {
 }
 
 .articleBody code {
-    font-family: 'JetBrainsMono';
-    color: #f92672;
+    font-family: "consolas";
+    color: #D8D9CF;
     background-color: #000000;
     font-style: italic;
 }

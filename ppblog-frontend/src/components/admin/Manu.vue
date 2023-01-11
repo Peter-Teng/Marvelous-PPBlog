@@ -37,7 +37,7 @@
                     <el-icon>
                         <bell />
                     </el-icon>
-                    <span>新闻(News)管理</span>
+                    <span>公告(News)管理</span>
                 </el-menu-item>
                 <el-menu-item index="/admin/link">
                     <el-icon>

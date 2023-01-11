@@ -1,6 +1,16 @@
 <template>
-    <div>
-        默认家页面
+    <div class="wrap">
+        <el-row>
+            <el-col :span="2"></el-col>
+            <el-col :span="20">
+                <div class="body">
+                    <div class="title">欢迎来到Marvelous-PP同学博客后台管理系统</div>
+                    <div class="content">
+                    </div>
+                </div>
+            </el-col>
+            <el-col :span="2"></el-col>
+        </el-row>
     </div>
 </template>
 
@@ -9,5 +19,25 @@
 </script>
 
 <style scoped>
+.wrap {
+    text-align: center;
+}
 
+.wrap div {
+    font-family: 'ZCOOL';
+}
+
+.body {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    margin-top: 2.5rem;
+    font-size: 2rem;
+}
+
+.content {
+    margin-top: 1rem;
+}
 </style>

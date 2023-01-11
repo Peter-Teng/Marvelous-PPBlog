@@ -17,8 +17,15 @@ public class GeneralNewsController {
     private NewsService newsService;
 
     @GetMapping("/list")
-    @SystemLog(businessName = "Public:获取全部公告信息")
+    @SystemLog(businessName = "Public:获取全部有效公告信息")
     public ResponseObject<?> getNews() {
         return newsService.getNews();
     }
+
+    @GetMapping("/all")
+    @SystemLog(businessName = "public:获取全部公告信息")
+    public ResponseObject<?> getAllNews() {
+        return newsService.getAllNews();
+    }
+
 }

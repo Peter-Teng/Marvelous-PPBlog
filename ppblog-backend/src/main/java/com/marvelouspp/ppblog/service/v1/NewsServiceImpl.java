@@ -35,6 +35,12 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News> implements Ne
     }
 
     @Override
+    public ResponseObject<?> getAllNews() {
+        List<News> newsList = list();
+        return ResponseObject.success(newsList);
+    }
+
+    @Override
     public ResponseObject<?> createNews(News news) {
         boolean success = saveOrUpdate(news);
         if(success) {

@@ -129,4 +129,23 @@ export default {
         const token = window.sessionStorage.getItem("token")
         return axios.delete(paths.deleteLinkUrl + id, { headers: { "token": token } })
     },
+
+    getAllNews() {
+        return axios.get(paths.getAllNewsUrl)
+    },
+
+    postNews(news) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.post(paths.postNewsUrl, news, { headers: { "token": token } })
+    },
+
+    modifyNews(news) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.put(paths.putNewsUrl, news, { headers: { "token": token } })
+    },
+
+    deleteNews(id) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.delete(paths.deleteNewsUrl + id, { headers: { "token": token } })
+    },
 }

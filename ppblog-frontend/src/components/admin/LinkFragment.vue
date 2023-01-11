@@ -10,8 +10,9 @@
                             <el-table-column label="置顶" width="75">
                                 <template #default="scope">
                                     <el-switch :model-value="true" v-if="scope.row.topped == 1"
-                                        @change="flipTop(scope.row)" />
-                                    <el-switch :model-value="false" v-else @change="flipTop(scope.row)" />
+                                        @change="flipTop(scope.row)" style="--el-switch-on-color: #FAC213;" />
+                                    <el-switch :model-value="false" v-else @change="flipTop(scope.row)"
+                                        style="--el-switch-off-color: #404258" />
                                 </template>
                             </el-table-column>
                             <el-table-column prop="id" label="导航链接ID" sortable width="200" />
@@ -89,7 +90,8 @@
                     <el-input v-model="selectedLink.url" />
                 </el-form-item>
                 <el-form-item label="导航是否置顶">
-                    <el-switch v-model="selectedLink.topped" />
+                    <el-switch v-model="selectedLink.topped"
+                        style="--el-switch-on-color: #FAC213; --el-switch-off-color: #404258" />
                 </el-form-item>
             </el-form>
             <template #footer>
@@ -145,12 +147,11 @@ const flipTop = (row) => {
         id: row.id,
         topped: 1 - row.topped
     }
-    row.topped = 1 - row.topped
     api.modifyLink(link).then(res => {
         if (res.data.code === 200) {
             ElNotification({ title: '成功', message: '导航链接状态修改成功!', type: 'success' })
-        } else {
             row.topped = 1 - row.topped
+        } else {
             ElNotification({ title: '失败', message: '导航链接状态修改失败!', type: 'error' })
         }
     })

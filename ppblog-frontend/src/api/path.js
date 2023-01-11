@@ -30,6 +30,11 @@ const paths = {
     putLinkUrl: baseUrl + "/admin/link/modify",
     deleteLinkUrl: baseUrl + "/admin/link/",
 
+    getAllNewsUrl: baseUrl + "/general/news/all",
+    postNewsUrl: baseUrl + "/admin/news/create",
+    putNewsUrl: baseUrl + "/admin/news/modify",
+    deleteNewsUrl: baseUrl + "/admin/news/",
+
     hitokotoURL: "https://v1.hitokoto.cn/"
 }
 

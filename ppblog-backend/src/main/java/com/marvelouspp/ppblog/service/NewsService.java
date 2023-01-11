@@ -10,6 +10,8 @@ public interface NewsService extends IService<News> {
     
     public ResponseObject<?> getNews();
 
+    public ResponseObject<?> getAllNews();
+
     public ResponseObject<?> createNews(News news);
 
     public ResponseObject<?> modifyNews(News news);
