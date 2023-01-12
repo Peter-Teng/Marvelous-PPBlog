@@ -10,7 +10,9 @@
                             <el-input v-model="article.title" />
                         </el-form-item>
                         <el-form-item label="文章标题图像URL">
-                            <el-input v-model="article.thumbnail" />
+                            <el-input v-model="article.thumbnail" style="width: 60rem;" />
+                            <el-button color="#612897" @click="dialogVisible = true" :icon="Search"
+                                style="margin-left: 2rem;" circle></el-button>
                         </el-form-item>
                         <el-form-item label="文章摘要">
                             <el-input v-model="article.summary" type="textarea" :rows="3" />
@@ -23,7 +25,7 @@
                                 <el-option v-for="tag in tags" :key="tag.id" :label="tag.name" :value="tag.id" />
                             </el-select>
                         </el-form-item>
-                        <el-form-item label="是否保存为草稿">
+                        <el-form-item label="是否保存为草稿(不可见)">
                             <el-switch v-model="article.status" />
                         </el-form-item>
                     </el-form>
@@ -34,19 +36,33 @@
             </el-col>
             <el-col :span="1"></el-col>
         </el-row>
+        <el-dialog v-model="dialogVisible" title="查看标题图像" width="50%">
+            <el-image :src="article.thumbnail" class="thumbnailShow" :fit="fit" />
+            <template #footer>
+                <span class="dialog-footer">
+                    <el-button type="success" @click="dialogVisible = false">确认</el-button>
+                </span>
+            </template>
+        </el-dialog>
     </div>
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, inject, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { Search, IconPicture } from '@element-plus/icons-vue'
 
 import api from '../../api/index'
 
+const articleCache = inject('articleCache')
+
 const router = useRouter()
+const fit = ref("contain")
+const dialogVisible = ref(false)
 
 const tags = ref([])
 const article = reactive({
+    id: null,
     title: '',
     summary: '',
     thumbnail: '',
@@ -61,18 +77,42 @@ onMounted(() => {
             tags.value.push(item)
         }
     })
+    if (articleCache.cached) {
+        article.id = articleCache.data.id
+        article.title = articleCache.data.title
+        article.summary = articleCache.data.summary
+        article.thumbnail = articleCache.data.thumbnail
+        article.tagId = articleCache.data.tagId
+        article.status = articleCache.data.status
+        article.content = articleCache.data.content
+    }
+})
+
+onUnmounted(() => {
+    articleCache.cached = false
 })
 
 const submit = () => {
     article.status = article.status ? 0 : 1
-    api.postArticle(article).then(() => {
-        ElNotification({
-            title: '成功',
-            message: '文章发布成功啦',
-            type: 'success',
+    if (articleCache.cached) {
+        api.modifyArticle(article).then(() => {
+            ElNotification({
+                title: '成功',
+                message: '文章编辑成功!',
+                type: 'success',
+            })
+            router.push("/admin/ariticle/list")
         })
-        router.push("/admin/ariticle/list")
-    })
+    } else {
+        api.postArticle(article).then(() => {
+            ElNotification({
+                title: '成功',
+                message: '文章发布成功啦',
+                type: 'success',
+            })
+            router.push("/admin/ariticle/list")
+        })
+    }
 }
 
 </script>
@@ -90,7 +130,7 @@ const submit = () => {
 }
 
 .title {
-    margin: 1rem auto;
+    margin: 2rem auto 1rem auto;
     font-family: 'ZCOOL';
     font-size: 2rem;
 }
@@ -111,6 +151,13 @@ const submit = () => {
 .articleEdit {
     color: #2c3e50;
     text-align: left;
+}
+
+.thumbnailShow {
+    height: 24rem;
+    width: 32rem;
+    border-radius: 25px;
+    border: 1px solid #000000;
 }
 </style>
 

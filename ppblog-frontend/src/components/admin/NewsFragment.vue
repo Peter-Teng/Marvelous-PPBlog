@@ -6,7 +6,7 @@
                 <div class="body">
                     <div class="title">公告列表</div>
                     <div class="content">
-                        <el-table :data="newsList" style="width: 100%" max-height="calc(70vh)" border>
+                        <el-table :data="displayedNewsList" style="width: 100%" max-height="calc(70vh)" border>
                             <el-table-column label="展示" width="75">
                                 <template #default="scope">
                                     <el-switch :model-value="true" v-if="scope.row.valid == 1"
@@ -24,9 +24,14 @@
                                 </template>
                             </el-table-column>
                             <el-table-column prop="id" label="公告ID" sortable width="250" />
-                            <el-table-column prop="title" label="公告标题" sortable width="250" />
-                            <el-table-column prop="content" label="公告内容" sortable width="500" />
-                            <el-table-column label="操作" fixed="right" width="225">
+                            <el-table-column prop="title" label="公告标题" width="250" />
+                            <el-table-column prop="content" label="公告内容" width="500" />
+                            <el-table-column fixed="right" width="225">
+                                <template #header>
+                                    <span>搜索:</span>
+                                    <el-input v-model="searchText" placeholder="输入关键词" class="tableSearch"
+                                        @input="filterNews" />
+                                </template>
                                 <template #default="scope">
                                     <div class="operationButtons">
                                         <el-button color="#579BB1" @click="editNews(scope.row)"
@@ -77,7 +82,10 @@ import { InfoFilled } from '@element-plus/icons-vue'
 
 const reloadAdmin = inject('reloadAdmin')
 
-const newsList = ref([])
+const allNewsList = ref([])
+const displayedNewsList = ref([])
+
+const searchText = ref('')
 const dialogVisible = ref(false)
 const dialogTitle = ref("")
 const isEdit = ref(false)
@@ -87,13 +95,29 @@ const selectedNews = reactive({
     content: ""
 })
 
+const filterNews = () => {
+    if (searchText.value.trim() === '') {
+        displayedNewsList.value = allNewsList.value
+        return;
+    }
+    let result = []
+    for (let item of allNewsList.value) {
+        var titleIncluded = item.title.toLowerCase().includes(searchText.value.toLowerCase().trim())
+        var contentIncluded = item.content.toLowerCase().includes(searchText.value.toLowerCase().trim())
+        if (titleIncluded || contentIncluded) {
+            result.push(item)
+        }
+    }
+    displayedNewsList.value = result
+}
+
 const flipTop = (row) => {
     if (row.valid == 0) {
         ElNotification({ title: '失败', message: '啊哦,这条公告似乎是无效的哦！', type: 'error' })
         return
     }
     if (1 - row.topped == 1) {
-        for (let item of newsList.value) {
+        for (let item of allNewsList.value) {
             if (item.topped == 1) {
                 ElNotification({ title: '失败', message: '同一时间只能有一条公告置顶哦!', type: 'error' })
                 return
@@ -104,13 +128,12 @@ const flipTop = (row) => {
         id: row.id,
         topped: 1 - row.topped
     }
-    api.modifyNews(news).then(res => {
-        if (res.data.code === 200) {
-            row.topped = 1 - row.topped
-            ElNotification({ title: '成功', message: '公告置顶状态修改成功!', type: 'success' })
-        } else {
-            ElNotification({ title: '失败', message: '公告置顶状态修改失败!', type: 'error' })
-        }
+    row.topped = 1 - row.topped
+    api.modifyNews(news).then(() => { 
+        ElNotification({ title: '成功', message: '公告置顶状态修改成功!', type: 'success' })
+    }, () => {
+        // rollback
+        row.topped = 1 - row.topped
     })
 }
 
@@ -120,17 +143,16 @@ const flipValid = (row) => {
         valid: 1 - row.valid,
         topped: row.topped
     }
-    if(1 - row.valid == 0) {
+    if (1 - row.valid == 0) {
         news.topped = 0
     }
-    api.modifyNews(news).then(res => {
-        if (res.data.code === 200) {
-            row.topped = news.topped
-            row.valid = 1 - row.valid
-            ElNotification({ title: '成功', message: '公告生效状态修改成功!', type: 'success' })
-        } else {
-            ElNotification({ title: '失败', message: '公告生效状态修改失败!', type: 'error' })
-        }
+    row.valid = 1 - row.valid
+    api.modifyNews(news).then(() => {
+        row.topped = news.topped       
+        ElNotification({ title: '成功', message: '公告生效状态修改成功!', type: 'success' })
+    }, () => {
+        // rollback
+        row.valid = 1 - row.valid
     })
 }
 
@@ -184,7 +206,8 @@ const commit = () => {
 
 onMounted(() => {
     api.getAllNews().then(res => {
-        newsList.value = res.data.data
+        allNewsList.value = res.data.data
+        displayedNewsList.value = allNewsList.value
     })
 })
 
@@ -218,6 +241,12 @@ onMounted(() => {
 .operationButtons {
     text-align: center;
 }
+
+.tableSearch {
+    width: 8.5rem;
+    height: 1.5rem;
+}
+
 
 .operationButton {
     width: 5rem;

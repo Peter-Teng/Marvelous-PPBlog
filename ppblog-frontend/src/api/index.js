@@ -95,9 +95,30 @@ export default {
         return axios.post(paths.imageUploadUrl, data, { headers: { "token": token, "Content-Type": "multipart/form-data;" } })
     },
 
+    getAllArticles(pageNum, pageSize = 10) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.get(paths.getAllArticlesUrl, {
+            params: {
+                "pageNum": pageNum,
+                "pageSize": pageSize
+            },
+            headers: { "token": token }
+        });
+    },
+
     postArticle(article) {
         const token = window.sessionStorage.getItem("token")
         return axios.post(paths.postArticleUrl, article, { headers: { "token": token } })
+    },
+
+    modifyArticle(article) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.put(paths.putArticleUrl, article, { headers: { "token": token } })
+    },
+
+    deleteArticle(id) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.delete(paths.deleteArticleUrl + id, { headers: { "token": token } })
     },
 
     postTag(tag) {
@@ -148,4 +169,10 @@ export default {
         const token = window.sessionStorage.getItem("token")
         return axios.delete(paths.deleteNewsUrl + id, { headers: { "token": token } })
     },
+
+    modifyBackground(background) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.put(paths.putBackgroundUrl, background, { headers: { "token": token } })
+    },
+
 }

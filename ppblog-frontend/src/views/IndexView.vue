@@ -1,7 +1,7 @@
 <template>
   <el-scrollbar ref="scrollbarRef" height="calc(100vh)" @scroll="scroll">
     <div class="wrap">
-      <div class="banner" :style="{ 'background-image': 'url(' + background.index + ')' }">
+      <div class="banner" :style="{ 'background-image': 'url(' + background.index.url + ')' }">
         <bar v-show="showNavigation" :background-color="navigationColor" :font-color="navigationFontColor"></bar>
         <div class="bannerEffect">
           <div class="taboo">

@@ -1,9 +1,9 @@
 <template>
     <div v-wave="{
-    color: '#72FFFF',
-    initialOpacity: 0.5,
-    easing: 'ease-in',
-}" class="wrap">
+        color: '#72FFFF',
+        initialOpacity: 0.5,
+        easing: 'ease-in',
+    }" class="wrap">
         <el-row>
             <el-col :span="11" class="columns">
                 <div class="title" ref="titleRef" @mouseenter="playAnime(titleRef, 'bounceIn')"
@@ -12,11 +12,11 @@
                 <el-row>
                     <el-col :span="1"></el-col>
                     <el-col :span="10" class="date">
-                        <div>⏳发布于: {{ article.createDate }}</div>
+                        <div>⏳发布于: {{ prettyDate(article.createDate) }}</div>
                     </el-col>
                     <el-col :span="1"></el-col>
                     <el-col :span="10" class="date">
-                        <div>⌛最后编辑于: {{ article.modifyDate }}</div>
+                        <div>⌛最后编辑于: {{ prettyDate(article.modifyDate) }}</div>
                     </el-col>
                     <el-col :span="1"></el-col>
                 </el-row>
@@ -38,6 +38,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import playAnime from '../../utils/animate'
+import prettyDate from '../../utils/prettyDate'
 
 const props = defineProps({
     article: Object
@@ -68,7 +69,7 @@ div {
     height: 300px;
     border-radius: 20px;
     box-shadow: 1px 1px 2px 2px #3F3B6C;
-    background-image: linear-gradient(135deg, #412e75 10%, #8555e3 100%);
+    background-image: linear-gradient(to top, #04009a, #001699, #002297, #052c95, #133491, #193893, #1f3c95, #244097, #2542a0, #2743a8, #2a45b1, #2d46b9);
     white-space: pre-line;
 }
 
@@ -107,7 +108,7 @@ div {
     height: 10%;
     font-family: 'MUYAO';
     margin: 5px auto 0px auto;
-    font-size: 0.25rem;
+    font-size: 0.75rem;
     color: #fff2cfec;
     font-style: oblique;
 }

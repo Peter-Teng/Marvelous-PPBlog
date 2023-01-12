@@ -1,6 +1,7 @@
 .wrap .el-table {
     border-radius: 10px;
     border: 1px solid azure;
+    background-color: black;
 }
 
 .wrap .el-table tr {

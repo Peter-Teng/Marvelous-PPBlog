@@ -70,9 +70,10 @@ import { Promotion } from '@element-plus/icons-vue';
 import { ref, onMounted, inject, provide, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 
-import manu from '../components/admin/Manu.vue'
+import manu from '../components/admin/Menu.vue'
 
 import api from '../api/index'
+import articleCache from '../storage/articleCache';
 
 const router = useRouter()
 const userStore = inject("userStore")
@@ -91,6 +92,7 @@ provide('reloadAdmin', () => {
         isAdminActive.value = true
     })
 })
+provide('articleCache', articleCache)
 
 const logout = (userStore) => {
     userStore.methods.logout(userStore)

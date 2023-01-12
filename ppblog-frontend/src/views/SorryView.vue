@@ -1,5 +1,5 @@
 <template>
-    <div class="wrap" :style="{ 'background-image': 'url(' + background.sorry + ')' }">
+    <div class="wrap" :style="{ 'background-image': 'url(' + background.sorry.url + ')' }">
         <div class="content">
         <img src="../assets/images/UFO.png" class="image" />
             <div class="CHN">

@@ -1,5 +1,5 @@
-const baseUrl = "http://114.132.47.193:8888"
-// const baseUrl="http://202.38.247.210:8888"
+// const baseUrl = "http://114.132.47.193:8888"
+const baseUrl="http://202.38.247.210:8888"
 
 const paths = {
     loginUrl: baseUrl + "/general/user/login",
@@ -20,7 +20,10 @@ const paths = {
 
     imageUploadUrl: baseUrl + "/admin/file/upload",
 
+    getAllArticlesUrl: baseUrl + "/admin/article/list",
     postArticleUrl: baseUrl + "/admin/article/create",
+    putArticleUrl: baseUrl + "/admin/article/modify",
+    deleteArticleUrl: baseUrl + "/admin/article/",
 
     postTagUrl: baseUrl + "/admin/tag/create",
     putTagUrl: baseUrl + "/admin/tag/modify",
@@ -34,6 +37,8 @@ const paths = {
     postNewsUrl: baseUrl + "/admin/news/create",
     putNewsUrl: baseUrl + "/admin/news/modify",
     deleteNewsUrl: baseUrl + "/admin/news/",
+
+    putBackgroundUrl: baseUrl + "/admin/background/modify",
 
     hitokotoURL: "https://v1.hitokoto.cn/"
 }

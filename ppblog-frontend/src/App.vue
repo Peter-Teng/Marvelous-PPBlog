@@ -56,7 +56,8 @@ export default {
     api.getBackgrounds().then(res => {
       for(let item of res.data.data) {
         if(item.name in background) {
-          background[item.name] = item.url
+          background[item.name].id = item.id
+          background[item.name].url = item.url
         }
       }
       background.loaded = true;

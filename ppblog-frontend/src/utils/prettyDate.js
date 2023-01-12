@@ -1,6 +1,7 @@
 const prettyDate = (date) => {
+    var before = Date.parse(date) / 1000;
     var now = Date.parse(new Date()) / 1000;
-    var limit = now - date;
+    var limit = now - before;
     var content = "";
     if (limit < 60) {
         content = "刚刚";

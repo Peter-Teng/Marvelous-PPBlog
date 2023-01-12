@@ -35,7 +35,7 @@
                             <el-table-column prop="url" label="导航链接URL" width="350" />
                             <el-table-column fixed="right" width="225">
                                 <template #header>
-                                    <span>搜索:&nbsp;</span>
+                                    <span>搜索:</span>
                                     <el-input v-model="searchText" placeholder="输入关键词" class="tableSearch"
                                         @input="filterLinks" />
                                 </template>
@@ -130,12 +130,16 @@ const selectedLink = reactive({
 const reloadAdmin = inject('reloadAdmin')
 
 const filterLinks = () => {
+    if (searchText.value.trim() === '') {
+        displayedLinks.value = allLinks.value
+        return;
+    }
     let result = []
     for (let item of allLinks.value) {
         var nameIncluded = item.name.toLowerCase().includes(searchText.value.toLowerCase().trim())
         var categoryIncluded = item.category.toLowerCase().includes(searchText.value.toLowerCase().trim())
         var descriptionIncluded = item.description.toLowerCase().includes(searchText.value.trim())
-        if (searchText.value.trim() === '' || nameIncluded || categoryIncluded || descriptionIncluded) {
+        if (nameIncluded || categoryIncluded || descriptionIncluded) {
             result.push(item)
         }
     }
@@ -147,13 +151,12 @@ const flipTop = (row) => {
         id: row.id,
         topped: 1 - row.topped
     }
-    api.modifyLink(link).then(res => {
-        if (res.data.code === 200) {
-            ElNotification({ title: '成功', message: '导航链接状态修改成功!', type: 'success' })
-            row.topped = 1 - row.topped
-        } else {
-            ElNotification({ title: '失败', message: '导航链接状态修改失败!', type: 'error' })
-        }
+    row.topped = 1 - row.topped
+    api.modifyLink(link).then(() => {
+        ElNotification({ title: '成功', message: '导航链接状态修改成功!', type: 'success' })
+    }, () => {
+        // rollback
+        row.topped = 1 - row.topped
     })
 }
 
@@ -253,8 +256,16 @@ onMounted(() => {
     text-align: center;
 }
 
+.operationButton {
+    width: 5rem;
+    font-family: 'ZCOOL';
+    color: black;
+    height: 2rem;
+    font-size: 1rem;
+}
+
 .tableSearch {
-    width: 7.5rem;
+    width: 8.5rem;
     height: 1.5rem;
 }
 

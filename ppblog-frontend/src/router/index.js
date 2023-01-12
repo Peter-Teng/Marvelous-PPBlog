@@ -77,6 +77,11 @@ const routes = [
         component: () => import('../components/admin/LinkFragment.vue')
       },
       {
+        path: 'user',
+        name: 'UserFragment',
+        component: () => import('../components/admin/UserFragment.vue')
+      },
+      {
         path: 'background',
         name: 'BackgroundFragment',
         component: () => import('../components/admin/BackgroundFragment.vue')

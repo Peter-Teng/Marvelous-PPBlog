@@ -57,16 +57,16 @@ public class LogAspect {
         // 打印请求的 IP
         log.info("IP             : {}", request.getRemoteHost());
         // 打印请求入参
-        log.info("Request Args   : {}", generateArgsString(joinPoint.getArgs()));
+        // log.info("Request Args   : {}", generateArgsString(joinPoint.getArgs()));
     }
 
-    private String generateArgsString(Object[] args) {
-        StringBuilder sb = new StringBuilder();
-        for(Object arg : args) {
-            if(arg != null) sb.append(arg.toString());
-        }
-        return sb.toString();
-    }
+    // private String generateArgsString(Object[] args) {
+    //     StringBuilder sb = new StringBuilder();
+    //     for(Object arg : args) {
+    //         if(arg != null) sb.append(arg.toString());
+    //     }
+    //     return sb.toString();
+    // }
 
     private void logAfter(Object result) {
         // 打印结果

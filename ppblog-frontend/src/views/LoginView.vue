@@ -1,5 +1,5 @@
 <template>
-  <div id="loginBG" :style="{ 'background-image': 'url(' + background.login + ')' }">
+  <div id="loginBG" :style="{ 'background-image': 'url(' + background.login.url + ')' }">
     <bar></bar>
     <LoginForm v-wave class="Form" v-if="isLogin" @flip="flipForm"></LoginForm>
     <registerForm v-wave class="Form" v-else @flip="flipForm"></registerForm>
