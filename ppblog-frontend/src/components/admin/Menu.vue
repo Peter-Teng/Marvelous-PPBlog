@@ -73,7 +73,6 @@ const defaltPath = ref('/admin')
 watch(
     () => route.fullPath,
     async newPath => {
-        console.log(newPath)
         defaltPath.value = newPath
     }
 )

@@ -114,14 +114,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if(StringUtils.hasText(user.getPassword())) {
             String encodedPwd = passwordEncoder.encode(user.getPassword());
             user.setPassword(encodedPwd);
+        } else {
+            user.setPassword(null);
         }
         redisUtils.deleteObject(String.format(Constant.USER_LOGIN_OBJECT, user.getUsername()));
         redisUtils.deleteObject(Constant.USER_PROFILE);
-        
-        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(User::getUsername, user.getUsername());
-    
-        boolean success = update(user, queryWrapper);
+
+        boolean success = updateById(user);
         if(success) {
             return ResponseObject.success();
         } else {

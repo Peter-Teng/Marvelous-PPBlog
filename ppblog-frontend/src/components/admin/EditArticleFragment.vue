@@ -50,7 +50,7 @@
 <script setup>
 import { ref, reactive, onMounted, inject, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { Search, IconPicture } from '@element-plus/icons-vue'
+import { Search } from '@element-plus/icons-vue'
 
 import api from '../../api/index'
 

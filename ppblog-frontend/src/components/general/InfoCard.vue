@@ -79,7 +79,7 @@ div {
 .wrap {
     user-select: none;
     width: 100%;
-    height: 20%;
+    min-height: 25%;
     border-radius: 5px;
     box-shadow: .5px .5px 1px 1px #fbf2cf22;
     background: url("https://pp-blog-1300101944.cos.ap-guangzhou.myqcloud.com/assets%2Fimages%2FinfoBG.jpeg");
@@ -107,8 +107,7 @@ div {
 
 .icons {
     width: 75%;
-    margin: 0px auto;
-    padding-top: 40px;
+    margin: 2rem auto;
 }
 
 .icon {

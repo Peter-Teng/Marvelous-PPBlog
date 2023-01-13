@@ -85,7 +85,7 @@
 <script setup>
 import { onMounted, ref, inject } from 'vue'
 import api from '../../api/index'
-import { InfoFilled, Search, IconPicture } from '@element-plus/icons-vue'
+import { InfoFilled, Search } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
 
 const articleCache = inject('articleCache')

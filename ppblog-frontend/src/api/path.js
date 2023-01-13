@@ -1,10 +1,11 @@
-// const baseUrl = "http://114.132.47.193:8888"
-const baseUrl="http://202.38.247.210:8888"
+const baseUrl = "http://114.132.47.193:8888"
+// const baseUrl="http://202.38.247.210:8888"
 
 const paths = {
     loginUrl: baseUrl + "/general/user/login",
     registerUrl: baseUrl + "/general/user/register",
     infoUrl: baseUrl + "/general/user/info",
+    putInfoUrl: baseUrl + "/admin/user/info",
     backgroundUrl: baseUrl + "/general/background/list",
 
     getPublicArticlesUrl: baseUrl + "/general/article/list",

@@ -21,6 +21,11 @@ export default {
 
     },
 
+    modifyInfo(user) {
+        const token = window.sessionStorage.getItem("token")
+        return axios.put(paths.putInfoUrl, user, { headers: { "token": token } })
+    },
+
     getPoem(content) {
         jinrishici.load(result => {
             content.value = result.data.content
@@ -91,7 +96,6 @@ export default {
         data.append("image", image.raw)
         data.append("squeeze", squeeze)
         const token = window.sessionStorage.getItem("token")
-        console.log(squeeze)
         return axios.post(paths.imageUploadUrl, data, { headers: { "token": token, "Content-Type": "multipart/form-data;" } })
     },
 
