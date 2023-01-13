@@ -57,7 +57,7 @@
                     <div class="dialogFooter">
                         <el-button @click="imageBedDialogVisible = false" type="danger" size="large">取消</el-button>
                         <el-button @click="historyDialogVisible = true" type="primary" size="large">历史记录</el-button>
-                        <el-button type="success" size="large" @click="uploadImage">上传</el-button>
+                        <el-button type="success" size="large" @click="uploadImage" :loading="uploading">上传</el-button>
                     </div>
                 </template>
             </el-dialog>
@@ -81,6 +81,7 @@ const userStore = inject("userStore")
 const imageBedDialogVisible = ref(false)
 const historyDialogVisible = ref(false)
 const squeeze = ref(true)
+const uploading = ref(false)
 const imageFile = ref({})
 const urlList = ref([])
 
@@ -118,6 +119,7 @@ const uploadChanged = (file) => {
 }
 
 const uploadImage = () => {
+    uploading.value = true
     api.uploadImage(imageFile.value, squeeze.value).then(res => {
         ElNotification({
             title: `上传成功[${imageFile.value.raw.name}]`,
@@ -129,6 +131,7 @@ const uploadImage = () => {
             name: imageFile.value.raw.name,
             url: res.data.data
         })
+        uploading.value = false
     })
 }
 

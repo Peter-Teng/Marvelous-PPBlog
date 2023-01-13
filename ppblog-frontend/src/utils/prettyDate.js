@@ -1,6 +1,6 @@
 const prettyDate = (date) => {
-    var before = Date.parse(date) / 1000;
-    var now = Date.parse(new Date()) / 1000;
+    var before = Date.parse(date + ' GMT +8') / 1000;
+    var now = Date.parse(new Date() + ' GMT +8') / 1000;
     var limit = now - before;
     var content = "";
     if (limit < 60) {
