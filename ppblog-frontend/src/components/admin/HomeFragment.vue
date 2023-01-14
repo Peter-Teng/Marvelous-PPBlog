@@ -4,19 +4,19 @@
             <div class="title">欢迎来到Marvelous-PP同学博客后台管理系统</div>
             <div class="parallax">
                 <div class="background" ref="scene">
-                        <div data-depth="0.15" class="astronaut1"></div>
-                        <div data-depth="0.35" class="astronaut2"></div>
+                        <div data-depth="0.65" class="astronaut1"></div>
+                        <div data-depth="-0.15" class="astronaut2"></div>
                         <div data-depth="0.2" class="meteor1"></div>
                         <div data-depth="0.5" class="meteor2"></div>
-                        <div data-depth="0.6" class="meteor3"></div>
-                        <div data-depth="0.1" class="rocket"></div>
-                        <div data-depth="0.25" class="UFO"></div>
+                        <div data-depth="-0.95" class="meteor3"></div>
+                        <div data-depth="0.75" class="rocket"></div>
+                        <div data-depth="0.8" class="UFO"></div>
                         <div data-depth="0.3" class="planet1"></div>
                         <div data-depth="0.15" class="planet2"></div>
                         <div data-depth="0.4" class="planet3"></div>
-                        <div data-depth="0.7" class="planet4"></div>
+                        <div data-depth="0.3" class="planet4"></div>
                         <div data-depth="0.75" class="planet5"></div>
-                        <div data-depth="0.85" class="parallaxTitle">Marvelous-PPBlog</div>
+                        <div data-depth="-0.7" class="parallaxTitle">Marvelous-PPBlog</div>
                 </div>
             </div>
         </div>

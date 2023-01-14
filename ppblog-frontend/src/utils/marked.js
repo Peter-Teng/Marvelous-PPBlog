@@ -14,8 +14,14 @@ const md = new MarkdownIt({
                 const preCode = hljs.highlight(lang, str, true).value
                 // 以换行进行分割
                 const lines = preCode.split(/\n/).slice(0, -1)
+                let html = ''
+                // 添加代码语言
+                if (lines.length) {
+                    html += '<b class="name" style="color: #393E46; background-color: #F6F6F6; text-shadow: none; box-shadow: 1px 1px 3px 3px white; border-radius: 5px; float: right;">' 
+                    + lang + '</b>'
+                }
                 // 添加自定义行号
-                let html = lines.map((item, index) => {
+                html += lines.map((item, index) => {
                     return '<li><span class="line-num" data-line="' + (index + 1) + '"></span>' + item + '</li>'
                 }).join('')
                 html = '<ol>' + html + '</ol>'
