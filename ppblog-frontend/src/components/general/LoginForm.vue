@@ -2,9 +2,7 @@
     <div id="formbody">
         <div class="half">
             <div class="loginForm">
-                <div class="login-text">登录<el-icon :size="25" color="#4A3933" class="tips" @click="tipsInfo">
-                        <Ticket />
-                    </el-icon></div>
+                <div class="login-text">登录</div>
                 <div class="loginInfo">
                     <el-form :model="user">
                         <el-input type="text" class="inputs" v-model="user.username" placeholder="请输入用户名">
@@ -26,6 +24,8 @@
                     </el-form>
                     <br />
                     <el-button v-wave color="#227C70" class="Botton" @click="login">登录</el-button>
+                    <br />
+                    <el-button v-wave color="#E14D2A" class="Botton" @click="visitorLogin" style="margin-top: 0;">游客访问</el-button>
                 </div>
             </div>
             <div class="registerPrompt">
@@ -42,7 +42,7 @@
 <script setup>
 import { reactive, inject } from 'vue'
 import api from '../../api/index'
-import { User, Key, StarFilled } from '@element-plus/icons-vue'
+import { User, Key } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
 
 // 变量区域
@@ -67,32 +67,22 @@ function login() {
         return;
     }
 
-    // 参观者登录，赋予一个假Token
-    if (user.username === "Admin") {
+    api.login(user).then(res => {
         ElMessage.success("登录成功！")
-        userStore.methods.login(userStore, "fakeToken")
+        userStore.methods.login(userStore, res.data.data.token)
         router.push('/admin')
-    } else {
-        api.login(user).then(res => {
-            ElMessage.success("登录成功！")
-            userStore.methods.login(userStore, res.data.data.token)
-            router.push('/admin')
-        })
-    }
+    })
+}
+
+const visitorLogin = () => {
+    ElMessage.success("游客登录成功！")
+    userStore.methods.login(userStore, "fakeToken")
+    router.push('/admin')
 }
 
 const flip = () => {
     emit("flip")
 }
-
-const tipsInfo = () => {
-    ElNotification({
-        title: '游客登录',
-        message: '可使用游客账号进入后台界面查看哦!\n 账户: Admin\n 密码: 任意4-16位密码',
-        icon: <el-icon color="#F0C929"><StarFilled /></el-icon>
-    })
-}
-
 </script>
 
 <style scoped>
@@ -125,7 +115,7 @@ div {
 }
 
 .Botton {
-    margin-top: 15px;
+    margin-top: 1rem;
     width: 200px;
     height: 40px;
     font-family: 'Courier New', Courier, monospace;

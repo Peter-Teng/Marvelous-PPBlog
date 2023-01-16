@@ -39,6 +39,16 @@
                                     </el-image>
                                 </div>
                                 <div class="introduction">导航链接页图像</div>
+                                <div @click="editBackground('404页背景', background.notFound)">
+                                    <el-image :src="background.notFound.url" class="backgroundCanvas" :fit="fit">
+                                        <template #error>
+                                            <div class="image-slot">
+                                                <el-icon :size="150"><icon-picture /></el-icon>
+                                            </div>
+                                        </template>
+                                    </el-image>
+                                </div>
+                                <div class="introduction">404页图像</div>
                             </div>
                         </el-col>
                         <el-col :span="4"></el-col>

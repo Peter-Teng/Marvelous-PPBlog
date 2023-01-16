@@ -13,7 +13,7 @@
 import { onMounted, ref } from 'vue'
 import api from '../../api/index'
 
-const poem = ref("")
+const poem = ref("本来无一物，何处惹尘埃？")
 const caseInfo = ref("🏙️  @Powered by MarvelousPP")
 
 onMounted(() => {

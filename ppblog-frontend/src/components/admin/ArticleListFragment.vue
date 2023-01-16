@@ -15,6 +15,14 @@
                                         style="--el-switch-off-color: #D61C4E" />
                                 </template>
                             </el-table-column>
+                            <el-table-column label="查看详情" width="100">
+                                <template #default="scope">
+                                    <div class="operationButtons">
+                                        <el-button color="#FAC213" @click="toDetail(scope.row)"
+                                            class="operationButton">详情</el-button>
+                                    </div>
+                                </template>
+                            </el-table-column>
                             <el-table-column prop="id" label="文章ID" sortable width="200" />
                             <el-table-column prop="thumbnail" label="相关配图" width="100">
                                 <template #default="scope">
@@ -30,14 +38,6 @@
                             <el-table-column prop="heat" label="文章热度" width="100" />
                             <el-table-column prop="createDate" label="发布时间" sortable width="200" />
                             <el-table-column prop="modifyDate" label="最后编辑时间" sortable width="200" />
-                            <el-table-column label="查看详情" width="100">
-                                <template #default="scope">
-                                    <div class="operationButtons">
-                                        <el-button color="#FAC213" @click="toDetail(scope.row)"
-                                            class="operationButton">详情</el-button>
-                                    </div>
-                                </template>
-                            </el-table-column>
                             <el-table-column label="操作" fixed="right" width="225">
                                 <template #default="scope">
                                     <div class="operationButtons">

@@ -9,7 +9,7 @@
           </div>
           <div class="printer" @click="changePoem()">
             <h3 class="poem">
-              {{ poem }}<span class="cursor">|</span>
+              {{ displayedPoem }}<span class="cursor">|</span>
             </h3>
           </div>
         </div>
@@ -56,7 +56,7 @@
 </template>
   
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import api from '../api/index'
 import background from '../storage/background'
 
@@ -70,6 +70,7 @@ import articleCard from "../components/general/ArticleCard.vue"
 
 const waveColor = "#251B37fa"
 const poem = ref("本来无一物，何处惹尘埃？")
+const displayedPoem = ref("")
 const total = ref(0)
 const articles = ref([])
 const userInfo = ref({})
@@ -79,6 +80,51 @@ const showNavigation = ref(true)
 const prevPos = ref(0)
 const navigationColor = ref("transparent")
 const navigationFontColor = ref("aliceblue")
+
+var timer = null
+const speed = 300
+const signal = ref(true)
+
+const printing = () => {
+  displayedPoem.value = ""
+  clearTimeout(timer)
+  var counter = 1
+  
+  const print = () => {
+    displayedPoem.value = poem.value.substring(0, counter)
+    counter++
+
+    if(counter != poem.value.length + 1) {
+      timer = setTimeout(print, speed);
+    }
+  }
+
+  const erase = () => {
+    displayedPoem.value = poem.value.substring(0, counter)
+    counter--
+
+    if(counter != -1) {
+      timer = setTimeout(erase, speed);
+    }
+  }
+  
+  const emitSignal = () => {
+    signal.value = !signal.value
+  }
+
+  print()
+  setTimeout(erase, speed * poem.value.length * 2)
+  setTimeout(emitSignal, speed * poem.value.length * 4)
+}
+
+watch(
+    () => signal.value,
+    async () => {
+      console.log(poem.value)
+      api.getPoem(poem)
+      setTimeout(printing, 1500)
+    }
+)
 
 const scroll = (pos) => {
   if (pos.scrollTop < 400) {
@@ -126,6 +172,7 @@ onMounted(() => {
 
 onMounted(() => {
   api.getPoem(poem)
+  setTimeout(printing, 500)
 })
 
 onMounted(() => {
@@ -184,7 +231,6 @@ div {
 }
 
 .printer {
-  cursor: pointer;
   margin: 15px auto;
   color: antiquewhite;
   background: #17171795;

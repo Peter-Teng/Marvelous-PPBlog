@@ -87,6 +87,12 @@ const routes = [
         component: () => import('../components/admin/BackgroundFragment.vue')
       }
     ]
+  },
+
+  {
+    path: '/:error*',
+    name: 'ErrorView',
+    component: () => import('../views/ErrorView.vue')
   }
 ]
 
